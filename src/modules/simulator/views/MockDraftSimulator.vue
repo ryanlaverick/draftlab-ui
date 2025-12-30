@@ -2,6 +2,7 @@
 import useTeams from '@/modules/teams/useTeams.js'
 import Team from '@/modules/simulator/components/Team.vue'
 import { ref } from 'vue'
+import BaseButton from '@/components/BaseButton.vue'
 
 const teams = useTeams
 
@@ -17,6 +18,20 @@ const selectTeam = (team) => {
     selectedTeams.value.push(team)
   }
 }
+
+const selectAll = () => {
+  teams.forEach((team) => {
+    const index = selectedTeams.value.indexOf(team)
+
+    if (index === -1) {
+      selectedTeams.value.push(team)
+    }
+  })
+}
+
+const unselectAll = () => {
+  selectedTeams.value = []
+}
 </script>
 
 <template>
@@ -28,8 +43,9 @@ const selectTeam = (team) => {
     </div>
 
     <div class="p-4 col-span-2 flex flex-col gap-4">
-      <div class="flex flex-row-reverse">
-        Controls
+      <div class="flex flex-row-reverse gap-4">
+        <base-button @click="selectAll">Select All</base-button>
+        <base-button @click="unselectAll">Unselect All</base-button>
       </div>
 
       <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
