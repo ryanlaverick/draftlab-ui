@@ -1,11 +1,9 @@
-<script setup></script>
+<script setup>
+import DefaultLayout from '@/layout/DefaultLayout.vue'
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p class="text-blue-500">
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <default-layout />
 </template>
 
 <style scoped></style>
