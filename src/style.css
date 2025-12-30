@@ -5,4 +5,9 @@
 @theme {
   --font-exclamation: "BBH Bartle", sans-serif;
   --font-base: "Atkinson Hyperlegible Mono ", sans-serif;
+  --color-darkest: #0B132B;
+  --color-dark: #1C2541;
+  --color-neutral: #3A506B;
+  --color-light: #5BC0BE;
+  --color-lightest: #6FFFE9;
 }
