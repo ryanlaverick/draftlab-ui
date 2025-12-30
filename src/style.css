@@ -7,7 +7,7 @@
   --font-base: 'Atkinson Hyperlegible Mono ', sans-serif;
   --color-darkest: #0b132b;
   --color-dark: #1c2541;
-  --color-neutral: #3a506b;
+  --color-base: #3a506b;
   --color-light: #5bc0be;
   --color-lightest: #6fffe9;
 }
