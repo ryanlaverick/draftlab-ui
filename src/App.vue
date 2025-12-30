@@ -7,15 +7,15 @@ import { Icon } from '@iconify/vue'
   <div class="h-screen w-full">
     <!-- Header -->
     <div class="w-full p-16 flex justify-between items-center gap-16 font-exclamation text-darkest">
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-4 duration-300 hover:text-light">
         <Icon icon="uil:flask" class="size-8" />
-        <h1>DraftLab</h1>
+        <h1 class="cursor-pointer">DraftLab</h1>
       </div>
 
       <div class="flex items-center gap-16">
-        <header-item text="Big Board" route="Prospect Big Board" />
-        <header-item text="Simulator" route="Mock Draft Simulator" />
-        <header-item text="Prospects" route="Prospects" />
+        <header-item route="Prospect Big Board">Big Board</header-item>
+        <header-item route="Mock Draft Simulator">Simulator</header-item>
+        <header-item route="Prospects">Prospects</header-item>
       </div>
     </div>
 
