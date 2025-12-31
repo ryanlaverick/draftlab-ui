@@ -10,4 +10,100 @@
   --color-base: #3a506b;
   --color-light: #5bc0be;
   --color-lightest: #6fffe9;
+
+  --color-cardinals: #97233f;
+  --color-cardinals-alt: #ffb612;
+
+  --color-falcons: #a71930;
+  --color-falcons-alt: #000000;
+
+  --color-ravens: #241773;
+  --color-ravens-alt: #000000;
+
+  --color-bills: #00338d;
+  --color-bills-alt: #c60c30;
+
+  --color-panthers: #0085ca;
+  --color-panthers-alt: #101820;
+
+  --color-bears: #0b162a;
+  --color-bears-alt: #c83803;
+
+  --color-bengals: #fb4f14;
+  --color-bengals-alt: #000000;
+
+  --color-browns: #311d00;
+  --color-browns-alt: #ff3c00;
+
+  --color-cowboys: #041e42;
+  --color-cowboys-alt: #869397;
+
+  --color-broncos: #fb4f14;
+  --color-broncos-alt: #002244;
+
+  --color-lions: #0076b6;
+  --color-lions-alt: #b0b7bc;
+
+  --color-packers: #203731;
+  --color-packers-alt: #ffb612;
+
+  --color-texans: #03202f;
+  --color-texans-alt: #a71930;
+
+  --color-colts: #002c5f;
+  --color-colts-alt: #a2aaad;
+
+  --color-jaguars: #006778;
+  --color-jaguars-alt: #d7a22a;
+
+  --color-chiefs: #e31837;
+  --color-chiefs-alt: #ffb81c;
+
+  --color-raiders: #000000;
+  --color-raiders-alt: #a5acaf;
+
+  --color-chargers: #0080c6;
+  --color-chargers-alt: #ffc20e;
+
+  --color-rams: #003594;
+  --color-rams-alt: #ffd100;
+
+  --color-dolphins: #008e97;
+  --color-dolphins-alt: #fc4c02;
+
+  --color-vikings: #4f2683;
+  --color-vikings-alt: #ffc62f;
+
+  --color-patriots: #002244;
+  --color-patriots-alt: #c60c30;
+
+  --color-saints: #d3bc8d;
+  --color-saints-alt: #101820;
+
+  --color-giants: #0b2265;
+  --color-giants-alt: #a71930;
+
+  --color-jets: #125740;
+  --color-jets-alt: #000000;
+
+  --color-eagles: #004c54;
+  --color-eagles-alt: #acc0c6;
+
+  --color-steelers: #ffb612;
+  --color-steelers-alt: #101820;
+
+  --color-49ers: #aa0000;
+  --color-49ers-alt: #b3995d;
+
+  --color-seahawks: #002244;
+  --color-seahawks-alt: #69be28;
+
+  --color-buccaneers: #d50a0a;
+  --color-buccaneers-alt: #34302b;
+
+  --color-titans: #0c2340;
+  --color-titans-alt: #4b92db;
+
+  --color-commanders: #5a1414;
+  --color-commanders-alt: #ffb612;
 }

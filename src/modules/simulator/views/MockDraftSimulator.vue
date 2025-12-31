@@ -49,7 +49,13 @@ const unselectAll = () => {
       </div>
 
       <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
-        <team :key="team.shortName" v-for="team in teams" :team="team" :selected="selectedTeams.indexOf(team) !== -1" @click-team="selectTeam" />
+        <team
+          :key="team.shortName"
+          v-for="team in teams"
+          :team="team"
+          :selected="selectedTeams.indexOf(team) !== -1"
+          @click-team="selectTeam"
+        />
       </div>
     </div>
   </div>
