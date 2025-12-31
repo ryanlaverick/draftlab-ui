@@ -1,44 +1,55 @@
 <script setup>
 import useTeams from '@/modules/teams/useTeams.js'
 import Team from '@/modules/simulator/components/Team.vue'
-import { ref } from 'vue'
+import { reactive } from 'vue'
 import BaseButton from '@/components/BaseButton.vue'
+import TeamLogo from '@/modules/teams/components/TeamLogo.vue'
 
 const teams = useTeams
 
-const selectedTeams = ref([])
+const options = reactive({
+  selectedTeams: [],
+})
 
 const selectTeam = (team) => {
-  const index = selectedTeams.value.indexOf(team)
+  const index = options.selectedTeams.indexOf(team)
 
   // Team has already been selected
   if (index !== -1) {
-    selectedTeams.value.splice(index, 1)
+    options.selectedTeams.splice(index, 1)
   } else {
-    selectedTeams.value.push(team)
+    options.selectedTeams.push(team)
   }
 }
 
 const selectAll = () => {
   teams.forEach((team) => {
-    const index = selectedTeams.value.indexOf(team)
-
-    if (index === -1) {
-      selectedTeams.value.push(team)
+    if (! isTeamSelected(team)) {
+      options.selectedTeams.push(team)
     }
   })
 }
 
 const unselectAll = () => {
-  selectedTeams.value = []
+  options.selectedTeams = []
+}
+
+const isTeamSelected = (team) => {
+  return options.selectedTeams.indexOf(team) !== -1
 }
 </script>
 
 <template>
   <div class="w-full grid grid-cols-3 border-2 border-dark rounded-md">
-    <div class="bg-dark">
-      <div v-for="team in selectedTeams" :key="team.shortName" class="text-white">
-        {{ team.name }}
+    <div class="bg-dark p-4">
+      <div class="flex flex-col gap-4">
+        <span class="font-exclamation text-white">SELECTING FOR</span>
+
+        <div class="grid grid-cols-8 gap-4 lg:grid-cols-12">
+          <div v-for="team in options.selectedTeams" :key="team.shortName"  class="p-1 rounded-md bg-white">
+            <team-logo :team="team" class="size-6" />
+          </div>
+        </div>
       </div>
     </div>
 
@@ -53,7 +64,7 @@ const unselectAll = () => {
           :key="team.shortName"
           v-for="team in teams"
           :team="team"
-          :selected="selectedTeams.indexOf(team) !== -1"
+          :selected="isTeamSelected(team)"
           @click-team="selectTeam"
         />
       </div>
