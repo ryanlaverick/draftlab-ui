@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue'
+import TeamLogo from '@/modules/teams/components/TeamLogo.vue'
 
 const props = defineProps({
   team: {
@@ -111,12 +112,7 @@ const computedClasses = computed(() => {
         {{ team.name }}
       </p>
 
-      <img
-        :src="team.image"
-        :alt="'Team Logo for ' + team.name"
-        class="size-10"
-        :class="{ 'grayscale-100': !selected }"
-      />
+      <team-logo :team="team" :disabled="!selected" />
     </div>
   </div>
 </template>
