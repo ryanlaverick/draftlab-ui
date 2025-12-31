@@ -6,17 +6,17 @@ const router = createRouter({
     {
       path: '/big-board',
       name: 'Prospect Big Board',
-      component: import('@/views/BigBoard.vue'),
+      component: () => import('@/views/BigBoard.vue'),
     },
     {
       path: '/simulator',
       name: 'Mock Draft Simulator',
-      component: import('@/modules/simulator/views/MockDraftSimulator.vue'),
+      component: () => import('@/modules/simulator/views/MockDraftSimulator.vue'),
     },
     {
       path: '/prospects',
       name: 'Prospects',
-      component: import('@/views/Prospects.vue'),
+      component: () => import('@/views/Prospects.vue'),
     },
   ],
 })
