@@ -16,7 +16,6 @@ defineProps({
   <img
     :src="team.image"
     :alt="'Team Logo for ' + team.name"
-    class="size-10"
     :class="{ 'grayscale-100': disabled }"
   />
 </template>

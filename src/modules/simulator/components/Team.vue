@@ -112,7 +112,7 @@ const computedClasses = computed(() => {
         {{ team.name }}
       </p>
 
-      <team-logo :team="team" :disabled="!selected" />
+      <team-logo :team="team" :disabled="!selected" class="size-10" />
     </div>
   </div>
 </template>
