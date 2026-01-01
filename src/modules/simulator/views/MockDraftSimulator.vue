@@ -90,14 +90,27 @@ const isTeamSelected = (team) => {
 
           <!-- Team Selection Display -->
           <option-wrapper label="Selecting For">
-            <div class="grid grid-cols-8 gap-4 lg:grid-cols-12">
+            <TransitionGroup
+              tag="div"
+              class="grid grid-cols-8 gap-4 lg:grid-cols-12"
+
+              enter-active-class="transition-opacity transition-transform duration-300 ease-out"
+              enter-from-class="opacity-0 scale-95"
+              enter-to-class="opacity-100 scale-100"
+
+              leave-active-class="transition-opacity duration-200 ease-in delay-75"
+              leave-from-class="opacity-100"
+              leave-to-class="opacity-0"
+
+              move-class="transition-transform duration-300 ease-out"
+            >
               <div v-for="team in options.selectedTeams" :key="team.shortName"  class="group relative p-1 rounded-md bg-white">
                 <div class="opacity-0 scale-75 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:scale-100 size-3 rounded-full bg-red-500 hover:bg-red-700 cursor-pointer absolute -top-1 -right-1 text-white flex items-center justify-center">
                   <Icon icon="charm:cross" class="size-2.5" @click="unselectTeam(team)" />
                 </div>
                 <team-logo :team="team" class="size-6" />
               </div>
-            </div>
+            </TransitionGroup>
           </option-wrapper>
         </div>
 
