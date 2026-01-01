@@ -51,11 +51,31 @@ const isTeamSelected = (team) => {
 <template>
   <div class="w-full grid grid-cols-3 border-2 border-dark rounded-md">
     <div class="bg-dark p-4 text-white">
-      <div class="h-full flex flex-col gap-4">
-        <!-- Configuration -->
-        <option-wrapper label="Replace Aging Players">
-          <base-switch v-model="options.priorities.replaceAgingPlayers" />
-        </option-wrapper>
+      <div class="h-full flex flex-col gap-16">
+        <div class="w-full text-center font-exclamation flex flex-col">
+          <span class="font-semibold text-md">Mock Draft</span>
+          <span class="font-bold text-xl">Simulator</span>
+        </div>
+
+        <!-- Rounds -->
+        <div>
+          <option-wrapper label="Rounds"></option-wrapper>
+        </div>
+
+        <div class="flex flex-col gap-8">
+          <!-- Configuration -->
+          <option-wrapper label="Replace Aging Players">
+            <base-switch v-model="options.priorities.replaceAgingPlayers" />
+          </option-wrapper>
+
+          <option-wrapper label="Replace Expiring Contracts">
+            <base-switch v-model="options.priorities.replaceExpiringContracts" />
+          </option-wrapper>
+
+          <option-wrapper label="Prioritise Premium Positions">
+            <base-switch v-model="options.priorities.prioritisePremiumPositions" />
+          </option-wrapper>
+        </div>
 
         <!-- Team Selection Display -->
         <option-wrapper label="Selecting For">
