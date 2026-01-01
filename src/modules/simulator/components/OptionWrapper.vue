@@ -9,7 +9,7 @@ defineProps({
 
 <template>
   <div class="flex flex-col gap-2">
-    <span class="font-exclamation text-white">{{ label }}</span>
+    <span class="font-exclamation text-white text-sm">{{ label }}</span>
 
     <slot />
   </div>
