@@ -106,13 +106,13 @@ const computedClasses = computed(() => {
     <!-- Content above the bar -->
     <div class="relative z-10 w-full flex items-center justify-between gap-4">
       <div>
-        <span class="text-lg font-bold text-sm" :class="{ 'text-white': selected }">Pick {{ team.picks[2026][0].pick }}</span>
         <p
           class="uppercase font-semibold transition-colors duration-300 text-xs"
           :class="{ 'text-white': selected }"
         >
           {{ team.name }}
         </p>
+        <span class="font-bold text-xs opacity-50" :class="{ 'text-white': selected }">Pick {{ team.picks[2026][0].pick }}</span>
       </div>
 
 
