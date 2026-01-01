@@ -6,6 +6,7 @@ import BaseButton from '@/components/BaseButton.vue'
 import TeamLogo from '@/modules/teams/components/TeamLogo.vue'
 import OptionWrapper from '@/modules/simulator/components/OptionWrapper.vue'
 import BaseSwitch from '@/components/BaseSwitch.vue'
+import { Icon } from '@iconify/vue'
 
 const teams = useTeams
 
@@ -28,6 +29,14 @@ const selectTeam = (team) => {
     options.selectedTeams.splice(index, 1)
   } else {
     options.selectedTeams.push(team)
+  }
+}
+
+const unselectTeam = (team) => {
+  const index = options.selectedTeams.indexOf(team)
+
+  if (index !== -1) {
+    options.selectedTeams.splice(index, 1)
   }
 }
 
@@ -80,7 +89,10 @@ const isTeamSelected = (team) => {
         <!-- Team Selection Display -->
         <option-wrapper label="Selecting For">
           <div class="grid grid-cols-8 gap-4 lg:grid-cols-12">
-            <div v-for="team in options.selectedTeams" :key="team.shortName"  class="p-1 rounded-md bg-white">
+            <div v-for="team in options.selectedTeams" :key="team.shortName"  class="group relative p-1 rounded-md bg-white">
+              <div class="opacity-0 scale-75 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:scale-100 size-3 rounded-full bg-red-500 hover:bg-red-700 cursor-pointer absolute -top-1 -right-1 text-white flex items-center justify-center">
+                <Icon icon="charm:cross" class="size-2.5" @click="unselectTeam(team)" />
+              </div>
               <team-logo :team="team" class="size-6" />
             </div>
           </div>
