@@ -1,7 +1,7 @@
 <script setup>
 import useTeams from '@/modules/teams/useTeams.js'
 import Team from '@/modules/simulator/components/Team.vue'
-import { reactive, watch } from 'vue'
+import { computed, reactive, watch } from 'vue'
 import BaseButton from '@/components/BaseButton.vue'
 import TeamLogo from '@/modules/teams/components/TeamLogo.vue'
 import OptionWrapper from '@/modules/simulator/components/OptionWrapper.vue'
@@ -59,6 +59,9 @@ const isTeamSelected = (team) => {
 const selectRounds = (rounds) => {
   options.rounds = rounds
 }
+
+const allTeamsSelected = computed(() => options.selectedTeams.length === 32)
+const noTeamsSelected = computed(() => options.selectedTeams.length === 0)
 
 watch(
   () => options.selectedTeams,
@@ -160,8 +163,8 @@ watch(
 
     <div class="col-span-2 flex flex-col gap-4">
       <div class="flex flex-row-reverse gap-4">
-        <base-button @click="selectAll">Select All</base-button>
-        <base-button @click="unselectAll">Unselect All</base-button>
+        <base-button @click="selectAll" :disabled="allTeamsSelected">Select All</base-button>
+        <base-button @click="unselectAll" :disabled="noTeamsSelected">Unselect All</base-button>
       </div>
 
       <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
