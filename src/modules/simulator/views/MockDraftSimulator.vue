@@ -4,11 +4,20 @@ import Team from '@/modules/simulator/components/Team.vue'
 import { reactive } from 'vue'
 import BaseButton from '@/components/BaseButton.vue'
 import TeamLogo from '@/modules/teams/components/TeamLogo.vue'
+import OptionWrapper from '@/modules/simulator/components/OptionWrapper.vue'
+import BaseSwitch from '@/components/BaseSwitch.vue'
 
 const teams = useTeams
 
 const options = reactive({
+  rounds: 1,
+  priorities: {
+    replaceExpiringContracts: true,
+    replaceAgingPlayers: true,
+    prioritisePremiumPositions: true,
+  },
   selectedTeams: [],
+  premiumPositions: ['T', 'EDGE', 'QB', 'CB']
 })
 
 const selectTeam = (team) => {
@@ -41,15 +50,23 @@ const isTeamSelected = (team) => {
 
 <template>
   <div class="w-full grid grid-cols-3 border-2 border-dark rounded-md">
-    <div class="bg-dark p-4">
-      <div class="flex flex-col gap-4">
-        <span class="font-exclamation text-white">SELECTING FOR</span>
+    <div class="bg-dark p-4 text-white">
+      <div class="h-full flex flex-col gap-4">
+        <!-- Configuration -->
+        <option-wrapper label="Replace Aging Players">
+          <base-switch v-model="options.priorities.replaceAgingPlayers" />
+        </option-wrapper>
 
-        <div class="grid grid-cols-8 gap-4 lg:grid-cols-12">
-          <div v-for="team in options.selectedTeams" :key="team.shortName"  class="p-1 rounded-md bg-white">
-            <team-logo :team="team" class="size-6" />
+        <!-- Team Selection Display -->
+        <option-wrapper label="Selecting For">
+          <div class="grid grid-cols-8 gap-4 lg:grid-cols-12">
+            <div v-for="team in options.selectedTeams" :key="team.shortName"  class="p-1 rounded-md bg-white">
+              <team-logo :team="team" class="size-6" />
+            </div>
           </div>
-        </div>
+        </option-wrapper>
+
+
       </div>
     </div>
 
