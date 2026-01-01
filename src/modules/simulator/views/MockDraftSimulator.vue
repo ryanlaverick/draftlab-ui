@@ -58,8 +58,8 @@ const isTeamSelected = (team) => {
 </script>
 
 <template>
-  <div class="w-full grid grid-cols-3 border-2 border-dark rounded-md">
-    <div class="bg-dark p-4 text-white">
+  <div class="w-full grid grid-cols-3 gap-4 rounded-md">
+    <div class="bg-dark rounded-md p-4 text-white">
 
       <div class="h-full flex flex-col gap-16 justify-between">
         <div class="h-full flex flex-col gap-16">
@@ -108,7 +108,7 @@ const isTeamSelected = (team) => {
       </div>
     </div>
 
-    <div class="p-4 col-span-2 flex flex-col gap-4">
+    <div class="col-span-2 flex flex-col gap-4">
       <div class="flex flex-row-reverse gap-4">
         <base-button @click="selectAll">Select All</base-button>
         <base-button @click="unselectAll">Unselect All</base-button>
