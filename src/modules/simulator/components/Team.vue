@@ -51,38 +51,38 @@ const backgroundColors = {
 }
 
 const borderColors = {
-  'Arizona Cardinals': 'border-cardinals-alt',
-  'Atlanta Falcons': 'border-falcons-alt',
-  'Baltimore Ravens': 'border-ravens-alt',
-  'Buffalo Bills': 'border-bills-alt',
-  'Carolina Panthers': 'border-panthers-alt',
-  'Chicago Bears': 'border-bears-alt',
-  'Cincinnati Bengals': 'border-bengals-alt',
-  'Cleveland Browns': 'border-browns-alt',
-  'Dallas Cowboys': 'border-cowboys-alt',
-  'Denver Broncos': 'border-broncos-alt',
-  'Detroit Lions': 'border-lions-alt',
-  'Green Bay Packers': 'border-packers-alt',
-  'Houston Texans': 'border-texans-alt',
-  'Indianapolis Colts': 'border-colts-alt',
-  'Jacksonville Jaguars': 'border-jaguars-alt',
-  'Kansas City Chiefs': 'border-chiefs-alt',
-  'Las Vegas Raiders': 'border-raiders-alt',
-  'Los Angeles Chargers': 'border-chargers-alt',
-  'Los Angeles Rams': 'border-rams-alt',
-  'Miami Dolphins': 'border-dolphins-alt',
-  'Minnesota Vikings': 'border-vikings-alt',
-  'New England Patriots': 'border-patriots-alt',
-  'New Orleans Saints': 'border-saints-alt',
-  'New York Giants': 'border-giants-alt',
-  'New York Jets': 'border-jets-alt',
-  'Philadelphia Eagles': 'border-eagles-alt',
-  'Pittsburgh Steelers': 'border-steelers-alt',
-  'San Francisco 49ers': 'border-49ers-alt',
-  'Seattle Seahawks': 'border-seahawks-alt',
-  'Tampa Bay Buccaneers': 'border-buccaneers-alt',
-  'Tennessee Titans': 'border-titans-alt',
-  'Washington Commanders': 'border-commanders-alt',
+  'Arizona Cardinals': 'border-cardinals',
+  'Atlanta Falcons': 'border-falcons',
+  'Baltimore Ravens': 'border-ravens',
+  'Buffalo Bills': 'border-bills',
+  'Carolina Panthers': 'border-panthers',
+  'Chicago Bears': 'border-bears',
+  'Cincinnati Bengals': 'border-bengals',
+  'Cleveland Browns': 'border-browns',
+  'Dallas Cowboys': 'border-cowboys',
+  'Denver Broncos': 'border-broncos',
+  'Detroit Lions': 'border-lions',
+  'Green Bay Packers': 'border-packers',
+  'Houston Texans': 'border-texans',
+  'Indianapolis Colts': 'border-colts',
+  'Jacksonville Jaguars': 'border-jaguars',
+  'Kansas City Chiefs': 'border-chiefs',
+  'Las Vegas Raiders': 'border-raiders',
+  'Los Angeles Chargers': 'border-chargers',
+  'Los Angeles Rams': 'border-rams',
+  'Miami Dolphins': 'border-dolphins',
+  'Minnesota Vikings': 'border-vikings',
+  'New England Patriots': 'border-patriots',
+  'New Orleans Saints': 'border-saints',
+  'New York Giants': 'border-giants',
+  'New York Jets': 'border-jets',
+  'Philadelphia Eagles': 'border-eagles',
+  'Pittsburgh Steelers': 'border-steelers',
+  'San Francisco 49ers': 'border-49ers',
+  'Seattle Seahawks': 'border-seahawks',
+  'Tampa Bay Buccaneers': 'border-buccaneers',
+  'Tennessee Titans': 'border-titans',
+  'Washington Commanders': 'border-commanders',
 }
 
 const computedClasses = computed(() => {
@@ -105,12 +105,16 @@ const computedClasses = computed(() => {
   >
     <!-- Content above the bar -->
     <div class="relative z-10 w-full flex items-center justify-between gap-4">
-      <p
-        class="uppercase font-semibold transition-colors duration-300"
-        :class="{ 'text-white': selected }"
-      >
-        {{ team.name }}
-      </p>
+      <div>
+        <span class="text-lg font-bold text-sm" :class="{ 'text-white': selected }">Pick {{ team.picks[2026][0].pick }}</span>
+        <p
+          class="uppercase font-semibold transition-colors duration-300 text-xs"
+          :class="{ 'text-white': selected }"
+        >
+          {{ team.name }}
+        </p>
+      </div>
+
 
       <team-logo :team="team" :disabled="!selected" class="size-10" />
     </div>
