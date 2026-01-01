@@ -1,8 +1,18 @@
-<script setup></script>
+<script setup>
+defineProps({
+  disabled: {
+    type: Boolean,
+    required: false,
+    default: false
+  }
+})
+</script>
 
 <template>
   <button
-    class="group relative px-4 py-2 transform -skew-x-12 bg-dark rounded-md hover:bg-light duration-300 text-white cursor-pointer"
+    class="group relative px-4 py-2 transform -skew-x-12 rounded-md duration-300 text-white"
+    :class="{ 'cursor-not-allowed !bg-gray-400 !hover:bg-gray-500': disabled, 'bg-dark hover:bg-light cursor-pointer': !disabled }"
+    :disabled="disabled"
   >
     <span class="inline-block transform skew-x-12 uppercase text-sm group-hover:underline">
       <slot />
