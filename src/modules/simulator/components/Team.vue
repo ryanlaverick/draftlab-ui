@@ -112,7 +112,7 @@ const computedClasses = computed(() => {
         >
           {{ team.name }}
         </p>
-        <span class="font-bold text-xs opacity-50" :class="{ 'text-white': selected }">Pick {{ team.picks[2026][0].pick }}</span>
+        <span class="font-bold text-xs opacity-50" :class="{ 'text-white': selected }">Pick {{ team.picks[2026][0]?.pick }}</span>
       </div>
 
 
