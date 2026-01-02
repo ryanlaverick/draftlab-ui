@@ -104,7 +104,7 @@ const computedClasses = computed(() => {
     :class="computedClasses"
   >
     <!-- Content above the bar -->
-    <div class="relative z-10 w-full flex items-center justify-between gap-4">
+    <div class="relative z-10 w-full flex items-center justify-between gap-4" :class="{'opacity-50': !selected}">
       <div>
         <p
           class="uppercase font-semibold transition-colors duration-300 text-xs"
