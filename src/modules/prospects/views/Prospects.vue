@@ -17,8 +17,8 @@ import TableRow from '@/components/table/TableRow.vue'
         <thead>
           <tr>
             <table-header>Name</table-header>
-            <table-header>Position</table-header>
             <table-header>School</table-header>
+            <table-header>Position</table-header>
             <table-header>#</table-header>
             <table-header>Rating</table-header>
             <table-header>Rating Breakdown</table-header>
@@ -27,8 +27,8 @@ import TableRow from '@/components/table/TableRow.vue'
         <tbody>
           <table-row>
             <table-value>Caleb Lomu</table-value>
-            <table-value>OT</table-value>
             <table-value>Utah</table-value>
+            <table-value>OT</table-value>
             <table-value>#71</table-value>
             <table-value>97.1</table-value>
             <table-value>?</table-value>
