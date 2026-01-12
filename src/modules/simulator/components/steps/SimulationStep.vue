@@ -1,21 +1,32 @@
 <script setup>
 import BaseReturn from '@/components/BaseReturn.vue'
 import useTeams from '@/modules/teams/useTeams.js'
-import { onMounted, ref, watch } from 'vue'
+import usePlayers from '@/modules/simulator/usePlayers.js'
+import { computed, onMounted, ref, watch } from 'vue'
 import BaseAccordion from '@/components/BaseAccordion.vue'
 import Pick from '@/modules/simulator/components/Pick.vue'
 
 const emits = defineEmits(['returnToSettings'])
 
 const teams = useTeams
+const { getPlayers: players, loadPlayers } = usePlayers()
 
+const currentPick = ref(0)
 const draftOrder = ref()
+const filterPositions = ref([])
 
 const returnToSettings = () => {
   emits('returnToSettings')
 }
 
-const currentPick = ref(0)
+const filteredPlayersByPosition = computed(() => {
+  if (filterPositions.value.length === 0) {
+    return players.value
+  }
+
+  return players.value
+    .filter((player) => filterPositions.value.indexOf(player.position) !== -1)
+})
 
 onMounted(() => {
   let draftOrderByRound = {
@@ -62,6 +73,8 @@ onMounted(() => {
 
   draftOrder.value = draftOrderByRound
   currentPick.value = 1
+
+  loadPlayers()
 })
 
 watch(
@@ -93,25 +106,28 @@ watch(
 
     <div class="w-full grid grid-cols-3 gap-4 rounded-md">
       <!-- Draft Order -->
-      <div class="bg-dark rounded-md p-4 text-white">
-        <div class="h-[750px] overflow-y-auto flex flex-col">
-          <div v-if="draftOrder">
-            <base-accordion
-              v-for="[round, picks] of Object.entries(draftOrder)"
-              :key="round"
-              class="p-2"
-            >
-              Round {{ round }}
+      <div class="bg-dark rounded-md p-4 text-white h-[800px] overflow-y-auto flex flex-col">
+        <div v-if="draftOrder">
+          <base-accordion
+            v-for="[round, picks] of Object.entries(draftOrder)"
+            :key="round"
+            class="p-2"
+          >
+            Round {{ round }}
 
-              <template #content>
-                <pick v-for="pick in picks" :key="pick.pick" :pick="pick" class="mb-4 last:mb-0" />
-              </template>
-            </base-accordion>
-          </div>
+            <template #content>
+              <pick v-for="pick in picks" :key="pick.pick" :pick="pick" class="mb-4 last:mb-0" />
+            </template>
+          </base-accordion>
         </div>
       </div>
 
       <!-- Team Picks -->
+      <div class="col-span-2 h-[800px] overflow-y-auto">
+        <div v-for="player in filteredPlayersByPosition" :key="player.player_id">
+          {{ player }}
+        </div>
+      </div>
     </div>
   </div>
 </template>
