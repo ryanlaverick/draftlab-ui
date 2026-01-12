@@ -13,8 +13,9 @@ const expanded = ref(true)
       @click="expanded = !expanded"
     >
       <Icon
-        :icon="expanded ? 'bxs:down-arrow' : 'bxs:right-arrow'"
+        icon="bxs:right-arrow"
         class="transition-transform duration-300"
+        :class="{ 'rotate-90': expanded }"
       />
 
       <span>

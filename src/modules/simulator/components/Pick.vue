@@ -35,7 +35,7 @@ const getStatus = computed(() => {
     <div class="p-2">
       <div class="flex flex-col gap-1">
         <span class="font-bold text-sm">Pick {{ pick.pick.pick }}</span>
-        <span class="text-xs">{{ getStatus }}</span>
+        <span class="text-xs opacity-75">{{ getStatus }}</span>
       </div>
 
     </div>
