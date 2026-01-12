@@ -91,7 +91,7 @@ const computedClasses = computed(() => {
     props.selected ? borderColors[props.team.name] : '',
     {
       'before:scale-x-100': props.selected,
-      'border-gray-200 hover:border-light': !props.selected
+      'border-gray-200': !props.selected
     }
   ]
 })
@@ -100,7 +100,7 @@ const computedClasses = computed(() => {
 <template>
   <div
     @click="emits('clickTeam', team)"
-    class="relative overflow-hidden border-3 rounded-md p-4 flex items-center gap-4 cursor-pointer transition-colors duration-300 before:absolute before:inset-0 before:origin-left before:scale-x-0 before:transition-transform before:duration-300 before:[clip-path:polygon(0_0,75%_0,72%_100%,0_100%)]"
+    class="relative overflow-hidden border-3 rounded-md p-4 flex items-center gap-4 cursor-pointer transition-colors duration-300 before:absolute before:inset-0 before:origin-left before:scale-x-0 before:transition-transform before:duration-300 before:[clip-path:polygon(0_0,75%_0,72%_100%,0_100%)] hover:border-light"
     :class="computedClasses"
   >
     <!-- Content above the bar -->
