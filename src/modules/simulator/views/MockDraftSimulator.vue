@@ -29,6 +29,11 @@ const startSimulation = () => {
   steps.value.find((step) => step.name === 'Simulator').active = true
 }
 
+const returnToSettings = () => {
+  steps.value.find((step) => step.name === 'Settings').active = true
+  steps.value.find((step) => step.name === 'Simulator').active = false
+}
+
 const updateSettings = (newSettings) => {
   settings.value = newSettings
 }
@@ -36,6 +41,8 @@ const updateSettings = (newSettings) => {
 
 <template>
   <div class="w-full h-full">
-    <component :is="activeStep.component" @update-settings="updateSettings" @start-simulation="startSimulation" />
+    <keep-alive>
+      <component :is="activeStep.component" @update-settings="updateSettings" @start-simulation="startSimulation" @return-to-settings="returnToSettings" />
+    </keep-alive>
   </div>
 </template>
