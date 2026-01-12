@@ -65,6 +65,10 @@ const selectRounds = (rounds) => {
 const allTeamsSelected = computed(() => options.selectedTeams.length === 32)
 const noTeamsSelected = computed(() => options.selectedTeams.length === 0)
 
+const startSimulation = () => {
+  emits('startSimulation')
+}
+
 watch(
   () => options.selectedTeams,
   () => {
@@ -164,7 +168,7 @@ watch(
 
         <!-- Confirm -->
         <div class="w-full">
-          <base-button class="bg-light hover:bg-lightest hover:text-dark w-full"
+          <base-button class="bg-light hover:bg-lightest hover:text-dark w-full" @click="startSimulation"
           >Confirm</base-button
           >
         </div>

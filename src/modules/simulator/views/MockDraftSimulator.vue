@@ -1,7 +1,7 @@
 <script setup>
-import { computed, defineAsyncComponent, onMounted, ref, shallowRef } from 'vue'
+import { computed, defineAsyncComponent, ref } from 'vue'
 
-const steps = shallowRef([
+const steps = ref([
   {
     name: 'Settings',
     active: true,
@@ -24,6 +24,11 @@ const activeStep = computed(() => {
   return steps.value.find((step) => step.active)
 })
 
+const startSimulation = () => {
+  steps.value.find((step) => step.name === 'Settings').active = false
+  steps.value.find((step) => step.name === 'Simulator').active = true
+}
+
 const updateSettings = (newSettings) => {
   settings.value = newSettings
 }
@@ -31,8 +36,6 @@ const updateSettings = (newSettings) => {
 
 <template>
   <div class="w-full h-full">
-    <keep-alive>
-      <component :is="activeStep.component" @update-settings="updateSettings" />
-    </keep-alive>
+    <component :is="activeStep.component" @update-settings="updateSettings" @start-simulation="startSimulation" />
   </div>
 </template>

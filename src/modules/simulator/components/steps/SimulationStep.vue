@@ -1,5 +1,7 @@
 <script setup></script>
 
-<template></template>
+<template>
+  <p>Simulator</p>
+</template>
 
 <style scoped></style>
