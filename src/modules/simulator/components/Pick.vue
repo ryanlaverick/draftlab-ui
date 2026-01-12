@@ -10,15 +10,15 @@ const props = defineProps({
 })
 
 const getStatus = computed(() => {
-  if (props.onTheClock === true) {
+  if (props.pick.onTheClock === true) {
     return 'On the clock'
   }
 
-  if (props.player === null) {
+  if (props.pick.player === null) {
     return 'Upcoming'
   }
 
-  return props.player.name
+  return props.pick.player?.name
 })
 </script>
 
@@ -31,7 +31,7 @@ const getStatus = computed(() => {
     <div class="p-2">
       <div class="flex flex-col gap-1">
         <span class="font-bold text-sm">Pick {{ pick.pick.pick }}</span>
-        <span class="text-xs">{{ }}</span>
+        <span class="text-xs">{{ getStatus }}</span>
       </div>
 
     </div>
