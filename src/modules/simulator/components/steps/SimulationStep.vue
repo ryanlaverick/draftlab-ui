@@ -1,7 +1,7 @@
 <script setup>
 import BaseReturn from '@/components/BaseReturn.vue'
 import useTeams from '@/modules/teams/useTeams.js'
-import { computed, onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import BaseAccordion from '@/components/BaseAccordion.vue'
 import Pick from '@/modules/simulator/components/Pick.vue'
 
@@ -14,6 +14,8 @@ const draftOrder = ref()
 const returnToSettings = () => {
   emits('returnToSettings')
 }
+
+const currentPick = ref(0)
 
 onMounted(() => {
   let draftOrderByRound = {
@@ -33,10 +35,11 @@ onMounted(() => {
         team: {
           name: team.name,
           shortName: team.shortName,
-          image: team.image
+          image: team.image,
         },
         player: null,
-        onTheClock: false
+        onTheClock: false,
+        nextUp: false
       })
     })
   })
@@ -58,7 +61,30 @@ onMounted(() => {
   }
 
   draftOrder.value = draftOrderByRound
+  currentPick.value = 1
 })
+
+watch(
+  () => currentPick.value,
+  () => {
+    if (! draftOrder.value) {
+      return
+    }
+
+    for (let [, value] of Object.entries(draftOrder.value)) {
+      value.forEach((pick) => {
+        if (pick.pick.pick === currentPick.value) {
+          pick.onTheClock = true
+        }
+
+        if (pick.pick.pick === (currentPick.value + 1)) {
+          pick.nextUp = true
+        }
+      })
+    }
+  },
+  { immediate: true }
+)
 </script>
 
 <template>
@@ -70,7 +96,11 @@ onMounted(() => {
       <div class="bg-dark rounded-md p-4 text-white">
         <div class="h-[750px] overflow-y-auto flex flex-col">
           <div v-if="draftOrder">
-            <base-accordion v-for="[round, picks] of Object.entries(draftOrder)" :key="round" class="p-2 ">
+            <base-accordion
+              v-for="[round, picks] of Object.entries(draftOrder)"
+              :key="round"
+              class="p-2"
+            >
               Round {{ round }}
 
               <template #content>

@@ -14,6 +14,10 @@ const getStatus = computed(() => {
     return 'On the clock'
   }
 
+  if (props.pick.nextUp === true) {
+    return 'Next up'
+  }
+
   if (props.pick.player === null) {
     return 'Upcoming'
   }
