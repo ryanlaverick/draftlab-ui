@@ -1,5 +1,6 @@
 <script setup>
 import TeamLogo from '@/modules/teams/components/TeamLogo.vue'
+import { Icon } from '@iconify/vue'
 import { computed } from 'vue'
 
 const props = defineProps({
@@ -24,20 +25,41 @@ const getStatus = computed(() => {
 
   return props.pick.player?.name
 })
+
+const getIcon = computed(() => {
+  if (props.pick.onTheClock) {
+    return 'mdi:timer-sand'
+  }
+
+  if (props.pick.nextUp) {
+    return 'zondicons:exclamation-outline'
+  }
+
+  if (props.pick.player) {
+    return 'mdi:check-circle-outline'
+  }
+
+  return 'mdi:timer-sand'
+})
 </script>
 
 <template>
-  <div class="w-full border-y-base bg-darkest divide-x-2 divide-light flex items-center rounded-md">
-    <div class="p-2 ">
+  <div class="w-full  bg-darkest flex items-center rounded-md border-2 border-light">
+    <div class="p-2 bg-light">
       <team-logo :team="pick.team" class="size-8" />
     </div>
 
-    <div class="p-2">
-      <div class="flex flex-col gap-1">
-        <span class="font-bold text-sm">Pick {{ pick.pick.pick }}</span>
-        <span class="text-xs opacity-75">{{ getStatus }}</span>
-      </div>
+    <div class="p-2 w-full flex items-center justify-between gap-4">
+      <span class="text-sm font-semibold">Pick {{ pick.pick.pick }}</span>
 
+      <div class="flex items-center gap-1" :class="{
+        'text-orange-300': pick.onTheClock,
+        'text-blue-300': pick.nextUp,
+        'text-green-300': props.pick.player
+      }">
+        <Icon :icon="getIcon" class="size-4" />
+        <span class="text-sm font-base opacity-75">{{ getStatus }}</span>
+      </div>
     </div>
   </div>
 </template>

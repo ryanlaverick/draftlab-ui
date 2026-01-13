@@ -7,6 +7,7 @@ import useTeams from '@/modules/teams/useTeams.js'
 import usePlayers from '@/modules/simulator/usePlayers.js'
 import usePositions from '@/composables/usePositions.js'
 import PositionSelector from '@/modules/simulator/components/PositionSelector.vue'
+import Player from '@/modules/simulator/components/Player.vue'
 
 const emits = defineEmits(['returnToSettings'])
 
@@ -127,11 +128,9 @@ watch(
 
       <!-- Team Picks -->
       <div class="col-span-2 h-[800px] ">
-        <div class="grid grid-cols-3 h-full">
-          <div class="col-span-2 h-full overflow-y-auto">
-            <div v-for="player in filteredPlayersByPosition" :key="player.player_id">
-              {{ player }}
-            </div>
+        <div class="grid grid-cols-3 gap-4 h-full">
+          <div class="col-span-2 h-full overflow-y-auto snap-mandatory snap-y">
+            <player v-for="player in filteredPlayersByPosition" :player="player" :is-picking="true" :key="player.player_id" />
           </div>
 
           <div class="rounded-md bg-dark p-4">
