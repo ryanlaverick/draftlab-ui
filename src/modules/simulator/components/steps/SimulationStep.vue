@@ -1,15 +1,18 @@
 <script setup>
 import BaseReturn from '@/components/BaseReturn.vue'
-import useTeams from '@/modules/teams/useTeams.js'
-import usePlayers from '@/modules/simulator/usePlayers.js'
 import { computed, onMounted, ref, watch } from 'vue'
 import BaseAccordion from '@/components/BaseAccordion.vue'
 import Pick from '@/modules/simulator/components/Pick.vue'
+import useTeams from '@/modules/teams/useTeams.js'
+import usePlayers from '@/modules/simulator/usePlayers.js'
+import usePositions from '@/composables/usePositions.js'
+import PositionSelector from '@/modules/simulator/components/PositionSelector.vue'
 
 const emits = defineEmits(['returnToSettings'])
 
 const teams = useTeams
 const { getPlayers: players, loadPlayers } = usePlayers()
+const { positions } = usePositions()
 
 const currentPick = ref(0)
 const draftOrder = ref()
@@ -123,10 +126,19 @@ watch(
       </div>
 
       <!-- Team Picks -->
-      <div class="col-span-2 h-[800px] overflow-y-auto">
-        <div v-for="player in filteredPlayersByPosition" :key="player.player_id">
-          {{ player }}
+      <div class="col-span-2 h-[800px] ">
+        <div class="grid grid-cols-3 h-full">
+          <div class="col-span-2 h-full overflow-y-auto">
+            <div v-for="player in filteredPlayersByPosition" :key="player.player_id">
+              {{ player }}
+            </div>
+          </div>
+
+          <div class="rounded-md bg-dark p-4">
+            <!-- <position-selector :selected-positions="[]" /> -->
+          </div>
         </div>
+
       </div>
     </div>
   </div>
