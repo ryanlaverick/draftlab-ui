@@ -41,10 +41,15 @@ const getSchool = computed(() => {
 
     </div>
 
-    <div>
+    <div class="flex items-center gap-4">
       <base-button v-if="isPicking" class="bg-green-600 text-white">
         Draft
       </base-button>
+
+      <div class="flex items-center gap-1 text-dark/70 hover:text-light duration-300 underline">
+        <span class="text-xs">Read More</span>
+        <Icon icon="mdi:chevron-right" class="size-4" />
+      </div>
     </div>
   </div>
 </template>
