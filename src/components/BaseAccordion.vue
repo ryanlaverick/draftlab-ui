@@ -34,7 +34,7 @@ const expanded = ref(props.openedByDefault)
 
     <!-- Accordion Body -->
     <div
-      class="grid transition-all duration-300 ease-in-out bg-darkest rounded-b-md p-2"
+      class="grid transition-all duration-300 ease-in-out bg-darkest rounded-b-md p-2 z-10"
       :class="expanded ? 'grid-rows-[1fr]' : 'grid-rows-[0fr] !p-0'"
     >
       <div class="overflow-hidden">

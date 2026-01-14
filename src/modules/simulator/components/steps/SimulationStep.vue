@@ -130,9 +130,9 @@ watch(
   <div class="flex flex-col gap-8">
     <base-return @click="returnToSettings"> Return to Settings </base-return>
 
-    <div class="w-full grid grid-cols-3 gap-4 rounded-md">
+    <div class="w-full grid grid-cols-10 gap-4 rounded-md">
       <!-- Draft Order -->
-      <div class="bg-dark rounded-md p-4 text-white h-[800px] overflow-y-auto flex flex-col">
+      <div class="col-span-3 bg-dark rounded-md p-4 text-white h-[800px] overflow-y-auto flex flex-col">
         <div v-if="draftOrder">
           <base-accordion
             v-for="[round, picks] of Object.entries(draftOrder)"
@@ -148,18 +148,27 @@ watch(
         </div>
       </div>
 
-      <!-- Team Picks -->
-      <div class="col-span-2 h-[800px] ">
+      <!--  -->
+      <div class="col-span-7 h-[800px] ">
         <div class="grid grid-cols-3 gap-4 h-full">
           <div class="col-span-2 h-full overflow-y-auto snap-mandatory snap-y">
+            <div class="bg-dark rounded-md p-4 sticky top-0 z-10 flex flex-col gap-2">
+              <span class="font-exclamation text-md text-white">Filters</span>
+
+              <div class="grid grid-cols-2 gap-4">
+                <base-input v-model="filterSearch" label="Player Name" placeholder="Search..." />
+
+                <div class="h-full flex flex-col-reverse">
+                  <position-selector :selected-positions="filterPositions" @toggle-position="filterPosition" />
+                </div>
+              </div>
+
+            </div>
+
             <player v-for="player in filteredPlayers" :player="player" :is-picking="true" :key="player.player_id" />
           </div>
 
-          <div class="rounded-md bg-dark p-4 overflow-y-auto">
-            <div class="flex flex-col gap-4">
-              <base-input v-model="filterSearch" label="Player Name" placeholder="Search..." />
-              <position-selector :selected-positions="filterPositions" @toggle-position="filterPosition" />
-            </div>
+          <div class="rounded-md bg-slate-200 p-4 overflow-y-auto">
           </div>
         </div>
 
