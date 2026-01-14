@@ -30,18 +30,20 @@ const filteredPlayers = computed(() => {
       return players.value
     }
 
-    return players.value
-      .filter((player) => player.player.toLowerCase().includes(filterSearch.value.toString().toLowerCase()))
+    return players.value.filter((player) =>
+      player.player.toLowerCase().includes(filterSearch.value.toString().toLowerCase()),
+    )
   }
 
   if (filterSearch.value.length > 0) {
     return players.value
       .filter((player) => filterPositions.value.indexOf(player.position) !== -1)
-      .filter((player) => player.player.toLowerCase().includes(filterSearch.value.toString().toLowerCase()))
+      .filter((player) =>
+        player.player.toLowerCase().includes(filterSearch.value.toString().toLowerCase()),
+      )
   }
 
-  return players.value
-    .filter((player) => filterPositions.value.indexOf(player.position) !== -1)
+  return players.value.filter((player) => filterPositions.value.indexOf(player.position) !== -1)
 })
 
 const filterPosition = (position) => {
@@ -76,7 +78,7 @@ onMounted(() => {
         },
         player: null,
         onTheClock: false,
-        nextUp: false
+        nextUp: false,
       })
     })
   })
@@ -106,7 +108,7 @@ onMounted(() => {
 watch(
   () => currentPick.value,
   () => {
-    if (! draftOrder.value) {
+    if (!draftOrder.value) {
       return
     }
 
@@ -116,13 +118,13 @@ watch(
           pick.onTheClock = true
         }
 
-        if (pick.pick.pick === (currentPick.value + 1)) {
+        if (pick.pick.pick === currentPick.value + 1) {
           pick.nextUp = true
         }
       })
     }
   },
-  { immediate: true }
+  { immediate: true },
 )
 </script>
 
@@ -132,24 +134,27 @@ watch(
 
     <div class="w-full grid grid-cols-10 gap-4 rounded-md">
       <!-- Draft Order -->
-      <div class="col-span-3 bg-dark rounded-md p-4 text-white h-[800px] overflow-y-auto flex flex-col">
-        <div v-if="draftOrder">
+      <div
+        class="col-span-3 bg-dark rounded-md p-4 text-white h-[800px] overflow-y-auto flex flex-col gap-2"
+      >
+        <span class="font-exclamation text-md text-white">Picks</span>
+
+        <div v-if="draftOrder" class="flex flex-col gap-4">
           <base-accordion
             v-for="[round, picks] of Object.entries(draftOrder)"
             :key="round"
-            class="p-2"
           >
             Round {{ round }}
 
             <template #content>
-              <pick v-for="pick in picks" :key="pick.pick" :pick="pick" class="mb-4 last:mb-0" />
+              <pick v-for="pick in picks" :key="pick.pick" :pick="pick" class="mb-2 last:mb-0" />
             </template>
           </base-accordion>
         </div>
       </div>
 
       <!--  -->
-      <div class="col-span-7 h-[800px] ">
+      <div class="col-span-7 h-[800px]">
         <div class="grid grid-cols-3 gap-4 h-full">
           <div class="col-span-2 h-full overflow-y-auto snap-mandatory snap-y">
             <div class="bg-dark rounded-md p-4 sticky top-0 z-10 flex flex-col gap-2">
@@ -159,19 +164,24 @@ watch(
                 <base-input v-model="filterSearch" label="Player Name" placeholder="Search..." />
 
                 <div class="h-full flex flex-col-reverse">
-                  <position-selector :selected-positions="filterPositions" @toggle-position="filterPosition" />
+                  <position-selector
+                    :selected-positions="filterPositions"
+                    @toggle-position="filterPosition"
+                  />
                 </div>
               </div>
-
             </div>
 
-            <player v-for="player in filteredPlayers" :player="player" :is-picking="true" :key="player.player_id" />
+            <player
+              v-for="player in filteredPlayers"
+              :player="player"
+              :is-picking="true"
+              :key="player.player_id"
+            />
           </div>
 
-          <div class="rounded-md bg-slate-200 p-4 overflow-y-auto">
-          </div>
+          <div class="rounded-md bg-slate-200 p-4 overflow-y-auto"></div>
         </div>
-
       </div>
     </div>
   </div>
