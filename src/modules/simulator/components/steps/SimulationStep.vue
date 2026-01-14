@@ -157,7 +157,7 @@ watch(
 
           <div class="rounded-md bg-dark p-4 overflow-y-auto">
             <div class="flex flex-col gap-4">
-              <base-input v-model="filterSearch" label="Player Name" />
+              <base-input v-model="filterSearch" label="Player Name" placeholder="Search..." />
               <position-selector :selected-positions="filterPositions" @toggle-position="filterPosition" />
             </div>
           </div>
