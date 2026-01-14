@@ -1,7 +1,7 @@
 import { computed, reactive } from 'vue'
 
 const state = reactive({
-  players: []
+  players: [],
 })
 
 export default function usePlayers() {
@@ -10,9 +10,9 @@ export default function usePlayers() {
   const addPlayer = (player) => state.players.push(player)
 
   const loadPlayers = async () => {
-    let players = await fetch("/assets/players/alt_players.json")
+    let players = await fetch('/assets/players/alt_players.json')
 
-    if (! players.ok) {
+    if (!players.ok) {
       console.log('Unable to load file')
       return
     }
@@ -26,6 +26,6 @@ export default function usePlayers() {
 
   return {
     getPlayers,
-    loadPlayers
+    loadPlayers,
   }
 }

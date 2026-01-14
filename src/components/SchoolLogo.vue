@@ -2,16 +2,13 @@
 defineProps({
   school: {
     type: Object,
-    required: true
+    required: true,
   },
 })
 </script>
 
 <template>
-  <img
-    :src="school.image"
-    :alt="'School Logo for ' + school.name"
-  />
+  <img :src="school.image" :alt="'School Logo for ' + school.name" />
 </template>
 
 <style scoped></style>

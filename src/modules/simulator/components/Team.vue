@@ -91,8 +91,8 @@ const computedClasses = computed(() => {
     props.selected ? borderColors[props.team.name] : '',
     {
       'before:scale-x-100': props.selected,
-      'border-gray-200': !props.selected
-    }
+      'border-gray-200': !props.selected,
+    },
   ]
 })
 </script>
@@ -104,7 +104,10 @@ const computedClasses = computed(() => {
     :class="computedClasses"
   >
     <!-- Content above the bar -->
-    <div class="relative z-10 w-full flex items-center justify-between gap-4" :class="{'opacity-50': !selected}">
+    <div
+      class="relative z-10 w-full flex items-center justify-between gap-4"
+      :class="{ 'opacity-50': !selected }"
+    >
       <div>
         <p
           class="uppercase font-semibold transition-colors duration-300 text-xs"
@@ -112,9 +115,10 @@ const computedClasses = computed(() => {
         >
           {{ team.name }}
         </p>
-        <span class="font-bold text-xs opacity-50" :class="{ 'text-white': selected }">Pick {{ team.picks[2026][0]?.pick }}</span>
+        <span class="font-bold text-xs opacity-50" :class="{ 'text-white': selected }"
+          >Pick {{ team.picks[2026][0]?.pick }}</span
+        >
       </div>
-
 
       <team-logo :team="team" :disabled="!selected" class="size-10" />
     </div>

@@ -1,5 +1,4 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
   <td class="p-4">
@@ -8,4 +7,3 @@
     </span>
   </td>
 </template>
-

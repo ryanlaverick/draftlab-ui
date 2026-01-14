@@ -19,6 +19,7 @@ const currentPick = ref(0)
 const draftOrder = ref()
 const filterPositions = ref([])
 const filterSearch = ref('')
+const focusPlayer = ref({})
 
 const returnToSettings = () => {
   emits('returnToSettings')
@@ -54,6 +55,11 @@ const filterPosition = (position) => {
   } else {
     filterPositions.value.splice(positionIndex, 1)
   }
+}
+
+const selectFocusPlayer = (player) => {
+  console.log('fdjfgjd')
+  focusPlayer.value = player
 }
 
 onMounted(() => {
@@ -140,10 +146,7 @@ watch(
         <span class="font-exclamation text-md text-white">Picks</span>
 
         <div v-if="draftOrder" class="flex flex-col gap-4">
-          <base-accordion
-            v-for="[round, picks] of Object.entries(draftOrder)"
-            :key="round"
-          >
+          <base-accordion v-for="[round, picks] of Object.entries(draftOrder)" :key="round">
             Round {{ round }}
 
             <template #content>
@@ -156,7 +159,7 @@ watch(
       <!--  -->
       <div class="col-span-7 h-[800px]">
         <div class="grid grid-cols-3 gap-4 h-full">
-          <div class="col-span-2 h-full overflow-y-auto flex flex-col gap-4">
+          <div class="col-span-2 h-full flex flex-col gap-4">
             <!-- Filters -->
             <div class="bg-dark rounded-md p-4 sticky top-0 z-10 flex flex-col gap-2">
               <span class="font-exclamation text-md text-white">Filters</span>
@@ -173,19 +176,36 @@ watch(
               </div>
             </div>
 
-            <!-- Filters -->
-            <div>
+            <!-- Players -->
+            <div class="h-fit overflow-y-auto">
               <player
                 v-for="player in filteredPlayers"
                 :player="player"
                 :is-picking="true"
                 :key="player.player_id"
+                @read-more="selectFocusPlayer"
               />
             </div>
-
           </div>
 
-          <div class="rounded-md bg-slate-200 p-4 overflow-y-auto"></div>
+          <div class="flex flex-col gap-4 text-white">
+            <div class="bg-dark rounded-md p-4">
+              <span class="font-exclamation">Focus Player</span>
+            </div>
+
+            <div class="bg-slate-100 flex rounded-md flex-col h-full w-full">
+              <div>
+                <img
+                  class="w-full drop-shadow-md"
+                  src="/assets/players/images/Danny-Scudero-WR-San-Jose-State.png"
+                />
+              </div>
+
+              <div class="p-4">
+                <span>{{ focusPlayer.player }}</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

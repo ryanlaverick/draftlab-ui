@@ -6,8 +6,8 @@ const props = defineProps({
   openedByDefault: {
     type: Boolean,
     required: false,
-    default: true
-  }
+    default: true,
+  },
 })
 
 const expanded = ref(props.openedByDefault)

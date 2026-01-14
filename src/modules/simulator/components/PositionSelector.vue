@@ -7,8 +7,8 @@ const { positions } = usePositions()
 defineProps({
   selectedPositions: {
     type: Array,
-    required: true
-  }
+    required: true,
+  },
 })
 
 const emits = defineEmits(['togglePosition'])
@@ -20,11 +20,17 @@ const selectPosition = (position) => {
 
 <template>
   <base-accordion :opened-by-default="false">
-    Positions: {{ selectedPositions.join(", ") }}
+    Positions: {{ selectedPositions.join(', ') }}
 
     <template #content>
       <div class="flex flex-col gap-2">
-        <position-filter v-for="position in positions" :key="position.id" :selected-positions="selectedPositions" :position="position" @toggle-position="selectPosition" />
+        <position-filter
+          v-for="position in positions"
+          :key="position.id"
+          :selected-positions="selectedPositions"
+          :position="position"
+          @toggle-position="selectPosition"
+        />
       </div>
     </template>
   </base-accordion>

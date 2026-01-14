@@ -8,8 +8,8 @@ const props = defineProps({
   },
   selectedPositions: {
     type: Array,
-    required: true
-  }
+    required: true,
+  },
 })
 
 const emits = defineEmits(['togglePosition'])
@@ -24,10 +24,13 @@ const selectPosition = () => {
 </script>
 
 <template>
-  <div @click="selectPosition()" class="p-2 text-white hover:bg-light rounded-md duration-300 cursor-pointer" :class="{
-        'bg-light': isSelected
-      }">
+  <div
+    @click="selectPosition()"
+    class="p-2 text-white hover:bg-light rounded-md duration-300 cursor-pointer"
+    :class="{
+      'bg-light': isSelected,
+    }"
+  >
     <span class="text-sm">{{ position.value }}</span>
   </div>
 </template>
-

@@ -86,7 +86,7 @@ watch(
       return 0
     })
   },
-  { deep: true, immediate: true }
+  { deep: true, immediate: true },
 )
 
 watch(
@@ -94,7 +94,7 @@ watch(
   () => {
     emits('updateSettings', options)
   },
-  { deep: true, immediate: true }
+  { deep: true, immediate: true },
 )
 </script>
 
@@ -113,12 +113,17 @@ watch(
             <option-wrapper label="Rounds">
               <div>
                 <span class="p-1 bg-white rounded-md flex items-center gap-2">
-                <span v-for="i in 7" :key="i" class="font-exclamation px-2 py-1 text-white bg-dark hover:bg-light duration-300 rounded-md cursor-pointer" :class="{ 'bg-light': options.rounds === i }" @click="selectRounds(i)">
-                  <span>{{ i }}</span>
+                  <span
+                    v-for="i in 7"
+                    :key="i"
+                    class="font-exclamation px-2 py-1 text-white bg-dark hover:bg-light duration-300 rounded-md cursor-pointer"
+                    :class="{ 'bg-light': options.rounds === i }"
+                    @click="selectRounds(i)"
+                  >
+                    <span>{{ i }}</span>
+                  </span>
                 </span>
-              </span>
               </div>
-
             </option-wrapper>
           </div>
 
@@ -168,8 +173,10 @@ watch(
 
         <!-- Confirm -->
         <div class="w-full">
-          <base-button class="bg-light hover:bg-lightest hover:text-dark w-full" @click="startSimulation"
-          >Confirm</base-button
+          <base-button
+            class="bg-light hover:bg-lightest hover:text-dark w-full"
+            @click="startSimulation"
+            >Confirm</base-button
           >
         </div>
       </div>

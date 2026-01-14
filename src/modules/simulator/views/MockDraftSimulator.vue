@@ -42,7 +42,12 @@ const updateSettings = (newSettings) => {
 <template>
   <div class="w-full h-full">
     <keep-alive>
-      <component :is="activeStep.component" @update-settings="updateSettings" @start-simulation="startSimulation" @return-to-settings="returnToSettings" />
+      <component
+        :is="activeStep.component"
+        @update-settings="updateSettings"
+        @start-simulation="startSimulation"
+        @return-to-settings="returnToSettings"
+      />
     </keep-alive>
   </div>
 </template>

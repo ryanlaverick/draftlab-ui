@@ -6,8 +6,8 @@ import { computed } from 'vue'
 const props = defineProps({
   pick: {
     type: Object,
-    required: true
-  }
+    required: true,
+  },
 })
 
 const getStatus = computed(() => {
@@ -44,7 +44,7 @@ const getIcon = computed(() => {
 </script>
 
 <template>
-  <div class="w-full  bg-darkest flex items-center rounded-md border-2 border-light">
+  <div class="w-full bg-darkest flex items-center rounded-md border-2 border-light">
     <div class="p-2 bg-light">
       <team-logo :team="pick.team" class="size-8" />
     </div>
@@ -52,11 +52,14 @@ const getIcon = computed(() => {
     <div class="p-2 w-full flex items-center justify-between gap-4">
       <span class="text-sm font-semibold">Pick {{ pick.pick.pick }}</span>
 
-      <div class="flex items-center gap-1" :class="{
-        'text-orange-300': pick.onTheClock,
-        'text-blue-300': pick.nextUp,
-        'text-green-300': props.pick.player
-      }">
+      <div
+        class="flex items-center gap-1"
+        :class="{
+          'text-orange-300': pick.onTheClock,
+          'text-blue-300': pick.nextUp,
+          'text-green-300': props.pick.player,
+        }"
+      >
         <Icon :icon="getIcon" class="size-4" />
         <span class="text-sm font-base opacity-75">{{ getStatus }}</span>
       </div>

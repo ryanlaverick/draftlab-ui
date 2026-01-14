@@ -2,13 +2,13 @@
 defineProps({
   team: {
     type: Object,
-    required: true
+    required: true,
   },
   disabled: {
     type: Boolean,
     required: false,
-    default: false
-  }
+    default: false,
+  },
 })
 </script>
 

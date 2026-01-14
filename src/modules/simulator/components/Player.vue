@@ -10,22 +10,29 @@ const schools = useSchools
 const props = defineProps({
   player: {
     type: Object,
-    required: true
+    required: true,
   },
   isPicking: {
     type: Boolean,
-    required: true
-  }
+    required: true,
+  },
 })
 
+const emits = defineEmits(['readMore'])
+
 const getSchool = computed(() => {
-  return schools
-    .find((school) => school.shortName === props.player?.team_name)
+  return schools.find((school) => school.shortName === props.player?.team_name)
 })
+
+const readMore = () => {
+  emits('readMore', props.player)
+}
 </script>
 
 <template>
-  <div class="w-full border-y border-y-slate-200 bg-slate-50 hover:bg-slate-200 duration-300 p-4 flex items-center justify-between gap-8 snap-start cursor-pointer">
+  <div
+    class="w-full border-y border-y-slate-200 bg-slate-50 hover:bg-slate-200 duration-300 p-4 flex items-center justify-between gap-8 snap-start cursor-pointer"
+  >
     <div class="flex items-center gap-4">
       <school-logo v-if="getSchool" :school="getSchool" class="size-10" />
       <Icon v-else icon="mdi:image-remove-outline" class="size-10" />
@@ -38,15 +45,15 @@ const getSchool = computed(() => {
           <p class="text-sm font-normal">{{ getSchool?.name ?? 'Undefined' }}</p>
         </div>
       </div>
-
     </div>
 
     <div class="flex items-center gap-4">
-      <base-button v-if="isPicking" class="bg-green-600 text-white">
-        Draft
-      </base-button>
+      <base-button v-if="isPicking" class="bg-green-600 text-white"> Draft </base-button>
 
-      <div class="flex items-center gap-1 text-dark/70 hover:text-light duration-300 underline">
+      <div
+        class="flex items-center gap-1 text-dark/70 hover:text-light duration-300 underline"
+        @click="readMore"
+      >
         <span class="text-xs">Read More</span>
         <Icon icon="mdi:chevron-right" class="size-4" />
       </div>
