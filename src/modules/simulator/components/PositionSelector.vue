@@ -1,27 +1,31 @@
 <script setup>
 import usePositions from '@/composables/usePositions.js'
-import { computed } from 'vue'
-import BaseSelect from '@/components/BaseSelect.vue'
+import BaseAccordion from '@/components/BaseAccordion.vue'
+import PositionFilter from '@/modules/simulator/components/PositionFilter.vue'
 const { positions } = usePositions()
 
-const props = defineProps({
+defineProps({
   selectedPositions: {
     type: Array,
     required: true
   }
 })
 
-const availableOptions = computed(() => {
-  let availablePositions = Object.entries(positions)
+const emits = defineEmits(['togglePosition'])
 
-  availablePositions.filter(
-    (available) => props.selectedPositions.indexOf(available) !== -1
-  )
-
-  return availablePositions
-})
+const selectPosition = (position) => {
+  emits('togglePosition', position)
+}
 </script>
 
 <template>
-  <base-select :available-options="availableOptions" :selected-options="selectedPositions" />
+  <base-accordion :opened-by-default="false">
+    Positions: {{ selectedPositions.join(", ") }}
+
+    <template #content>
+      <div class="flex flex-col gap-2">
+        <position-filter v-for="position in positions" :key="position.id" :selected-positions="selectedPositions" :position="position" @toggle-position="selectPosition" />
+      </div>
+    </template>
+  </base-accordion>
 </template>

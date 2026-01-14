@@ -32,6 +32,16 @@ const filteredPlayersByPosition = computed(() => {
     .filter((player) => filterPositions.value.indexOf(player.position) !== -1)
 })
 
+const filterPosition = (position) => {
+  const positionIndex = filterPositions.value.indexOf(position)
+
+  if (positionIndex === -1) {
+    filterPositions.value.push(position)
+  } else {
+    filterPositions.value.splice(positionIndex, 1)
+  }
+}
+
 onMounted(() => {
   let draftOrderByRound = {
     1: [],
@@ -134,7 +144,7 @@ watch(
           </div>
 
           <div class="rounded-md bg-dark p-4">
-            <!-- <position-selector :selected-positions="[]" /> -->
+            <position-selector :selected-positions="filterPositions" @toggle-position="filterPosition" />
           </div>
         </div>
 
