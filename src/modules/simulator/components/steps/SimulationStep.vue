@@ -156,7 +156,8 @@ watch(
       <!--  -->
       <div class="col-span-7 h-[800px]">
         <div class="grid grid-cols-3 gap-4 h-full">
-          <div class="col-span-2 h-full overflow-y-auto snap-mandatory snap-y">
+          <div class="col-span-2 h-full overflow-y-auto flex flex-col gap-4">
+            <!-- Filters -->
             <div class="bg-dark rounded-md p-4 sticky top-0 z-10 flex flex-col gap-2">
               <span class="font-exclamation text-md text-white">Filters</span>
 
@@ -172,12 +173,16 @@ watch(
               </div>
             </div>
 
-            <player
-              v-for="player in filteredPlayers"
-              :player="player"
-              :is-picking="true"
-              :key="player.player_id"
-            />
+            <!-- Filters -->
+            <div>
+              <player
+                v-for="player in filteredPlayers"
+                :player="player"
+                :is-picking="true"
+                :key="player.player_id"
+              />
+            </div>
+
           </div>
 
           <div class="rounded-md bg-slate-200 p-4 overflow-y-auto"></div>
