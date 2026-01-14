@@ -22,8 +22,8 @@ const expanded = ref(props.openedByDefault)
       @click="expanded = !expanded"
     >
       <Icon
-        icon="bxs:right-arrow"
-        class="transition-transform duration-300"
+        icon="mdi:chevron-right"
+        class="transition-transform duration-300 size-4"
         :class="{ 'rotate-90': expanded }"
       />
 
