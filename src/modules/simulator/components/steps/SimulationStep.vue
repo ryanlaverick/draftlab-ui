@@ -8,24 +8,36 @@ import usePlayers from '@/modules/simulator/usePlayers.js'
 import usePositions from '@/composables/usePositions.js'
 import PositionSelector from '@/modules/simulator/components/PositionSelector.vue'
 import Player from '@/modules/simulator/components/Player.vue'
+import BaseInput from '@/components/BaseInput.vue'
 
 const emits = defineEmits(['returnToSettings'])
 
 const teams = useTeams
 const { getPlayers: players, loadPlayers } = usePlayers()
-const { positions } = usePositions()
 
 const currentPick = ref(0)
 const draftOrder = ref()
 const filterPositions = ref([])
+const filterSearch = ref('')
 
 const returnToSettings = () => {
   emits('returnToSettings')
 }
 
-const filteredPlayersByPosition = computed(() => {
+const filteredPlayers = computed(() => {
   if (filterPositions.value.length === 0) {
+    if (filterSearch.value.length === 0) {
+      return players.value
+    }
+
     return players.value
+      .filter((player) => player.player.toLowerCase().includes(filterSearch.value.toString().toLowerCase()))
+  }
+
+  if (filterSearch.value.length > 0) {
+    return players.value
+      .filter((player) => filterPositions.value.indexOf(player.position) !== -1)
+      .filter((player) => player.player.toLowerCase().includes(filterSearch.value.toString().toLowerCase()))
   }
 
   return players.value
@@ -140,11 +152,14 @@ watch(
       <div class="col-span-2 h-[800px] ">
         <div class="grid grid-cols-3 gap-4 h-full">
           <div class="col-span-2 h-full overflow-y-auto snap-mandatory snap-y">
-            <player v-for="player in filteredPlayersByPosition" :player="player" :is-picking="true" :key="player.player_id" />
+            <player v-for="player in filteredPlayers" :player="player" :is-picking="true" :key="player.player_id" />
           </div>
 
-          <div class="rounded-md bg-dark p-4">
-            <position-selector :selected-positions="filterPositions" @toggle-position="filterPosition" />
+          <div class="rounded-md bg-dark p-4 overflow-y-auto">
+            <div class="flex flex-col gap-4">
+              <base-input v-model="filterSearch" label="Player Name" />
+              <position-selector :selected-positions="filterPositions" @toggle-position="filterPosition" />
+            </div>
           </div>
         </div>
 
