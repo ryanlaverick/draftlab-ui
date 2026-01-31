@@ -25,7 +25,7 @@ const getSchool = computed(() => {
 })
 
 const readMore = () => {
-  emits('readMore', props.player)
+  emits('readMore', {...props.player, team: {...getSchool.value}})
 }
 </script>
 

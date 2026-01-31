@@ -8,6 +8,7 @@ import usePlayers from '@/modules/simulator/usePlayers.js'
 import PositionSelector from '@/modules/simulator/components/PositionSelector.vue'
 import Player from '@/modules/simulator/components/Player.vue'
 import BaseInput from '@/components/BaseInput.vue'
+import FocusPlayerPanel from '@/modules/simulator/components/FocusPlayerPanel.vue'
 
 const emits = defineEmits(['returnToSettings'])
 
@@ -189,29 +190,7 @@ watch(
           </div>
 
           <!-- Focus Player -->
-          <div class="w-full h-full flex flex-col">
-            <div class="shadow-lg">
-              <img
-                class="w-full rounded-t-md bg-slate-100"
-                src="/assets/players/images/Danny-Scudero-WR-San-Jose-State.png"
-              />
-
-              <div class="grid grid-cols-2 border border-dark/70 divide-x divide-dark/70">
-                <div class="p-2 flex flex-col">
-                  <span class="font-semibold text-sm">Position</span>
-                  <span class="text-xs">{{ focusPlayer.position }}</span>
-                </div>
-
-                <div class="p-2 flex flex-col">
-                  <span class="font-semibold text-sm">Position</span>
-                  <span class="text-xs">{{ focusPlayer.position }}</span>
-                </div>
-              </div>
-
-              {{ focusPlayer }}
-            </div>
-
-          </div>
+          <focus-player-panel v-show="focusPlayer" :player="focusPlayer" />
         </div>
       </div>
     </div>
