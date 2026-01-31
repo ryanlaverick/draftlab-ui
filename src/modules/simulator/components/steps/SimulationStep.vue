@@ -5,7 +5,6 @@ import BaseAccordion from '@/components/BaseAccordion.vue'
 import Pick from '@/modules/simulator/components/Pick.vue'
 import useTeams from '@/modules/teams/useTeams.js'
 import usePlayers from '@/modules/simulator/usePlayers.js'
-import usePositions from '@/composables/usePositions.js'
 import PositionSelector from '@/modules/simulator/components/PositionSelector.vue'
 import Player from '@/modules/simulator/components/Player.vue'
 import BaseInput from '@/components/BaseInput.vue'
@@ -156,10 +155,11 @@ watch(
         </div>
       </div>
 
-      <!--  -->
+      <!-- Players, Filters, Focus Player -->
       <div class="col-span-7 h-[800px]">
         <div class="grid grid-cols-3 gap-4 h-full">
-          <div class="col-span-2 h-full flex flex-col gap-4">
+          <!-- Players, Filters -->
+          <div class="col-span-2 h-full overflow-y-auto flex flex-col gap-4">
             <!-- Filters -->
             <div class="bg-dark rounded-md p-4 sticky top-0 z-10 flex flex-col gap-2">
               <span class="font-exclamation text-md text-white">Filters</span>
@@ -177,7 +177,7 @@ watch(
             </div>
 
             <!-- Players -->
-            <div class="h-fit overflow-y-auto">
+            <div>
               <player
                 v-for="player in filteredPlayers"
                 :player="player"
@@ -188,23 +188,29 @@ watch(
             </div>
           </div>
 
-          <div class="flex flex-col gap-4 text-white">
-            <div class="bg-dark rounded-md p-4">
-              <span class="font-exclamation">Focus Player</span>
-            </div>
+          <!-- Focus Player -->
+          <div class="w-full h-full flex flex-col">
+            <div class="shadow-lg">
+              <img
+                class="w-full rounded-t-md bg-slate-100"
+                src="/assets/players/images/Danny-Scudero-WR-San-Jose-State.png"
+              />
 
-            <div class="bg-slate-100 flex rounded-md flex-col h-full w-full">
-              <div>
-                <img
-                  class="w-full drop-shadow-md"
-                  src="/assets/players/images/Danny-Scudero-WR-San-Jose-State.png"
-                />
+              <div class="grid grid-cols-2 border border-dark/70 divide-x divide-dark/70">
+                <div class="p-2 flex flex-col">
+                  <span class="font-semibold text-sm">Position</span>
+                  <span class="text-xs">{{ focusPlayer.position }}</span>
+                </div>
+
+                <div class="p-2 flex flex-col">
+                  <span class="font-semibold text-sm">Position</span>
+                  <span class="text-xs">{{ focusPlayer.position }}</span>
+                </div>
               </div>
 
-              <div class="p-4">
-                <span>{{ focusPlayer.player }}</span>
-              </div>
+              {{ focusPlayer }}
             </div>
+
           </div>
         </div>
       </div>

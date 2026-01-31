@@ -40,7 +40,7 @@ const updateSettings = (newSettings) => {
 </script>
 
 <template>
-  <div class="w-full h-full">
+  <div class="w-full">
     <keep-alive>
       <component
         :is="activeStep.component"
