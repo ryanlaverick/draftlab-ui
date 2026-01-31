@@ -190,7 +190,7 @@ watch(
           </div>
 
           <!-- Focus Player -->
-          <focus-player-panel v-show="focusPlayer" :player="focusPlayer" />
+          <!-- <focus-player-panel v-show="focusPlayer" :player="focusPlayer" /> -->
         </div>
       </div>
     </div>
