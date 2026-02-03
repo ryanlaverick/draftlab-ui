@@ -1,6 +1,4 @@
 <script setup>
-import dayjs from 'dayjs'
-import BaseButton from '@/components/BaseButton.vue'
 import { Icon } from '@iconify/vue'
 </script>
 
