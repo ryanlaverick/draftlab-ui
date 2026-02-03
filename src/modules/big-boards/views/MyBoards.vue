@@ -1,7 +1,10 @@
 <script setup>
 import Board from '@/modules/big-boards/components/Board.vue'
-import { ref } from 'vue'
 import CreateBoard from '@/modules/big-boards/components/CreateBoard.vue'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const boards = ref([
   {
@@ -29,6 +32,15 @@ const deleteBoard = (boardId) => {
     return board.id !== boardId
   })
 }
+
+const viewBoard = (boardId) => {
+  router.push({
+    name: 'View Board',
+    params: {
+      id: boardId,
+    },
+  })
+}
 </script>
 
 <template>
@@ -36,7 +48,7 @@ const deleteBoard = (boardId) => {
     <span class="font-exclamation text-xl">My Boards</span>
 
     <div class="w-full grid grid-cols-5 gap-8">
-      <board v-for="board in boards" :key="board.id" :board="board" @delete-board="deleteBoard" />
+      <board v-for="board in boards" :key="board.id" :board="board" @delete-board="deleteBoard" @view-board="viewBoard" />
       <create-board />
     </div>
   </div>

@@ -16,32 +16,37 @@ const router = createRouter({
     {
       path: '/my-boards',
       name: 'My Boards',
-      component: () => import('@/modules/big-boards/views/MyBoards.vue')
+      component: () => import('@/modules/big-boards/views/MyBoards.vue'),
     },
     {
       path: '/create-board',
       name: 'Create Board',
-      component: () => import('@/modules/big-boards/views/CreateBoard.vue')
+      component: () => import('@/modules/big-boards/views/CreateBoard.vue'),
+    },
+    {
+      path: '/view-board/:id',
+      name: 'View Board',
+      component: () => import('@/modules/big-boards/views/ViewBoard.vue'),
     },
     {
       path: '/login',
       name: 'Login',
-      component: () => import('@/modules/user/views/Login.vue')
+      component: () => import('@/modules/user/views/Login.vue'),
     },
     {
       path: '/register',
       name: 'Register',
-      component: () => import('@/modules/user/views/Register.vue')
+      component: () => import('@/modules/user/views/Register.vue'),
     },
     {
       path: '/forgot-password',
       name: 'Forgot Password',
-      component: () => import('@/modules/user/views/ForgotPassword.vue')
+      component: () => import('@/modules/user/views/ForgotPassword.vue'),
     },
     {
       path: '/reset-password',
       name: 'Reset Password',
-      component: () => import('@/modules/user/views/ResetPassword.vue')
+      component: () => import('@/modules/user/views/ResetPassword.vue'),
     }
   ],
 })
