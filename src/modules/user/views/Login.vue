@@ -15,7 +15,7 @@ const canLogin = computed(() => {
 
 <template>
   <div class="w-full mt-32 flex items-center justify-center">
-    <div class="bg-dark min-w-[500px] rounded-md drop-shadow-md">
+    <div class="bg-dark min-w-[500px] rounded-md drop-shadow-lg drop-shadow-light">
       <div class=" bg-light py-4 rounded-t-md flex items-center gap-4 justify-center">
         <draft-lab-icon class="size-6" />
         <span class="font-exclamation inline-block">DraftLab</span>
@@ -39,7 +39,7 @@ const canLogin = computed(() => {
 
           <div class="pt-16 flex flex-col gap-4">
             <div class="text-center text-white">
-              <router-link :to="{ name: 'ForgotPassword' }">
+              <router-link :to="{ name: 'Forgot Password' }">
                 <span class="text-sm hover:text-light hover:decoration-light underline duration-300 cursor-pointer">Forgot your password?</span>
               </router-link>
             </div>

@@ -35,12 +35,12 @@ const router = createRouter({
     },
     {
       path: '/forgot-password',
-      name: 'ForgotPassword',
+      name: 'Forgot Password',
       component: () => import('@/modules/user/views/ForgotPassword.vue')
     },
     {
       path: '/reset-password',
-      name: 'ResetPassword',
+      name: 'Reset Password',
       component: () => import('@/modules/user/views/ResetPassword.vue')
     }
   ],
