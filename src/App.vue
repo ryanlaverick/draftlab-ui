@@ -8,9 +8,7 @@ import DropdownLink from '@/components/DropdownLink.vue'
 <template>
   <div class="h-screen w-full p-16">
     <!-- Header -->
-    <div
-      class="w-full flex justify-between items-center gap-16 text-darkest mb-16"
-    >
+    <div class="w-full flex justify-between items-center gap-16 text-darkest mb-16">
       <div class="flex items-center gap-4 duration-300 hover:text-light">
         <draft-lab-icon class="size-6" />
         <h1 class="cursor-pointer font-exclamation">DraftLab</h1>
@@ -30,9 +28,7 @@ import DropdownLink from '@/components/DropdownLink.vue'
 
         <header-item route="Mock Draft Simulator">Simulator</header-item>
         <header-item route="Prospects">Prospects</header-item>
-        <header-item route="Login">
-          My Account
-        </header-item>
+        <header-item route="Login"> My Account </header-item>
       </div>
     </div>
 

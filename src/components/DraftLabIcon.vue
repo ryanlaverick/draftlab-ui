@@ -5,4 +5,3 @@ import { Icon } from '@iconify/vue'
 <template>
   <Icon icon="uil:flask" />
 </template>
-

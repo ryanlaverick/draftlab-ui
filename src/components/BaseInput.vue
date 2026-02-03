@@ -13,8 +13,8 @@ defineProps({
   type: {
     type: String,
     required: false,
-    default: 'text'
-  }
+    default: 'text',
+  },
 })
 </script>
 

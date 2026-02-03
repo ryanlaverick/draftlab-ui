@@ -9,7 +9,7 @@ const router = useRouter()
 const props = defineProps({
   route: {
     type: String,
-    required: true
+    required: true,
   },
   disabled: {
     type: Boolean,
@@ -33,7 +33,6 @@ const isVisitingRoute = computed(() => {
 
         <slot />
       </div>
-
     </dropdown-item>
   </router-link>
 </template>
