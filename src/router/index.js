@@ -4,11 +4,6 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/big-board',
-      name: 'Prospect Big Board',
-      component: () => import('@/views/BigBoard.vue'),
-    },
-    {
       path: '/simulator',
       name: 'Mock Draft Simulator',
       component: () => import('@/modules/simulator/views/MockDraftSimulator.vue'),
@@ -17,6 +12,16 @@ const router = createRouter({
       path: '/prospects',
       name: 'Prospects',
       component: () => import('@/modules/prospects/views/Prospects.vue'),
+    },
+    {
+      path: '/my-boards',
+      name: 'My Boards',
+      component: () => import('@/modules/big-boards/views/MyBoards.vue')
+    },
+    {
+      path: '/create-board',
+      name: 'Create Board',
+      component: () => import('@/modules/big-boards/views/CreateBoard.vue')
     },
     {
       path: '/login',
