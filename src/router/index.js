@@ -18,6 +18,26 @@ const router = createRouter({
       name: 'Prospects',
       component: () => import('@/modules/prospects/views/Prospects.vue'),
     },
+    {
+      path: '/login',
+      name: 'Login',
+      component: () => import('@/modules/user/views/Login.vue')
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: () => import('@/modules/user/views/Register.vue')
+    },
+    {
+      path: '/forgot-password',
+      name: 'ForgotPassword',
+      component: () => import('@/modules/user/views/ForgotPassword.vue')
+    },
+    {
+      path: '/reset-password',
+      name: 'ResetPassword',
+      component: () => import('@/modules/user/views/ResetPassword.vue')
+    }
   ],
 })
 
