@@ -1,7 +1,9 @@
 <script setup>
 import Board from '@/modules/big-boards/components/Board.vue'
+import { ref } from 'vue'
+import CreateBoard from '@/modules/big-boards/components/CreateBoard.vue'
 
-const boards = [
+const boards = ref([
   {
     id: 1,
     name: 'Consensus Board',
@@ -20,12 +22,19 @@ const boards = [
     created_at: '2026-01-17T12:42:37',
     updated_at: '2026-01-29T17:17:36'
   }
-]
+])
+
+const deleteBoard = (boardId) => {
+  boards.value = boards.value.filter((board) => {
+    return board.id !== boardId
+  })
+}
 </script>
 
 <template>
   <div class="w-full grid grid-cols-5 gap-8">
-    <board v-for="board in boards" :key="board.id" :board="board" />
+    <board v-for="board in boards" :key="board.id" :board="board" @delete-board="deleteBoard" />
+    <create-board />
   </div>
 </template>
 
