@@ -32,9 +32,13 @@ const deleteBoard = (boardId) => {
 </script>
 
 <template>
-  <div class="w-full grid grid-cols-5 gap-8">
-    <board v-for="board in boards" :key="board.id" :board="board" @delete-board="deleteBoard" />
-    <create-board />
+  <div class="flex flex-col gap-8">
+    <span class="font-exclamation text-xl">My Boards</span>
+
+    <div class="w-full grid grid-cols-5 gap-8">
+      <board v-for="board in boards" :key="board.id" :board="board" @delete-board="deleteBoard" />
+      <create-board />
+    </div>
   </div>
 </template>
 

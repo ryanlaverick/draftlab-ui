@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=BBH+Bartle&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap');
 @import 'tailwindcss';
 
 @theme {
-  --font-exclamation: 'BBH Bartle', sans-serif;
+  --font-exclamation: 'Goldman', sans-serif;
   --font-base: 'Atkinson Hyperlegible Mono ', sans-serif;
   --color-darkest: #0b132b;
   --color-dark: #1c2541;
