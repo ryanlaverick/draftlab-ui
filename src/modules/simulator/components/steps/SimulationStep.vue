@@ -178,7 +178,7 @@ watch(
             </div>
 
             <!-- Players -->
-            <div>
+            <div class="h-full bg-slate-100 rounded-md">
               <player
                 v-for="player in filteredPlayers"
                 :player="player"
@@ -186,6 +186,13 @@ watch(
                 :key="player.player_id"
                 @read-more="selectFocusPlayer"
               />
+
+              <div v-if="filteredPlayers.length === 0" class="w-full h-full flex items-center justify-center">
+                <div class="font-exclamation">
+                  <p><span class="font-bold">Oh No!</span> We couldn't find any Prospects matching your criteria!</p>
+                  <p>Why don't you try <span class="font-bold">altering your search</span> and trying again?</p>
+                </div>
+              </div>
             </div>
           </div>
 
