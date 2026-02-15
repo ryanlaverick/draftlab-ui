@@ -9,6 +9,7 @@ import PositionSelector from '@/modules/simulator/components/PositionSelector.vu
 import Player from '@/modules/simulator/components/Player.vue'
 import BaseInput from '@/components/BaseInput.vue'
 import FocusPlayerPanel from '@/modules/simulator/components/FocusPlayerPanel.vue'
+import BaseButton from '@/components/BaseButton.vue'
 
 const emits = defineEmits(['returnToSettings'])
 
@@ -58,7 +59,6 @@ const filterPosition = (position) => {
 }
 
 const selectFocusPlayer = (player) => {
-  console.log('fdjfgjd')
   focusPlayer.value = player
 }
 
@@ -189,8 +189,13 @@ watch(
             </div>
           </div>
 
-          <!-- Focus Player -->
-          <!-- <focus-player-panel v-show="focusPlayer" :player="focusPlayer" /> -->
+          <!-- Trade Centre, Focus Player -->
+          <div class="flex flex-col gap-4">
+            <base-button class="bg-green-600 h-16">Trade</base-button>
+
+            <!-- Focus Player -->
+            <!-- <focus-player-panel v-show="focusPlayer" :player="focusPlayer" /> -->
+          </div>
         </div>
       </div>
     </div>
