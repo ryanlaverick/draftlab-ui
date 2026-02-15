@@ -16,7 +16,7 @@
       <div
         v-if="isOpen"
         v-bind="$attrs"
-        class="absolute right-0 z-10 mt-2 w-64 origin-top-right rounded-md bg-base drop-shadow-lg drop-shadow-light text-white overflow-hidden transform -skew-x-12"
+        class="absolute right-0 z-10 mt-2 w-64 origin-top-right rounded-md bg-base drop-shadow-lg drop-shadow-light text-white overflow-hidden transform -skew-x-12 font-exclamation"
       >
         <slot />
       </div>
@@ -40,7 +40,7 @@
       <div
         v-if="isOpen"
         v-bind="$attrs"
-        class="absolute right-0 z-10 mt-2 w-64 origin-top-right rounded-md bg-base drop-shadow-lg drop-shadow-light text-white overflow-hidden transform -skew-x-12"
+        class="absolute right-0 z-10 mt-2 w-64 origin-top-right rounded-md bg-base drop-shadow-lg drop-shadow-light text-white overflow-hidden transform -skew-x-12 font-exclamation"
       >
         <slot />
       </div>
