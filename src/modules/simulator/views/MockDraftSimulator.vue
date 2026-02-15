@@ -41,13 +41,23 @@ const updateSettings = (newSettings) => {
 
 <template>
   <div class="w-full">
-    <keep-alive>
-      <component
-        :is="activeStep.component"
-        @update-settings="updateSettings"
-        @start-simulation="startSimulation"
-        @return-to-settings="returnToSettings"
-      />
-    </keep-alive>
+    <Transition
+      mode="out-in"
+      enter-active-class="transform transition-all ease-[cubic-bezier(0.4,0,0.2,1)]"
+      enter-from-class="translate-x-8 opacity-0"
+      enter-to-class="translate-x-0 opacity-100"
+      leave-active-class="transform transition-all ease-[cubic-bezier(0.4,0,0.2,1)]"
+      leave-from-class="translate-x-0 opacity-100"
+      leave-to-class="-translate-x-8 opacity-0"
+    >
+      <keep-alive>
+        <component
+          :is="activeStep.component"
+          @update-settings="updateSettings"
+          @start-simulation="startSimulation"
+          @return-to-settings="returnToSettings"
+        />
+      </keep-alive>
+    </Transition>
   </div>
 </template>
