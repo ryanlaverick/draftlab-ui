@@ -32,7 +32,17 @@ import DropdownLink from '@/components/DropdownLink.vue'
       </div>
     </div>
 
-    <!-- Content -->
-    <router-view />
+    <Transition
+      mode="out-in"
+      enter-active-class="transform transition-all duration-600 ease-[cubic-bezier(0.4,0,0.2,1)]"
+      enter-from-class="translate-x-8 opacity-0"
+      enter-to-class="translate-x-0 opacity-100"
+      leave-active-class="transform transition-all duration-600 ease-[cubic-bezier(0.4,0,0.2,1)]"
+      leave-from-class="translate-x-0 opacity-100"
+      leave-to-class="-translate-x-8 opacity-0"
+    >
+      <!-- Content -->
+      <router-view />
+    </Transition>
   </div>
 </template>
