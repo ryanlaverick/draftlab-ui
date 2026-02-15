@@ -1,7 +1,8 @@
 <script setup>
 import usePositions from '@/composables/usePositions.js'
-import BaseAccordion from '@/components/BaseAccordion.vue'
 import PositionFilter from '@/modules/simulator/components/PositionFilter.vue'
+import BaseDropdown from '@/components/BaseDropdown.vue'
+import { Icon } from '@iconify/vue'
 const { positions } = usePositions()
 
 defineProps({
@@ -19,19 +20,30 @@ const selectPosition = (position) => {
 </script>
 
 <template>
-  <base-accordion :opened-by-default="false">
-    Positions: {{ selectedPositions.join(', ') }}
+  <base-dropdown trigger="click" class="!-skew-x-0 !w-full !">
+    <template #trigger="{ open }">
+      <div
+        class="w-full uppercase text-xs font-bold text-white flex items-center justify-between gap-2 cursor-pointer hover:text-light duration-300 sticky top-0 z-10 bg-darkest p-4 rounded-t-md"
+      >
+        <span>Positions: {{ selectedPositions.join(', ') }}</span>
 
-    <template #content>
-      <div class="flex flex-col gap-2">
-        <position-filter
-          v-for="position in positions"
-          :key="position.id"
-          :selected-positions="selectedPositions"
-          :position="position"
-          @toggle-position="selectPosition"
+        <Icon
+          icon="mdi:chevron-right"
+          class="transition-transform duration-300 size-4"
+          :class="{ 'rotate-90': open }"
         />
       </div>
     </template>
-  </base-accordion>
+
+    <div class="flex flex-col">
+      <position-filter
+        v-for="position in positions"
+        :key="position.id"
+        :selected-positions="selectedPositions"
+        :position="position"
+        @toggle-position="selectPosition"
+        class="!first:rounded-t-md !last:rounded-b-md !rounded-none"
+      />
+    </div>
+  </base-dropdown>
 </template>

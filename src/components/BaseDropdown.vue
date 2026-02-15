@@ -1,7 +1,7 @@
 <template>
   <div v-if="trigger === 'hover'" class="relative inline-block text-left" @mouseenter="openMenu" @mouseleave="closeMenu">
     <div>
-      <slot name="trigger" />
+      <slot name="trigger" :open="isOpen" />
     </div>
 
     <!-- Dropdown -->
@@ -25,7 +25,7 @@
 
   <div v-else-if="trigger === 'click'" class="relative inline-block text-left" @click="openMenu" v-on-click-outside="closeMenu">
     <div>
-      <slot name="trigger" />
+      <slot name="trigger" :open="isOpen" />
     </div>
 
     <!-- Dropdown -->
