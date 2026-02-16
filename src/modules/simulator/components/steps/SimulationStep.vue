@@ -21,6 +21,8 @@ const draftOrder = ref()
 const filterPositions = ref([])
 const filterSearch = ref('')
 const focusPlayer = ref({})
+const currentPage = ref(1)
+const pageSize = 10
 
 const returnToSettings = () => {
   emits('returnToSettings')
@@ -32,9 +34,10 @@ const filteredPlayers = computed(() => {
       return players.value
     }
 
-    return players.value.filter((player) =>
-      player.player.toLowerCase().includes(filterSearch.value.toString().toLowerCase()),
-    )
+    return players.value
+      .filter((player) =>
+        player.player.toLowerCase().includes(filterSearch.value.toString().toLowerCase()),
+      )
   }
 
   if (filterSearch.value.length > 0) {
@@ -45,7 +48,27 @@ const filteredPlayers = computed(() => {
       )
   }
 
-  return players.value.filter((player) => filterPositions.value.indexOf(player.position) !== -1)
+  return players.value
+    .filter((player) => filterPositions.value.indexOf(player.position) !== -1)
+})
+
+const paginatedPlayers = computed(() => filteredPlayers.value.slice(((currentPage.value - 1) * pageSize), pageSize))
+
+const pageRange = computed(() => {
+  let pages = []
+  let maxPage = (filteredPlayers.value.length ?? 0 / pageSize) + 1
+
+  let shouldHavePreviousPage = (currentPage.value - 1) > 1
+  if (shouldHavePreviousPage) {
+    pages.push(currentPage.value - 1)
+  }
+
+  pages.push(currentPage.value)
+  pages.push(currentPage.value + 1)
+  pages.push(currentPage.value + 2)
+  pages.push(maxPage)
+
+  return pages
 })
 
 const filterPosition = (position) => {
@@ -178,16 +201,24 @@ watch(
             </div>
 
             <!-- Players -->
-            <div class="h-full bg-slate-100 rounded-md">
-              <player
-                v-for="player in filteredPlayers"
-                :player="player"
-                :is-picking="true"
-                :key="player.player_id"
-                @read-more="selectFocusPlayer"
-              />
+            <div class="h-full rounded-md flex flex-col gap-4">
+              <div class="h-full">
+                <player
+                  v-for="player in paginatedPlayers"
+                  :player="player"
+                  :is-picking="true"
+                  :key="player.player_id"
+                  @read-more="selectFocusPlayer"
+                />
+              </div>
 
-              <div v-if="filteredPlayers.length === 0" class="w-full h-full flex items-center justify-center">
+              <div class="flex gap-2">
+                <span v-for="i in pageRange" :key="i">
+                  {{ i }}
+                </span>
+              </div>
+
+              <div v-if="filteredPlayers.length === 0" class="w-full h-full bg-slate-100 rounded-md flex items-center justify-center">
                 <div class="font-exclamation">
                   <p><span class="font-bold">Oh No!</span> We couldn't find any Prospects matching your criteria!</p>
                   <p>Why don't you try <span class="font-bold">altering your search</span> and trying again?</p>

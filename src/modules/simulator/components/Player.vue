@@ -31,7 +31,7 @@ const readMore = () => {
 
 <template>
   <div
-    class="w-full border-y border-y-slate-200 hover:bg-slate-200 duration-300 p-4 flex items-center justify-between gap-8 snap-start cursor-pointer"
+    class="w-full border-y border-y-slate-200 bg-slate-100 hover:bg-slate-200 duration-300 p-4 flex items-center justify-between gap-8 snap-start cursor-pointer"
   >
     <div class="flex items-center gap-4">
       <school-logo v-if="getSchool" :school="getSchool" class="size-10" />
