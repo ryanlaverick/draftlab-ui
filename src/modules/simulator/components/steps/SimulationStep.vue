@@ -16,6 +16,7 @@ const emits = defineEmits(['returnToSettings'])
 const teams = useTeams
 const { getPlayers: players, loadPlayers } = usePlayers()
 
+const isStarted = ref(false)
 const currentPick = ref(0)
 const draftOrder = ref()
 const filterPositions = ref([])
@@ -83,6 +84,10 @@ const filterPosition = (position) => {
 
 const selectFocusPlayer = (player) => {
   focusPlayer.value = player
+}
+
+const startDraft = () => {
+  isStarted.value = true
 }
 
 onMounted(() => {
@@ -166,6 +171,10 @@ watch(
       <div
         class="col-span-3 bg-dark rounded-md p-4 text-white h-[800px] overflow-y-auto flex flex-col gap-2"
       >
+        <div class="w-full">
+          <base-button class="bg-green-600 h-16 w-full" :disabled="isStarted" @click="startDraft">Start Draft</base-button>
+        </div>
+
         <span class="font-exclamation text-md text-white">Picks</span>
 
         <div v-if="draftOrder" class="flex flex-col gap-4">
@@ -201,24 +210,27 @@ watch(
             </div>
 
             <!-- Players -->
-            <div class="h-full rounded-md flex flex-col gap-4">
-              <div class="h-full">
-                <player
-                  v-for="player in paginatedPlayers"
-                  :player="player"
-                  :is-picking="true"
-                  :key="player.player_id"
-                  @read-more="selectFocusPlayer"
-                />
+            <div class="h-full rounded-md">
+              <div v-if="filteredPlayers.length > 0" class="h-full flex flex-col gap-4">
+                <div>
+                  <player
+                    v-for="player in paginatedPlayers"
+                    :player="player"
+                    :is-picking="true"
+                    :key="player.player_id"
+                    @read-more="selectFocusPlayer"
+                  />
+                </div>
+
+
+                <div class="flex gap-2">
+                  <span v-for="i in pageRange" :key="i">
+                    {{ i }}
+                  </span>
+                </div>
               </div>
 
-              <div class="flex gap-2">
-                <span v-for="i in pageRange" :key="i">
-                  {{ i }}
-                </span>
-              </div>
-
-              <div v-if="filteredPlayers.length === 0" class="w-full h-full bg-slate-100 rounded-md flex items-center justify-center">
+              <div v-else class="w-full h-full bg-slate-100 rounded-md flex items-center justify-center">
                 <div class="font-exclamation">
                   <p><span class="font-bold">Oh No!</span> We couldn't find any Prospects matching your criteria!</p>
                   <p>Why don't you try <span class="font-bold">altering your search</span> and trying again?</p>
