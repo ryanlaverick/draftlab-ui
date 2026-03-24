@@ -32,10 +32,11 @@ const returnToSettings = () => {
 const filteredPlayers = computed(() => {
   if (filterPositions.value.length === 0) {
     if (filterSearch.value.length === 0) {
-      return players.value
+      return players.value.filter((player) => !player.is_drafted)
     }
 
     return players.value
+      .filter((player) => !player.is_drafted)
       .filter((player) =>
         player.player.toLowerCase().includes(filterSearch.value.toString().toLowerCase()),
       )
@@ -43,6 +44,7 @@ const filteredPlayers = computed(() => {
 
   if (filterSearch.value.length > 0) {
     return players.value
+      .filter((player) => !player.is_drafted)
       .filter((player) => filterPositions.value.indexOf(player.position) !== -1)
       .filter((player) =>
         player.player.toLowerCase().includes(filterSearch.value.toString().toLowerCase()),
@@ -50,6 +52,7 @@ const filteredPlayers = computed(() => {
   }
 
   return players.value
+    .filter((player) => !player.is_drafted)
     .filter((player) => filterPositions.value.indexOf(player.position) !== -1)
 })
 
@@ -88,6 +91,28 @@ const selectFocusPlayer = (player) => {
 
 const startDraft = () => {
   isStarted.value = true
+}
+
+const draftPlayer = (player) => {
+  const eligiblePlayer = paginatedPlayers.value.filter((p) => p.player_id === player.player_id)[0]
+  eligiblePlayer.is_drafted = true
+
+  Object.values(draftOrder.value).forEach(function (picks) {
+    picks.forEach(function (pick) {
+      if (pick.pick.pick === currentPick.value) {
+        pick.player = eligiblePlayer
+
+        pick.onTheClock = false
+        pick.nextUp = false
+      }
+    })
+  })
+
+  advancePick()
+}
+
+const advancePick = () => {
+  currentPick.value += 1
 }
 
 onMounted(() => {
@@ -219,6 +244,7 @@ watch(
                     :is-picking="true"
                     :key="player.player_id"
                     @read-more="selectFocusPlayer"
+                    @draft="draftPlayer"
                   />
                 </div>
 

@@ -7,7 +7,7 @@ const state = reactive({
 export default function usePlayers() {
   const getPlayers = computed(() => state.players)
 
-  const addPlayer = (player) => state.players.push(player)
+  const addPlayer = (player) => state.players.push(Object.assign(player, { is_drafted: false, draft_position: null, drafted_by: null, consensus_board: 0 }))
 
   const loadPlayers = async () => {
     let players = await fetch('/assets/players/alt_players.json')

@@ -18,7 +18,7 @@ const props = defineProps({
   },
 })
 
-const emits = defineEmits(['readMore'])
+const emits = defineEmits(['readMore', 'draft'])
 
 const getSchool = computed(() => {
   return schools.find((school) => school.shortName === props.player?.team_name)
@@ -26,6 +26,10 @@ const getSchool = computed(() => {
 
 const readMore = () => {
   emits('readMore', { ...props.player, team: { ...getSchool.value } })
+}
+
+const draftPlayer = () => {
+  emits('draft', props.player)
 }
 </script>
 
@@ -48,7 +52,7 @@ const readMore = () => {
     </div>
 
     <div class="flex items-center gap-4">
-      <base-button v-if="isPicking" class="bg-green-600 text-white"> Draft </base-button>
+      <base-button v-if="isPicking" class="bg-green-600 text-white" @click="draftPlayer"> Draft </base-button>
 
       <div
         class="flex items-center gap-1 text-dark/70 hover:text-light duration-300 underline"

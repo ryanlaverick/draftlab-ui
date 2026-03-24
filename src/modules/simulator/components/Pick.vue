@@ -23,7 +23,7 @@ const getStatus = computed(() => {
     return 'Upcoming'
   }
 
-  return props.pick.player?.name
+  return 'Picked'
 })
 
 const getIcon = computed(() => {
@@ -50,14 +50,18 @@ const getIcon = computed(() => {
     </div>
 
     <div class="p-2 w-full flex items-center justify-between gap-4">
-      <span class="text-sm font-semibold">Pick {{ pick.pick.pick }}</span>
+      <span class="flex items-center gap-2">
+        <span class="text-sm font-semibold">#{{ pick.pick.pick }}</span>
+        <span v-if="pick.player" class="text-sm">{{ pick.player.player }}, {{ pick.player.position }} - {{ pick.player.team_name }}</span>
+      </span>
+
 
       <div
-        class="flex items-center gap-1"
+        class="flex gap-1"
         :class="{
           'text-orange-300': pick.onTheClock,
           'text-blue-300': pick.nextUp,
-          'text-green-300': props.pick.player,
+          'text-green-300': pick.player,
         }"
       >
         <Icon :icon="getIcon" class="size-4" />
