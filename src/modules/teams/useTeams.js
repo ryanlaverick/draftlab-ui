@@ -7,31 +7,31 @@ const teams = [
       2026: [
         {
           round: 1,
-          pick: 5,
+          pick: 3,
           from: null,
           compensatory: false,
         },
         {
           round: 2,
-          pick: 37,
+          pick: 34,
           from: null,
           compensatory: false,
         },
         {
           round: 3,
-          pick: 69,
+          pick: 65,
           from: null,
           compensatory: false,
         },
         {
           round: 4,
-          pick: 105,
+          pick: 104,
           from: null,
           compensatory: false,
         },
         {
           round: 5,
-          pick: 144,
+          pick: 143,
           from: null,
           compensatory: false,
         },
@@ -43,55 +43,11 @@ const teams = [
         },
         {
           round: 7,
-          pick: 218,
+          pick: 217,
           from: null,
           compensatory: false,
         },
-      ],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-      ],
+      ]
     },
   },
   {
@@ -102,79 +58,35 @@ const teams = [
       2026: [
         {
           round: 2,
-          pick: 44,
+          pick: 48,
           from: null,
           compensatory: false,
         },
         {
           round: 3,
-          pick: 76,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 3,
-          pick: 112,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 5,
-          pick: 151,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 7,
-          pick: 225,
-          from: null,
-          compensatory: false,
-        },
-      ],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 3,
-          pick: null,
+          pick: 79,
           from: null,
           compensatory: false,
         },
         {
           round: 4,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
+          pick: 122,
+          from: "PHI",
           compensatory: false,
         },
         {
           round: 6,
-          pick: null,
-          from: null,
-          compensatory: false,
+          pick: 215,
+          from: "PHI",
+          compensatory: true,
         },
         {
           round: 7,
-          pick: null,
+          pick: 231,
           from: null,
           compensatory: false,
         },
-      ],
+      ]
     },
   },
   {
@@ -185,13 +97,13 @@ const teams = [
       2026: [
         {
           round: 1,
-          pick: 16,
+          pick: 14,
           from: null,
           compensatory: false,
         },
         {
           round: 2,
-          pick: 48,
+          pick: 45,
           from: null,
           compensatory: false,
         },
@@ -203,84 +115,53 @@ const teams = [
         },
         {
           round: 4,
-          pick: 116,
+          pick: 115,
           from: null,
           compensatory: false,
         },
         {
           round: 5,
-          pick: 142,
-          from: 'NYJ',
-          compensatory: false,
-        },
-        {
-          round: 5,
-          pick: 155,
+          pick: 154,
           from: null,
           compensatory: false,
         },
         {
           round: 5,
-          pick: 172,
+          pick: 162,
+          from: "LAC",
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 173,
           from: null,
           compensatory: true,
         },
         {
           round: 5,
-          pick: 175,
+          pick: 174,
           from: null,
           compensatory: true,
-        },
-        {
-          round: 7,
-          pick: 229,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 7,
-          pick: 246,
-          from: null,
-          compensatory: true,
-        },
-      ],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
         },
         {
           round: 6,
-          pick: null,
-          from: null,
+          pick: 211,
+          from: "DEN",
+          compensatory: false,
         },
         {
           round: 7,
-          pick: null,
+          pick: 250,
           from: null,
+          compensatory: true,
         },
-      ],
+        {
+          round: 7,
+          pick: 253,
+          from: null,
+          compensatory: true,
+        },
+      ]
     },
   },
   {
@@ -291,98 +172,48 @@ const teams = [
       2026: [
         {
           round: 1,
-          pick: 23,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 2,
-          pick: 55,
+          pick: 26,
           from: null,
           compensatory: false,
         },
         {
           round: 3,
-          pick: 87,
+          pick: 91,
           from: null,
           compensatory: false,
         },
         {
           round: 4,
-          pick: 123,
+          pick: 126,
           from: null,
           compensatory: false,
         },
         {
           round: 5,
-          pick: 162,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 7,
-          pick: 216,
-          from: 'NYJ',
-          compensatory: false,
-        },
-        {
-          round: 7,
-          pick: 227,
-          from: 'DAL',
-          compensatory: false,
-        },
-        {
-          round: 7,
-          pick: 236,
-          from: null,
-          compensatory: false,
-        },
-      ],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
+          pick: 165,
+          from: "CHI",
           compensatory: false,
         },
         {
           round: 5,
-          pick: null,
+          pick: 168,
           from: null,
           compensatory: false,
         },
         {
           round: 6,
-          pick: null,
-          from: null,
+          pick: 182,
+          from: "NYJ",
           compensatory: false,
         },
         {
           round: 7,
-          pick: null,
-          from: null,
+          pick: 220,
+          from: "NYJ",
           compensatory: false,
         },
-      ],
-    },
+      ]
+    }
   },
   {
     name: 'Carolina Panthers',
@@ -394,76 +225,46 @@ const teams = [
           round: 1,
           pick: 19,
           from: null,
+          compensatory: false,
         },
         {
           round: 2,
           pick: 51,
           from: null,
+          compensatory: false,
         },
         {
           round: 3,
           pick: 83,
           from: null,
+          compensatory: false,
         },
         {
           round: 4,
           pick: 119,
           from: null,
+          compensatory: false,
         },
         {
           round: 5,
           pick: 158,
-          from: null,
-        },
-        {
-          round: 6,
-          pick: 197,
-          from: null,
-        },
-        {
-          round: 7,
-          pick: 232,
-          from: null,
-        },
-      ],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
+          from: "MIN",
+          compensatory: false,
         },
         {
           round: 5,
-          pick: null,
+          pick: 159,
           from: null,
+          compensatory: false,
         },
         {
           round: 6,
-          pick: null,
+          pick: 200,
           from: null,
+          compensatory: false,
         },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-        },
-      ],
-    },
+      ]
+    }
   },
   {
     name: 'Chicago Bears',
@@ -473,98 +274,48 @@ const teams = [
       2026: [
         {
           round: 1,
-          pick: 29,
+          pick: 25,
           from: null,
           compensatory: false,
         },
         {
           round: 2,
-          pick: 61,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 3,
-          pick: 93,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 4,
-          pick: 124,
-          from: 'LAR',
-          compensatory: false,
-        },
-        {
-          round: 5,
-          pick: 168,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 6,
-          pick: 207,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 7,
-          pick: 242,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 7,
-          pick: 248,
-          from: null,
-          compensatory: true,
-        },
-      ],
-      2027: [
-        {
-          round: 1,
-          pick: null,
+          pick: 57,
           from: null,
           compensatory: false,
         },
         {
           round: 2,
-          pick: null,
-          from: null,
+          pick: 60,
+          from: "BUF",
           compensatory: false,
         },
         {
           round: 3,
-          pick: null,
+          pick: 89,
           from: null,
           compensatory: false,
         },
         {
           round: 4,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: null,
+          pick: 129,
+          from: "LAR",
           compensatory: false,
         },
         {
           round: 7,
-          pick: null,
+          pick: 239,
+          from: "PHI",
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 241,
           from: null,
           compensatory: false,
         },
-      ],
-    },
+      ]
+    }
   },
   {
     name: 'Cincinnati Bengals',
@@ -580,13 +331,13 @@ const teams = [
         },
         {
           round: 2,
-          pick: 42,
+          pick: 41,
           from: null,
           compensatory: false,
         },
         {
           round: 3,
-          pick: 74,
+          pick: 72,
           from: null,
           compensatory: false,
         },
@@ -597,75 +348,31 @@ const teams = [
           compensatory: false,
         },
         {
-          round: 5,
-          pick: 149,
+          round: 6,
+          pick: 189,
           from: null,
           compensatory: false,
         },
         {
           round: 6,
-          pick: 188,
-          from: null,
+          pick: 199,
+          from: "DET",
           compensatory: false,
         },
         {
           round: 7,
-          pick: 223,
-          from: null,
+          pick: 221,
+          from: "NYG",
           compensatory: false,
         },
         {
           round: 7,
-          pick: 252,
-          from: null,
-          compensatory: true,
-        },
-      ],
-      2027: [
-        {
-          round: 1,
-          pick: null,
+          pick: 226,
           from: null,
           compensatory: false,
         },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-      ],
-    },
+      ]
+    }
   },
   {
     name: 'Cleveland Browns',
@@ -681,13 +388,13 @@ const teams = [
         },
         {
           round: 1,
-          pick: 27,
-          from: 'JAX',
+          pick: 24,
+          from: "JAX",
           compensatory: false,
         },
         {
           round: 2,
-          pick: 38,
+          pick: 39,
           from: null,
           compensatory: false,
         },
@@ -699,14 +406,956 @@ const teams = [
         },
         {
           round: 4,
-          pick: 106,
+          pick: 107,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 146,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 149,
+          from: "CIN",
+          compensatory: false,
+        },
+        {
+          round: 6,
+          pick: 206,
+          from: "CHI",
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 248,
+          from: "SEA",
+          compensatory: false,
+        },
+      ]
+    }
+  },
+  {
+    name: 'Dallas Cowboys',
+    shortName: 'DAL',
+    image: '/assets/team/dallas-cowboys-logo.png',
+    picks: {
+      2026: [
+        {
+          round: 1,
+          pick: 12,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 1,
+          pick: 20,
+          from: "GB",
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 92,
+          from: "SF",
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 112,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 152,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 177,
+          from: null,
+          compensatory: true,
+        },
+        {
+          round: 5,
+          pick: 180,
+          from: null,
+          compensatory: true,
+        },
+        {
+          round: 7,
+          pick: 218,
+          from: "TEN",
+          compensatory: false,
+        },
+      ]
+    }
+  },
+  {
+    name: 'Denver Broncos',
+    shortName: 'DEN',
+    image: '/assets/team/denver-broncos-logo.png',
+    picks: {
+      2026: [
+        {
+          round: 2,
+          pick: 62,
           from: null,
           compensatory: false,
         },
         {
           round: 4,
-          pick: 140,
-          from: 'LV',
+          pick: 108,
+          from: "NO",
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 111,
+          from: "MIA",
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 170,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 246,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 256,
+          from: null,
+          compensatory: true,
+        },
+        {
+          round: 7,
+          pick: 257,
+          from: null,
+          compensatory: true,
+        },
+      ]
+    }
+  },
+  {
+    name: 'Detroit Lions',
+    shortName: 'DET',
+    image: '/assets/team/detroit-lions-logo.png',
+    picks: {
+      2026: [
+        {
+          round: 1,
+          pick: 17,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 2,
+          pick: 50,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 118,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 128,
+          from: "HOU",
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 157,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 181,
+          from: null,
+          compensatory: true,
+        },
+        {
+          round: 6,
+          pick: 205,
+          from: "JAX",
+          compensatory: false,
+        },
+        {
+          round: 6,
+          pick: 213,
+          from: "SEA",
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 222,
+          from: "CLE",
+          compensatory: false,
+        },
+      ]
+    }
+  },
+  {
+    name: 'Green Bay Packers',
+    shortName: 'GB',
+    image: '/assets/team/green-bay-packers-logo.png',
+    picks: {
+      2026: [
+        {
+          round: 2,
+          pick: 52,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 84,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 120,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 160,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 6,
+          pick: 201,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 236,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 255,
+          from: null,
+          compensatory: true,
+        },
+      ]
+    }
+  },
+  {
+    name: 'Houston Texans',
+    shortName: 'HOU',
+    image: '/assets/team/houston-texans-logo.png',
+    picks: {
+      2026: [
+        {
+          round: 1,
+          pick: 28,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 2,
+          pick: 38,
+          from: "WAS",
+          compensatory: false,
+        },
+        {
+          round: 2,
+          pick: 59,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 69,
+          from: "NYG",
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 106,
+          from: "WAS",
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 141,
+          from: "LVR",
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 167,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 243,
+          from: "SF",
+          compensatory: false,
+        },
+      ]
+    }
+  },
+  {
+    name: 'Indianapolis Colts',
+    shortName: 'IND',
+    image: '/assets/team/indianapolis-colts-logo.png',
+    picks: {
+      2026: [
+        {
+          round: 2,
+          pick: 47,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 78,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 113,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 156,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 6,
+          pick: 214,
+          from: null,
+          compensatory: true,
+        },
+        {
+          round: 7,
+          pick: 249,
+          from: null,
+          compensatory: true,
+        },
+        {
+          round: 7,
+          pick: 254,
+          from: null,
+          compensatory: true,
+        },
+      ]
+    }
+  },
+  {
+    name: 'Jacksonville Jaguars',
+    shortName: 'JAX',
+    image: '/assets/team/jacksonville-jaguars-logo.png',
+    picks: {
+      2026: [
+        {
+          round: 2,
+          pick: 52,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 81,
+          from: "DET",
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 88,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 100,
+          from: "DET",
+          compensatory: true,
+        },
+        {
+          round: 4,
+          pick: 124,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 164,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 166,
+          from: "SF",
+          compensatory: false,
+        },
+        {
+          round: 6,
+          pick: 203,
+          from: "PHI",
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 233,
+          from: "DET",
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 240,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 245,
+          from: "LAR",
+          compensatory: false,
+        },
+      ]
+    }
+  },
+  {
+    name: 'Kansas City Chiefs',
+    shortName: 'KC',
+    image: '/assets/team/kansas-city-chiefs-logo.png',
+    picks: {
+      2026: [
+        {
+          round: 1,
+          pick: 9,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 1,
+          pick: 29,
+          from: "LAR",
+          compensatory: false,
+        },
+        {
+          round: 2,
+          pick: 40,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 74,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 109,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 148,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 169,
+          from: "LAR",
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 176,
+          from: null,
+          compensatory: true,
+        },
+        {
+          round: 6,
+          pick: 210,
+          from: "LAR",
+          compensatory: false,
+        },
+      ]
+    }
+  },
+  {
+    name: 'Las Vegas Raiders',
+    shortName: 'LVR',
+    image: '/assets/team/las-vegas-raiders-logo.png',
+    picks: {
+      2026: [
+        {
+          round: 1,
+          pick: 1,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 2,
+          pick: 36,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 67,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 102,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 117,
+          from: "MIN",
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 134,
+          from: null,
+          compensatory: true,
+        },
+        {
+          round: 5,
+          pick: 175,
+          from: null,
+          compensatory: true,
+        },
+        {
+          round: 6,
+          pick: 185,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 6,
+          pick: 208,
+          from: "BUF",
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 219,
+          from: null,
+          compensatory: false,
+        },
+      ]
+    }
+  },
+  {
+    name: 'Los Angeles Chargers',
+    shortName: 'LAC',
+    image: '/assets/team/los-angeles-chargers-logo.png',
+    picks: {
+      2026: [
+        {
+          round: 1,
+          pick: 22,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 2,
+          pick: 55,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 86,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 123,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 6,
+          pick: 204,
+          from: null,
+          compensatory: false,
+        },
+      ]
+    }
+  },
+  {
+    name: 'Los Angeles Rams',
+    shortName: 'LAR',
+    image: '/assets/team/los-angeles-rams-logo.png',
+    picks: {
+      2026: [
+        {
+          round: 1,
+          pick: 13,
+          from: "ATL",
+          compensatory: false,
+        },
+        {
+          round: 2,
+          pick: 61,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 93,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 6,
+          pick: 207,
+          from: "HOU",
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 232,
+          from: "BAL",
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 251,
+          from: null,
+          compensatory: true,
+        },
+        {
+          round: 7,
+          pick: 252,
+          from: null,
+          compensatory: true,
+        },
+      ]
+    }
+  },
+  {
+    name: 'Miami Dolphins',
+    shortName: 'MIA',
+    image: '/assets/team/miami-dolphins-logo.png',
+    picks: {
+      2026: [
+        {
+          round: 1,
+          pick: 11,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 1,
+          pick: 30,
+          from: "DEN",
+          compensatory: false,
+        },
+        {
+          round: 2,
+          pick: 43,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 75,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 87,
+          from: "PHI",
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 90,
+          from: "HOU",
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 94,
+          from: "DEN",
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 130,
+          from: "DEN",
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 151,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 227,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 238,
+          from: "LAC",
+          compensatory: false,
+        },
+      ]
+    }
+  },
+  {
+    name: 'Minnesota Vikings',
+    shortName: 'MIN',
+    image: '/assets/team/minnesota-vikings-logo.png',
+    picks: {
+      2026: [
+        {
+          round: 1,
+          pick: 18,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 2,
+          pick: 49,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 82,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 97,
+          from: null,
+          compensatory: true,
+        },
+        {
+          round: 5,
+          pick: 163,
+          from: "PHI",
+          compensatory: false,
+        },
+        {
+          round: 6,
+          pick: 196,
+          from: "PHI",
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 234,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 235,
+          from: "CAR",
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 244,
+          from: "HOU",
+          compensatory: false,
+        },
+      ]
+    }
+  },
+  {
+    name: 'New England Patriots',
+    shortName: 'NE',
+    image: '/assets/team/new-england-patriots-logo.png',
+    picks: {
+      2026: [
+        {
+          round: 1,
+          pick: 31,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 2,
+          pick: 63,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 95,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 125,
+          from: "CHI",
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 131,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 171,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 6,
+          pick: 191,
+          from: "KC",
+          compensatory: false,
+        },
+        {
+          round: 6,
+          pick: 198,
+          from: "MIN",
+          compensatory: false,
+        },
+        {
+          round: 6,
+          pick: 202,
+          from: "PIT",
+          compensatory: false,
+        },
+        {
+          round: 6,
+          pick: 212,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 247,
+          from: null,
+          compensatory: false,
+        },
+      ]
+    }
+  },
+  {
+    name: 'New Orleans Saints',
+    shortName: 'NO',
+    image: '/assets/team/new-orleans-saints-logo.png',
+    picks: {
+      2026: [
+        {
+          round: 1,
+          pick: 8,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 2,
+          pick: 42,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 73,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 132,
+          from: "SEA",
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 136,
+          from: null,
+          compensatory: true,
+        },
+        {
+          round: 5,
+          pick: 150,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 172,
+          from: "SEA",
+          compensatory: false,
+        },
+        {
+          round: 6,
+          pick: 190,
+          from: null,
+          compensatory: false,
+        },
+      ]
+    }
+  },
+  {
+    name: 'New York Giants',
+    shortName: 'NYG',
+    image: '/assets/team/new-york-giants-logo.png',
+    picks: {
+      2026: [
+        {
+          round: 1,
+          pick: 5,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 2,
+          pick: 37,
+          from: null,
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 105,
+          from: null,
           compensatory: false,
         },
         {
@@ -716,1150 +1365,469 @@ const teams = [
           compensatory: false,
         },
         {
-          round: 7,
-          pick: 219,
+          round: 6,
+          pick: 186,
           from: null,
           compensatory: false,
         },
         {
-          round: 7,
-          pick: 238,
-          from: 'PHI',
-          compensatory: false,
-        },
-        {
-          round: 7,
-          pick: 245,
-          from: 'SEA',
-          compensatory: false,
-        },
-      ],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: 'HOU',
+          round: 6,
+          pick: 192,
+          from: "MIA",
           compensatory: false,
         },
         {
           round: 6,
-          pick: null,
-          from: null,
+          pick: 193,
+          from: "DAL",
           compensatory: false,
         },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-          compensatory: false,
-        },
-      ],
-    },
-  },
-  {
-    name: 'Dallas Cowboys',
-    shortName: 'DAL',
-    image: '/assets/team/dallas-cowboys-logo.png',
-    picks: {
-      2026: [],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 1,
-          pick: null,
-          from: 'GB',
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: 'PIT',
-        },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-        },
-      ],
-    },
-  },
-  {
-    name: 'Denver Broncos',
-    shortName: 'DEN',
-    image: '/assets/team/denver-broncos-logo.png',
-    picks: {
-      2026: [],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-        },
-      ],
-    },
-  },
-  {
-    name: 'Detroit Lions',
-    shortName: 'DET',
-    image: '/assets/team/detroit-lions-logo.png',
-    picks: {
-      2026: [],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-        },
-      ],
-    },
-  },
-  {
-    name: 'Green Bay Packers',
-    shortName: 'GB',
-    image: '/assets/team/green-bay-packers-logo.png',
-    picks: {
-      2026: [],
-      2027: [
-        {
-          round: 2,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-        },
-      ],
-    },
-  },
-  {
-    name: 'Houston Texans',
-    shortName: 'HOU',
-    image: '/assets/team/houston-texans-logo.png',
-    picks: {
-      2026: [],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-        },
-      ],
-    },
-  },
-  {
-    name: 'Indianapolis Colts',
-    shortName: 'IND',
-    image: '/assets/team/indianapolis-colts-logo.png',
-    picks: {
-      2026: [],
-      2027: [
-        {
-          round: 2,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-        },
-      ],
-    },
-  },
-  {
-    name: 'Jacksonville Jaguars',
-    shortName: 'JAX',
-    image: '/assets/team/jacksonville-jaguars-logo.png',
-    picks: {
-      2026: [],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-        },
-      ],
-    },
-  },
-  {
-    name: 'Kansas City Chiefs',
-    shortName: 'KC',
-    image: '/assets/team/kansas-city-chiefs-logo.png',
-    picks: {
-      2026: [],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-        },
-      ],
-    },
-  },
-  {
-    name: 'Las Vegas Raiders',
-    shortName: 'LVR',
-    image: '/assets/team/las-vegas-raiders-logo.png',
-    picks: {
-      2026: [],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-        },
-      ],
-    },
-  },
-  {
-    name: 'Los Angeles Chargers',
-    shortName: 'LAC',
-    image: '/assets/team/los-angeles-chargers-logo.png',
-    picks: {
-      2026: [],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-        },
-      ],
-    },
-  },
-  {
-    name: 'Los Angeles Rams',
-    shortName: 'LAR',
-    image: '/assets/team/los-angeles-rams-logo.png',
-    picks: {
-      2026: [],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-        },
-      ],
-    },
-  },
-  {
-    name: 'Miami Dolphins',
-    shortName: 'MIA',
-    image: '/assets/team/miami-dolphins-logo.png',
-    picks: {
-      2026: [],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-        },
-      ],
-    },
-  },
-  {
-    name: 'Minnesota Vikings',
-    shortName: 'MIN',
-    image: '/assets/team/minnesota-vikings-logo.png',
-    picks: {
-      2026: [],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 7,
-          pick: null,
-          from: 'PHI',
-        },
-      ],
-    },
-  },
-  {
-    name: 'New England Patriots',
-    shortName: 'NE',
-    image: '/assets/team/new-england-patriots-logo.png',
-    picks: {
-      2026: [],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-        },
-      ],
-    },
-  },
-  {
-    name: 'New Orleans Saints',
-    shortName: 'NO',
-    image: '/assets/team/new-orleans-saints-logo.png',
-    picks: {
-      2026: [],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-        },
-      ],
-    },
-  },
-  {
-    name: 'New York Giants',
-    shortName: 'NYG',
-    image: '/assets/team/new-york-giants-logo.png',
-    picks: {
-      2026: [],
-      2027: [
-        {
-          round: 1,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-        },
-      ],
-    },
+      ]
+    }
   },
   {
     name: 'New York Jets',
     shortName: 'NYJ',
     image: '/assets/team/new-york-jets-logo.png',
     picks: {
-      2026: [],
-      2027: [
+      2026: [
         {
           round: 1,
-          pick: null,
-          from: 'IND',
+          pick: 2,
+          from: null,
+          compensatory: false,
         },
         {
           round: 1,
-          pick: null,
-          from: null,
+          pick: 16,
+          from: "IND",
+          compensatory: false,
         },
         {
           round: 2,
-          pick: null,
+          pick: 33,
           from: null,
+          compensatory: false,
         },
         {
-          round: 3,
-          pick: null,
+          round: 2,
+          pick: 44,
           from: null,
+          compensatory: false,
         },
         {
           round: 4,
-          pick: null,
+          pick: 103,
           from: null,
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 140,
+          from: null,
+          compensatory: true,
         },
         {
           round: 5,
-          pick: null,
+          pick: 179,
           from: null,
-        },
-        {
-          round: 6,
-          pick: null,
-          from: null,
+          compensatory: true,
         },
         {
           round: 7,
-          pick: null,
-          from: null,
+          pick: 228,
+          from: "DEN",
+          compensatory: false,
         },
-      ],
-    },
+        {
+          round: 7,
+          pick: 242,
+          from: "BUF",
+          compensatory: false,
+        },
+      ]
+    }
   },
   {
     name: 'Philadelphia Eagles',
     shortName: 'PHI',
     image: '/assets/team/philadelphia-eagles-logo.png',
     picks: {
-      2026: [],
-      2027: [
+      2026: [
         {
           round: 1,
-          pick: null,
+          pick: 23,
           from: null,
+          compensatory: false,
         },
         {
           round: 2,
-          pick: null,
+          pick: 54,
           from: null,
+          compensatory: false,
         },
         {
           round: 3,
-          pick: null,
+          pick: 68,
+          from: "NYJ",
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 98,
           from: null,
+          compensatory: true,
         },
         {
           round: 4,
-          pick: null,
+          pick: 114,
+          from: "ATL",
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 137,
           from: null,
+          compensatory: true,
         },
         {
           round: 5,
-          pick: null,
+          pick: 153,
+          from: "ATL",
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 178,
           from: null,
+          compensatory: true,
         },
         {
           round: 6,
-          pick: null,
-          from: 'GB',
+          pick: 197,
+          from: "ATL",
+          compensatory: false,
         },
-        {
-          round: 6,
-          pick: null,
-          from: null,
-        },
-      ],
-    },
+      ]
+    }
   },
   {
     name: 'Pittsburgh Steelers',
     shortName: 'PIT',
     image: '/assets/team/pittsburgh-steelers-logo.png',
     picks: {
-      2026: [],
-      2027: [
+      2026: [
         {
           round: 1,
-          pick: null,
+          pick: 21,
           from: null,
+          compensatory: false,
         },
         {
           round: 2,
-          pick: null,
+          pick: 53,
           from: null,
+          compensatory: false,
         },
         {
           round: 3,
-          pick: null,
+          pick: 76,
+          from: "DAL",
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 85,
           from: null,
+          compensatory: false,
+        },
+        {
+          round: 3,
+          pick: 99,
+          from: null,
+          compensatory: true,
         },
         {
           round: 4,
-          pick: null,
+          pick: 121,
           from: null,
+          compensatory: false,
+        },
+        {
+          round: 4,
+          pick: 135,
+          from: null,
+          compensatory: true,
         },
         {
           round: 5,
-          pick: null,
-          from: 'DAL',
+          pick: 161,
+          from: null,
+          compensatory: false,
         },
         {
-          round: 5,
-          pick: null,
+          round: 6,
+          pick: 216,
           from: null,
+          compensatory: true,
         },
         {
           round: 7,
-          pick: null,
-          from: null,
+          pick: 224,
+          from: "NO",
+          compensatory: false,
         },
-      ],
-    },
+        {
+          round: 7,
+          pick: 230,
+          from: "IND",
+          compensatory: false,
+        },
+        {
+          round: 7,
+          pick: 237,
+          from: null,
+          compensatory: false,
+        },
+      ]
+    }
   },
   {
     name: 'San Francisco 49ers',
     shortName: 'SF',
     image: '/assets/team/san-francisco-49ers-logo.png',
     picks: {
-      2026: [],
-      2027: [
+      2026: [
         {
           round: 1,
-          pick: null,
+          pick: 27,
           from: null,
+          compensatory: false,
         },
         {
           round: 2,
-          pick: null,
+          pick: 58,
           from: null,
-        },
-        {
-          round: 3,
-          pick: null,
-          from: null,
+          compensatory: false,
         },
         {
           round: 4,
-          pick: null,
+          pick: 127,
           from: null,
+          compensatory: false,
         },
         {
-          round: 5,
-          pick: null,
+          round: 4,
+          pick: 133,
           from: null,
+          compensatory: true,
         },
         {
-          round: 6,
-          pick: null,
+          round: 4,
+          pick: 138,
           from: null,
+          compensatory: true,
         },
         {
-          round: 7,
-          pick: null,
+          round: 4,
+          pick: 139,
           from: null,
+          compensatory: true,
         },
-      ],
-    },
+      ]
+    }
   },
   {
     name: 'Seattle Seahawks',
     shortName: 'SEA',
     image: '/assets/team/seattle-seahawks-logo.png',
     picks: {
-      2026: [],
-      2027: [
+      2026: [
         {
           round: 1,
-          pick: null,
+          pick: 32,
           from: null,
+          compensatory: false,
         },
         {
           round: 2,
-          pick: null,
+          pick: 64,
           from: null,
+          compensatory: false,
         },
         {
           round: 3,
-          pick: null,
+          pick: 96,
           from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
-        },
-        {
-          round: 5,
-          pick: null,
-          from: null,
+          compensatory: false,
         },
         {
           round: 6,
-          pick: null,
-          from: null,
+          pick: 188,
+          from: "CLE",
+          compensatory: false,
         },
-        {
-          round: 7,
-          pick: null,
-          from: null,
-        },
-      ],
-    },
+      ]
+    }
   },
   {
     name: 'Tampa Bay Buccaneers',
     shortName: 'TB',
     image: '/assets/team/tampa-bay-buccaneers-logo.png',
     picks: {
-      2026: [],
-      2027: [
+      2026: [
         {
           round: 1,
-          pick: null,
+          pick: 15,
           from: null,
+          compensatory: false,
         },
         {
           round: 2,
-          pick: null,
+          pick: 46,
           from: null,
+          compensatory: false,
         },
         {
           round: 3,
-          pick: null,
+          pick: 77,
           from: null,
+          compensatory: false,
         },
         {
           round: 4,
-          pick: null,
+          pick: 116,
           from: null,
+          compensatory: false,
         },
         {
           round: 5,
-          pick: null,
+          pick: 155,
           from: null,
+          compensatory: false,
         },
         {
           round: 6,
-          pick: null,
+          pick: 195,
           from: null,
+          compensatory: false,
         },
         {
           round: 7,
-          pick: null,
+          pick: 229,
           from: null,
+          compensatory: false,
         },
-      ],
-    },
+      ]
+    }
   },
   {
     name: 'Tennessee Titans',
     shortName: 'TEN',
     image: '/assets/team/tennessee-titans-logo.png',
     picks: {
-      2026: [],
-      2027: [
+      2026: [
         {
           round: 1,
-          pick: null,
+          pick: 4,
           from: null,
+          compensatory: false,
         },
         {
           round: 2,
-          pick: null,
+          pick: 35,
           from: null,
+          compensatory: false,
         },
         {
           round: 3,
-          pick: null,
+          pick: 66,
           from: null,
+          compensatory: false,
         },
         {
           round: 4,
-          pick: null,
+          pick: 101,
           from: null,
+          compensatory: false,
         },
         {
           round: 5,
-          pick: null,
+          pick: 142,
+          from: "NYJ",
+          compensatory: false,
+        },
+        {
+          round: 5,
+          pick: 144,
           from: null,
+          compensatory: false,
         },
         {
           round: 6,
-          pick: null,
+          pick: 184,
           from: null,
+          compensatory: false,
+        },
+        {
+          round: 6,
+          pick: 194,
+          from: "BAL",
+          compensatory: false,
         },
         {
           round: 7,
-          pick: null,
-          from: null,
+          pick: 225,
+          from: "KC",
+          compensatory: false,
         },
-      ],
-    },
+      ]
+    }
   },
   {
     name: 'Washington Commanders',
     shortName: 'WAS',
     image: '/assets/team/washington-commanders-logo.png',
     picks: {
-      2026: [],
-      2027: [
+      2026: [
         {
           round: 1,
-          pick: null,
+          pick: 7,
           from: null,
-        },
-        {
-          round: 2,
-          pick: null,
-          from: null,
+          compensatory: false,
         },
         {
           round: 3,
-          pick: null,
+          pick: 71,
           from: null,
-        },
-        {
-          round: 4,
-          pick: null,
-          from: null,
+          compensatory: false,
         },
         {
           round: 5,
-          pick: null,
+          pick: 147,
           from: null,
+          compensatory: false,
         },
         {
           round: 6,
-          pick: null,
+          pick: 187,
           from: null,
+          compensatory: false,
+        },
+        {
+          round: 6,
+          pick: 209,
+          from: "SF",
+          compensatory: false,
         },
         {
           round: 7,
-          pick: null,
+          pick: 223,
           from: null,
+          compensatory: false,
         },
-      ],
-    },
+      ]
+    }
   },
 ]
 
