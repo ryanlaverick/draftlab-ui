@@ -111,6 +111,18 @@ const draftPlayer = (player) => {
   advancePick()
 }
 
+const getCompletedPicks = (picks) => {
+  let completed = 0
+
+  picks.forEach((pick) => {
+    if (pick.player) {
+      completed += 1
+    }
+  })
+
+  return completed
+}
+
 const advancePick = () => {
   currentPick.value += 1
 }
@@ -204,7 +216,10 @@ watch(
 
         <div v-if="draftOrder" class="flex flex-col gap-4">
           <base-accordion v-for="[round, picks] of Object.entries(draftOrder)" :key="round">
-            Round {{ round }}
+            <div class="flex gap-4 justify-between w-full">
+              <span>Round {{ round }}</span>
+              <span :class="{ '!text-green-600': getCompletedPicks(picks) === picks.length }" class="text-red-600">{{ getCompletedPicks(picks) }} / {{ picks.length }}</span>
+            </div>
 
             <template #content>
               <pick v-for="pick in picks" :key="pick.pick" :pick="pick" class="mb-2 last:mb-0" />

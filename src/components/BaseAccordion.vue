@@ -27,9 +27,7 @@ const expanded = ref(props.openedByDefault)
         :class="{ 'rotate-90': expanded }"
       />
 
-      <span>
-        <slot />
-      </span>
+      <slot />
     </div>
 
     <!-- Accordion Body -->
