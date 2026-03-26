@@ -165,7 +165,7 @@ watch(
                 >
                   <Icon icon="charm:minus" class="size-2" @click="unselectTeam(team)" />
                 </div>
-                <team-logo :team="team" class="size-6" />
+                <team-logo :team="team" />
               </div>
             </TransitionGroup>
           </option-wrapper>
