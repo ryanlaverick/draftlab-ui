@@ -12,6 +12,12 @@ import FocusPlayerPanel from '@/modules/simulator/components/FocusPlayerPanel.vu
 import BaseButton from '@/components/BaseButton.vue'
 
 const emits = defineEmits(['returnToSettings'])
+const props = defineProps({
+  settings: {
+    type: Object,
+    required: true
+  }
+})
 
 const teams = useTeams
 const { getPlayers: players, loadPlayers } = usePlayers()
@@ -128,18 +134,19 @@ const advancePick = () => {
 }
 
 onMounted(() => {
-  let draftOrderByRound = {
-    1: [],
-    2: [],
-    3: [],
-    4: [],
-    5: [],
-    6: [],
-    7: [],
+  let roundsToMock = props.settings.rounds
+  let draftOrderByRound = {}
+  
+  for (let index = 1; index <= roundsToMock; index++) {
+    draftOrderByRound[index] = []
   }
 
   teams.forEach((team) => {
     team.picks[2026].forEach((pick) => {
+      if (pick.round > roundsToMock) {
+        return;
+      }
+
       draftOrderByRound[pick.round].push({
         pick,
         team: {

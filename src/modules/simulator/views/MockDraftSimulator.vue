@@ -18,7 +18,7 @@ const steps = ref([
   },
 ])
 
-const settings = ref()
+const settings = ref({})
 
 const activeStep = computed(() => {
   return steps.value.find((step) => step.active)
@@ -53,6 +53,7 @@ const updateSettings = (newSettings) => {
       <keep-alive>
         <component
           :is="activeStep.component"
+          :settings="settings"
           @update-settings="updateSettings"
           @start-simulation="startSimulation"
           @return-to-settings="returnToSettings"
