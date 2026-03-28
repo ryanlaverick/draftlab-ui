@@ -65,6 +65,25 @@ const selectRounds = (rounds) => {
 const allTeamsSelected = computed(() => options.selectedTeams.length === 32)
 const noTeamsSelected = computed(() => options.selectedTeams.length === 0)
 
+const orderedTeams = computed(() => {
+  let teamsToOrder = teams
+
+  return teamsToOrder.sort((a, b) => {
+    let aPick = a.picks[2026][0].pick
+    let bPick = b.picks[2026][0].pick
+
+    if (aPick < bPick) {
+      return -1
+    }
+
+    if (aPick > bPick) {
+      return 1
+    }
+
+    return 0
+  })
+})
+
 const startSimulation = () => {
   emits('startSimulation')
 }
@@ -191,7 +210,7 @@ watch(
       <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
         <team
           :key="team.shortName"
-          v-for="team in teams"
+          v-for="team in orderedTeams"
           :team="team"
           :selected="isTeamSelected(team)"
           @click-team="selectTeam"
