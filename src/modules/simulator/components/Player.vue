@@ -52,7 +52,22 @@ const draftPlayer = () => {
     </div>
 
     <div class="flex items-center gap-4">
-      <base-button v-if="isPicking" class="bg-green-600 text-white" @click="draftPlayer"> Draft </base-button>
+      <Transition
+        enter-active-class="transition transform duration-300 ease-out"
+        enter-from-class="translate-x-2 opacity-0"
+        enter-to-class="translate-x-0 opacity-100"
+        leave-active-class="transition transform duration-300 ease-in"
+        leave-from-class="translate-x-0 opacity-100"
+        leave-to-class="translate-x-2 opacity-0"
+      >
+        <base-button
+          v-if="isPicking"
+          class="bg-green-600 text-white"
+          @click="draftPlayer"
+        >
+          Draft
+        </base-button>
+      </Transition>
 
       <div
         class="flex items-center gap-1 text-dark/70 hover:text-light duration-300 underline"
