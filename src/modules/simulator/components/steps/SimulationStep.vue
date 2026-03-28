@@ -254,76 +254,84 @@ watch(
 
     <div class="w-full grid grid-cols-10 gap-4 rounded-md">
       <!-- Draft Order -->
-      <div
-        class="col-span-3 bg-dark rounded-md p-4 text-white h-[800px] overflow-y-auto flex flex-col gap-4"
-      >
-        <option-wrapper label="Simulation Speed">
-          <div class="flex items-center gap-2 justify-between">
-            <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 0.25, '!bg-light': simSpeed === 0.25 }" @click="updateSimSpeed(0.25)">
-              <span>x0.25</span>
-            </base-button>
+      <div class="col-span-3 h-[850px] flex flex-col gap-4">
+        <div
+          class="bg-dark rounded-md p-4 text-white h-[850px] overflow-y-auto flex flex-col gap-4"
+        >
+          <option-wrapper label="Simulation Speed">
+            <div class="flex items-center gap-2 justify-between">
+              <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 0.25, '!bg-light': simSpeed === 0.25 }" @click="updateSimSpeed(0.25)">
+                <span>x0.25</span>
+              </base-button>
 
-            <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 0.5, '!bg-light': simSpeed === 0.5 }" @click="updateSimSpeed(0.5)">
-              <span>x0.5</span>
-            </base-button>
+              <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 0.5, '!bg-light': simSpeed === 0.5 }" @click="updateSimSpeed(0.5)">
+                <span>x0.5</span>
+              </base-button>
 
-            <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 1, '!bg-light': simSpeed === 1 }" @click="updateSimSpeed(1)">
-              <span>x1</span>
-            </base-button>
+              <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 1, '!bg-light': simSpeed === 1 }" @click="updateSimSpeed(1)">
+                <span>x1</span>
+              </base-button>
 
-            <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 2, '!bg-light': simSpeed === 2 }" @click="updateSimSpeed(2)">
-              <span>x2</span>
-            </base-button>
+              <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 2, '!bg-light': simSpeed === 2 }" @click="updateSimSpeed(2)">
+                <span>x2</span>
+              </base-button>
 
-            <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 5, '!bg-light': simSpeed === 5 }" @click="updateSimSpeed(5)">
-              <span>x5</span>
-            </base-button>
+              <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 5, '!bg-light': simSpeed === 5 }" @click="updateSimSpeed(5)">
+                <span>x5</span>
+              </base-button>
+            </div>
+          </option-wrapper>
+
+
+
+          <span class="font-exclamation text-md text-white">Picks</span>
+
+          <div v-if="draftOrder" class="flex flex-col gap-4">
+            <base-accordion v-for="[round, picks] of Object.entries(draftOrder)" :key="round">
+              <div class="flex gap-4 justify-between w-full">
+                <span>Round {{ round }}</span>
+                <span :class="{ '!text-green-600': getCompletedPicks(picks) === picks.length }" class="text-red-600">{{ getCompletedPicks(picks) }} / {{ picks.length }}</span>
+              </div>
+
+              <template #content>
+                <pick
+                  v-for="pick in picks"
+                  :key="pick.pick"
+                  :pick="pick"
+                  :is-paused="isPaused"
+                  :sim-speed="simSpeed"
+                  @pick-expired="draftPlayerAutomatically"
+                  class="mb-2 last:mb-0"
+                />
+              </template>
+            </base-accordion>
           </div>
-        </option-wrapper>
+        </div>
 
-        <div class="w-full flex items-center gap-2 sticky top-0 z-20">
-          <base-button class="bg-green-600 h-16 w-full" :disabled="isStarted" @click="startDraft">Start Draft</base-button>
+        <div class="bg-dark rounded-md p-4">
+          <option-wrapper label="Controls">
+            <div class="w-full flex items-center gap-2">
+              <base-button class="bg-green-600 h-16 w-full" :disabled="isStarted" @click="startDraft">Start Draft</base-button>
 
-          <base-button v-if="isStarted" class="bg-green-600 h-16 w-full" @click="pauseDraft">
+              <base-button v-if="isStarted" class="bg-green-600 h-16 w-full" @click="pauseDraft">
             <span v-if="isPaused" class="flex items-center gap-1">
               <Icon icon="carbon:play" class="size-4" />
               Resume Draft
             </span>
-            <span v-else class="flex items-center gap-1">
+                <span v-else class="flex items-center gap-1">
               <Icon icon="carbon:pause" class="size-4" />
               Pause Draft
             </span>
-          </base-button>
+              </base-button>
 
-          <base-button v-if="isStarted" class="bg-green-600 h-16 w-full">Trade Centre</base-button>
-        </div>
-
-        <span class="font-exclamation text-md text-white">Picks</span>
-
-        <div v-if="draftOrder" class="flex flex-col gap-4">
-          <base-accordion v-for="[round, picks] of Object.entries(draftOrder)" :key="round">
-            <div class="flex gap-4 justify-between w-full">
-              <span>Round {{ round }}</span>
-              <span :class="{ '!text-green-600': getCompletedPicks(picks) === picks.length }" class="text-red-600">{{ getCompletedPicks(picks) }} / {{ picks.length }}</span>
+              <base-button v-if="isStarted" class="bg-green-600 h-16 w-full">Trade Centre</base-button>
             </div>
-
-            <template #content>
-              <pick
-                v-for="pick in picks"
-                :key="pick.pick"
-                :pick="pick"
-                :is-paused="isPaused"
-                :sim-speed="simSpeed"
-                @pick-expired="draftPlayerAutomatically"
-                class="mb-2 last:mb-0"
-              />
-            </template>
-          </base-accordion>
+          </option-wrapper>
         </div>
       </div>
 
       <!-- Players, Filters, Focus Player -->
-      <div class="col-span-7 h-[800px]">
+      <div class="col-span-7 h-[850px]">
         <div class="grid grid-cols-3 gap-4 h-full">
           <!-- Players, Filters -->
           <div class="col-span-2 h-full overflow-y-auto flex flex-col gap-4">
