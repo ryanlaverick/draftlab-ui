@@ -4,9 +4,6 @@ import { Icon } from '@iconify/vue'
 import { computed, ref, watch } from 'vue'
 import dayjs from 'dayjs'
 
-const timer = ref(120)
-const timerStarted = ref(false)
-
 const emits = defineEmits(['pickExpired'])
 
 const props = defineProps({
@@ -17,8 +14,20 @@ const props = defineProps({
   isPaused: {
     type: Boolean,
     required: true
+  },
+  simSpeed: {
+    type: Number,
+    required: true
   }
 })
+
+
+const timerLength = computed(() => {
+  return 30 / props.simSpeed
+})
+
+const timer = ref(timerLength.value)
+const timerStarted = ref(false)
 
 const getStatus = computed(() => {
   if (props.pick.onTheClock === true) {
@@ -61,7 +70,7 @@ const startTimer = () => {
         emits('pickExpired', props.pick)
 
         timerStarted.value = false
-        timer.value = 120
+        timer.value = timerLength.value
 
         return
       }
@@ -77,7 +86,7 @@ const startTimer = () => {
 
 const resetTimer = () => {
   timerStarted.value = false
-  timer.value = 120
+  timer.value = timerLength.value
 }
 
 const formatTimer = computed(() => {

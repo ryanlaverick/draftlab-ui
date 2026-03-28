@@ -34,6 +34,7 @@ const focusPlayer = ref({})
 const currentPage = ref(1)
 const selectingFor = ref([])
 const pageSize = 10
+const simSpeed = ref(1)
 
 const returnToSettings = () => {
   emits('returnToSettings')
@@ -163,6 +164,10 @@ const advancePick = () => {
   currentPick.value += 1
 }
 
+const updateSimSpeed = (speed) => {
+  simSpeed.value = speed
+}
+
 onMounted(() => {
   let roundsToMock = props.settings.rounds
   let draftOrderByRound = {}
@@ -252,7 +257,31 @@ watch(
       <div
         class="col-span-3 bg-dark rounded-md p-4 text-white h-[800px] overflow-y-auto flex flex-col gap-4"
       >
-        <div class="w-full flex items-center gap-4">
+        <option-wrapper label="Simulation Speed">
+          <div class="flex items-center gap-2 justify-between">
+            <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 0.25, '!bg-light': simSpeed === 0.25 }" @click="updateSimSpeed(0.25)">
+              <span>x0.25</span>
+            </base-button>
+
+            <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 0.5, '!bg-light': simSpeed === 0.5 }" @click="updateSimSpeed(0.5)">
+              <span>x0.5</span>
+            </base-button>
+
+            <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 1, '!bg-light': simSpeed === 1 }" @click="updateSimSpeed(1)">
+              <span>x1</span>
+            </base-button>
+
+            <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 2, '!bg-light': simSpeed === 2 }" @click="updateSimSpeed(2)">
+              <span>x2</span>
+            </base-button>
+
+            <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 5, '!bg-light': simSpeed === 5 }" @click="updateSimSpeed(5)">
+              <span>x5</span>
+            </base-button>
+          </div>
+        </option-wrapper>
+
+        <div class="w-full flex items-center gap-2 sticky top-0 z-20">
           <base-button class="bg-green-600 h-16 w-full" :disabled="isStarted" @click="startDraft">Start Draft</base-button>
 
           <base-button v-if="isStarted" class="bg-green-600 h-16 w-full" @click="pauseDraft">
@@ -284,6 +313,7 @@ watch(
                 :key="pick.pick"
                 :pick="pick"
                 :is-paused="isPaused"
+                :sim-speed="simSpeed"
                 @pick-expired="draftPlayerAutomatically"
                 class="mb-2 last:mb-0"
               />
@@ -346,7 +376,6 @@ watch(
 
           <!-- Trade Centre, Focus Player -->
           <div class="flex flex-col gap-4">
-
             <!-- Focus Player -->
             <!-- <focus-player-panel v-show="focusPlayer" :player="focusPlayer" /> -->
           </div>
