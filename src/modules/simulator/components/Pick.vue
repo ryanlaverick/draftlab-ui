@@ -1,7 +1,13 @@
 <script setup>
 import TeamLogo from '@/modules/teams/components/TeamLogo.vue'
 import { Icon } from '@iconify/vue'
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
+import dayjs from 'dayjs'
+
+const timer = ref(120)
+const timerStarted = ref(false)
+
+const emits = defineEmits(['pickExpired'])
 
 const props = defineProps({
   pick: {
@@ -41,6 +47,50 @@ const getIcon = computed(() => {
 
   return 'mdi:timer-sand'
 })
+
+const startTimer = () => {
+  timerStarted.value = true
+
+  setTimeout(() => {
+    if (timerStarted.value) {
+      if (timer.value === 0) {
+        emits('pickExpired', props.pick)
+
+        timerStarted.value = false
+        timer.value = 120
+
+        return
+      }
+
+      timer.value--
+      startTimer()
+    }
+  }, 1000)
+}
+
+const resetTimer = () => {
+  timerStarted.value = false
+  timer.value = 120
+}
+
+const formatTimer = computed(() => {
+  const duration = dayjs.duration(timer.value, 'seconds')
+  const minutes = Math.floor(duration.asMinutes())
+  const secs = duration.seconds().toString().padStart(2, '0')
+  return `${minutes}:${secs}`
+})
+
+watch(
+  () => props.pick,
+  () => {
+    if (props.pick.onTheClock) {
+      startTimer()
+    } else {
+      resetTimer()
+    }
+  },
+  { deep: true },
+)
 </script>
 
 <template>
@@ -61,10 +111,12 @@ const getIcon = computed(() => {
           leave-from-class="-translate-x-0 opacity-100"
           leave-to-class="-translate-x-2 opacity-0"
         >
-          <span v-if="pick.player" class="text-sm">{{ pick.player.player }}, {{ pick.player.position }} - {{ pick.player.team_name }}</span>
+          <span v-if="pick.player" class="text-sm"
+            >{{ pick.player.player }}, {{ pick.player.position }} -
+            {{ pick.player.team_name }}</span
+          >
         </Transition>
       </span>
-
 
       <div
         class="flex gap-1"
@@ -75,7 +127,7 @@ const getIcon = computed(() => {
         }"
       >
         <Icon :icon="getIcon" class="size-4" />
-        <span class="text-sm font-base opacity-75">{{ getStatus }}</span>
+        <span class="text-sm font-base opacity-75">{{ getStatus }} <span v-if="timerStarted"> - {{ formatTimer }} remaining</span></span>
       </div>
     </div>
   </div>

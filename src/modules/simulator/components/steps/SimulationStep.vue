@@ -118,6 +118,10 @@ const startDraft = () => {
   currentPick.value = 1
 }
 
+const draftPlayerAutomatically = () => {
+  draftPlayer(paginatedPlayers.value[0])
+}
+
 const draftPlayer = (player) => {
   const eligiblePlayer = paginatedPlayers.value.filter((p) => p.player_id === player.player_id)[0]
   eligiblePlayer.is_drafted = true
@@ -256,7 +260,7 @@ watch(
             </div>
 
             <template #content>
-              <pick v-for="pick in picks" :key="pick.pick" :pick="pick" class="mb-2 last:mb-0" />
+              <pick v-for="pick in picks" :key="pick.pick" :pick="pick" class="mb-2 last:mb-0" @pick-expired="draftPlayerAutomatically" />
             </template>
           </base-accordion>
         </div>
