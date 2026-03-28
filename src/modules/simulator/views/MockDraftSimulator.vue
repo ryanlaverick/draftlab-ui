@@ -50,15 +50,13 @@ const updateSettings = (newSettings) => {
       leave-from-class="translate-x-0 opacity-100"
       leave-to-class="-translate-x-8 opacity-0"
     >
-      <keep-alive>
-        <component
-          :is="activeStep.component"
-          :settings="settings"
-          @update-settings="updateSettings"
-          @start-simulation="startSimulation"
-          @return-to-settings="returnToSettings"
-        />
-      </keep-alive>
+      <component
+        :is="activeStep.component"
+        :settings="settings"
+        @update-settings="updateSettings"
+        @start-simulation="startSimulation"
+        @return-to-settings="returnToSettings"
+      />
     </Transition>
   </div>
 </template>
