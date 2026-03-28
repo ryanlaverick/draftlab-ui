@@ -1,6 +1,5 @@
 <script setup>
 import { computed } from 'vue'
-import * as url from 'node:url'
 
 const props = defineProps({
   player: {
@@ -24,11 +23,11 @@ const teamCoverImage = computed(() => {
           :style="teamCoverImage"
         ></div>
 
-        <img
+        <!-- <img
           src="/assets/players/images/Danny-Scudero-WR-San-Jose-State.png"
           class="absolute bottom-0 left-1/2 z-20 h-full w-full -translate-x-1/2 object-contain pointer-events-none"
           alt="Player"
-        />
+        /> -->
       </div>
 
       <div class="grid grid-cols-2 border border-dark/70 divide-x divide-dark/70">
