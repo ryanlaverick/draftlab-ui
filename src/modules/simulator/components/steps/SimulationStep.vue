@@ -249,10 +249,11 @@ watch(
     <div class="w-full grid grid-cols-10 gap-4 rounded-md">
       <!-- Draft Order -->
       <div
-        class="col-span-3 bg-dark rounded-md p-4 text-white h-[800px] overflow-y-auto flex flex-col gap-2"
+        class="col-span-3 bg-dark rounded-md p-4 text-white h-[800px] overflow-y-auto flex flex-col gap-4"
       >
         <div class="w-full flex items-center gap-4">
           <base-button class="bg-green-600 h-16 w-full" :disabled="isStarted" @click="startDraft">Start Draft</base-button>
+
           <base-button v-if="isStarted" class="bg-green-600 h-16 w-full" @click="pauseDraft">
             <span v-if="isPaused" class="flex items-center gap-1">
               <Icon icon="carbon:play" class="size-4" />
@@ -263,6 +264,8 @@ watch(
               Pause Draft
             </span>
           </base-button>
+
+          <base-button v-if="isStarted" class="bg-green-600 h-16 w-full">Trade Centre</base-button>
         </div>
 
         <span class="font-exclamation text-md text-white">Picks</span>
@@ -342,7 +345,6 @@ watch(
 
           <!-- Trade Centre, Focus Player -->
           <div class="flex flex-col gap-4">
-            <base-button class="bg-green-600 h-16">Trade</base-button>
 
             <!-- Focus Player -->
             <!-- <focus-player-panel v-show="focusPlayer" :player="focusPlayer" /> -->
