@@ -52,7 +52,17 @@ const getIcon = computed(() => {
     <div class="p-2 w-full flex items-center justify-between gap-4">
       <span class="flex items-center gap-2">
         <span class="text-sm font-semibold">#{{ pick.pick.pick }}</span>
-        <span v-if="pick.player" class="text-sm">{{ pick.player.player }}, {{ pick.player.position }} - {{ pick.player.team_name }}</span>
+
+        <Transition
+          enter-active-class="transition transform duration-300 ease-out"
+          enter-from-class="-translate-x-2 opacity-0"
+          enter-to-class="-translate-x-0 opacity-100"
+          leave-active-class="transition transform duration-300 ease-in"
+          leave-from-class="-translate-x-0 opacity-100"
+          leave-to-class="-translate-x-2 opacity-0"
+        >
+          <span v-if="pick.player" class="text-sm">{{ pick.player.player }}, {{ pick.player.position }} - {{ pick.player.team_name }}</span>
+        </Transition>
       </span>
 
 
