@@ -29,6 +29,7 @@ const filterPositions = ref([])
 const filterSearch = ref('')
 const focusPlayer = ref({})
 const currentPage = ref(1)
+const selectingFor = ref([])
 const pageSize = 10
 
 const returnToSettings = () => {
@@ -86,7 +87,16 @@ const isPicking = computed(() => {
     return false
   }
 
-  return true
+  let thisPick = null
+  Object.values(draftOrder.value).forEach(function (picks) {
+    picks.forEach(function (pick) {
+      if (pick.pick.pick === currentPick.value) {
+        thisPick = pick
+      }
+    })
+  })
+
+  return selectingFor.value.indexOf(thisPick?.team.shortName) !== -1
 })
 
 const filterPosition = (position) => {
@@ -144,7 +154,7 @@ const advancePick = () => {
 onMounted(() => {
   let roundsToMock = props.settings.rounds
   let draftOrderByRound = {}
-  
+
   for (let index = 1; index <= roundsToMock; index++) {
     draftOrderByRound[index] = []
   }
@@ -187,6 +197,10 @@ onMounted(() => {
 
   draftOrder.value = draftOrderByRound
   currentPick.value = 1
+
+  props.settings.selectedTeams.forEach((team) => {
+    selectingFor.value.push(team.shortName)
+  })
 
   loadPlayers()
 })

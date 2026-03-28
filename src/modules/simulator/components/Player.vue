@@ -60,11 +60,7 @@ const draftPlayer = () => {
         leave-from-class="translate-x-0 opacity-100"
         leave-to-class="translate-x-2 opacity-0"
       >
-        <base-button
-          v-if="isPicking"
-          class="bg-green-600 text-white"
-          @click="draftPlayer"
-        >
+        <base-button v-if="isPicking" :disabled="!isPicking" class="bg-green-600 text-white" @click="draftPlayer">
           Draft
         </base-button>
       </Transition>
