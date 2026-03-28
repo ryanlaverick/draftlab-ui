@@ -11,6 +11,7 @@ import BaseInput from '@/components/BaseInput.vue'
 import FocusPlayerPanel from '@/modules/simulator/components/FocusPlayerPanel.vue'
 import BaseButton from '@/components/BaseButton.vue'
 import { Icon } from '@iconify/vue'
+import OptionWrapper from '@/modules/simulator/components/OptionWrapper.vue'
 
 const emits = defineEmits(['returnToSettings'])
 const props = defineProps({
@@ -298,18 +299,18 @@ watch(
           <div class="col-span-2 h-full overflow-y-auto flex flex-col gap-4">
             <!-- Filters -->
             <div class="bg-dark rounded-md p-4 sticky top-0 z-10 flex flex-col gap-2">
-              <span class="font-exclamation text-md text-white">Filters</span>
+              <option-wrapper label="Filters">
+                <div class="grid grid-cols-2 gap-4">
+                  <base-input v-model="filterSearch" label="Player Name" placeholder="Search..." />
 
-              <div class="grid grid-cols-2 gap-4">
-                <base-input v-model="filterSearch" label="Player Name" placeholder="Search..." />
-
-                <div class="h-full flex flex-col-reverse">
-                  <position-selector
-                    :selected-positions="filterPositions"
-                    @toggle-position="filterPosition"
-                  />
+                  <div class="h-full flex flex-col-reverse">
+                    <position-selector
+                      :selected-positions="filterPositions"
+                      @toggle-position="filterPosition"
+                    />
+                  </div>
                 </div>
-              </div>
+              </option-wrapper>
             </div>
 
             <!-- Players -->
