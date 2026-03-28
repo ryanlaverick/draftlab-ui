@@ -81,6 +81,14 @@ const pageRange = computed(() => {
   return pages
 })
 
+const isPicking = computed(() => {
+  if (! isStarted.value) {
+    return false
+  }
+
+  return true
+})
+
 const filterPosition = (position) => {
   const positionIndex = filterPositions.value.indexOf(position)
 
@@ -263,7 +271,7 @@ watch(
                   <player
                     v-for="player in paginatedPlayers"
                     :player="player"
-                    :is-picking="true"
+                    :is-picking="isPicking"
                     :key="player.player_id"
                     @read-more="selectFocusPlayer"
                     @draft="draftPlayer"
