@@ -40,6 +40,10 @@ const returnToSettings = () => {
   emits('returnToSettings')
 }
 
+const selectPage = (page) => {
+  currentPage.value = page
+}
+
 const filteredPlayers = computed(() => {
   if (filterPositions.value.length === 0) {
     if (filterSearch.value.length === 0) {
@@ -67,21 +71,43 @@ const filteredPlayers = computed(() => {
     .filter((player) => filterPositions.value.indexOf(player.position) !== -1)
 })
 
-const paginatedPlayers = computed(() => filteredPlayers.value.slice(((currentPage.value - 1) * pageSize), pageSize))
+const paginatedPlayers = computed(() => {
+  const start = (currentPage.value - 1) * pageSize
+  const end = start + pageSize
+
+  return filteredPlayers.value.slice(start, end)
+})
 
 const pageRange = computed(() => {
-  let pages = []
-  let maxPage = (filteredPlayers.value.length ?? 0 / pageSize) + 1
+  const maxPage = Math.ceil((filteredPlayers.value.length ?? 0) / pageSize)
+  if (maxPage <= 1) return [1]
 
-  let shouldHavePreviousPage = (currentPage.value - 1) > 1
-  if (shouldHavePreviousPage) {
-    pages.push(currentPage.value - 1)
+  const pages = []
+
+  let start = Math.max(1, currentPage.value - 1)
+  let end = Math.min(maxPage, currentPage.value + 1)
+
+  if (currentPage.value <= 2) {
+    start = 1
+    end = Math.min(4, maxPage)
   }
 
-  pages.push(currentPage.value)
-  pages.push(currentPage.value + 1)
-  pages.push(currentPage.value + 2)
-  pages.push(maxPage)
+  if (currentPage.value >= maxPage - 1) {
+    end = maxPage
+    start = Math.max(1, maxPage - 3)
+  }
+
+  if (start > 1) {
+    pages.push(1)
+  }
+
+  for (let i = start; i <= end; i++) {
+    pages.push(i)
+  }
+
+  if (end < maxPage) {
+    pages.push(maxPage)
+  }
 
   return pages
 })
@@ -366,9 +392,9 @@ watch(
                 </div>
 
 
-                <div class="flex gap-2">
-                  <span v-for="i in pageRange" :key="i">
-                    {{ i }}
+                <div class="flex justify-end gap-1">
+                  <span v-for="page in pageRange" :key="page" class="px-4 py-2 duration-300 cursor-pointer rounded-md text-white font-exclamation text-sm" :class="{ 'bg-dark hover:bg-light': currentPage !== page, 'bg-light hover:bg-lightest': currentPage === page}" @click="selectPage(page)">
+                    {{ page }}
                   </span>
                 </div>
               </div>
