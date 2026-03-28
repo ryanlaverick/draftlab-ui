@@ -107,6 +107,20 @@ watch(
   },
   { deep: true },
 )
+
+watch(
+  () => props.simSpeed,
+  () => {
+    let timerIsRunning = timerStarted.value
+
+    timerStarted.value = false
+    timer.value = timerLength.value
+
+    if (timerIsRunning) {
+      timerStarted.value = true
+    }
+  }
+)
 </script>
 
 <template>
