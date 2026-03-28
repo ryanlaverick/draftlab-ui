@@ -10,6 +10,7 @@ import Player from '@/modules/simulator/components/Player.vue'
 import BaseInput from '@/components/BaseInput.vue'
 import FocusPlayerPanel from '@/modules/simulator/components/FocusPlayerPanel.vue'
 import BaseButton from '@/components/BaseButton.vue'
+import { Icon } from '@iconify/vue'
 
 const emits = defineEmits(['returnToSettings'])
 const props = defineProps({
@@ -23,6 +24,7 @@ const teams = useTeams
 const { getPlayers: players, loadPlayers } = usePlayers()
 
 const isStarted = ref(false)
+const isPaused = ref(false)
 const currentPick = ref(0)
 const draftOrder = ref()
 const filterPositions = ref([])
@@ -116,6 +118,10 @@ const selectFocusPlayer = (player) => {
 const startDraft = () => {
   isStarted.value = true
   currentPick.value = 1
+}
+
+const pauseDraft = () => {
+  isPaused.value = !isPaused.value
 }
 
 const draftPlayerAutomatically = () => {
@@ -217,7 +223,6 @@ watch(
     }
 
     if (! isStarted.value) {
-      console.log('not started')
       return
     }
 
@@ -246,8 +251,18 @@ watch(
       <div
         class="col-span-3 bg-dark rounded-md p-4 text-white h-[800px] overflow-y-auto flex flex-col gap-2"
       >
-        <div class="w-full">
+        <div class="w-full flex items-center gap-4">
           <base-button class="bg-green-600 h-16 w-full" :disabled="isStarted" @click="startDraft">Start Draft</base-button>
+          <base-button v-if="isStarted" class="bg-green-600 h-16 w-full" @click="pauseDraft">
+            <span v-if="isPaused" class="flex items-center gap-1">
+              <Icon icon="carbon:play" class="size-4" />
+              Resume Draft
+            </span>
+            <span v-else class="flex items-center gap-1">
+              <Icon icon="carbon:pause" class="size-4" />
+              Pause Draft
+            </span>
+          </base-button>
         </div>
 
         <span class="font-exclamation text-md text-white">Picks</span>
@@ -260,7 +275,14 @@ watch(
             </div>
 
             <template #content>
-              <pick v-for="pick in picks" :key="pick.pick" :pick="pick" class="mb-2 last:mb-0" @pick-expired="draftPlayerAutomatically" />
+              <pick
+                v-for="pick in picks"
+                :key="pick.pick"
+                :pick="pick"
+                :is-paused="isPaused"
+                @pick-expired="draftPlayerAutomatically"
+                class="mb-2 last:mb-0"
+              />
             </template>
           </base-accordion>
         </div>

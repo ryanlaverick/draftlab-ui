@@ -14,6 +14,10 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  isPaused: {
+    type: Boolean,
+    required: true
+  }
 })
 
 const getStatus = computed(() => {
@@ -62,7 +66,10 @@ const startTimer = () => {
         return
       }
 
-      timer.value--
+      if (! props.isPaused) {
+        timer.value--
+      }
+
       startTimer()
     }
   }, 1000)
