@@ -115,6 +115,7 @@ const selectFocusPlayer = (player) => {
 
 const startDraft = () => {
   isStarted.value = true
+  currentPick.value = 1
 }
 
 const draftPlayer = (player) => {
@@ -196,7 +197,6 @@ onMounted(() => {
   }
 
   draftOrder.value = draftOrderByRound
-  currentPick.value = 1
 
   props.settings.selectedTeams.forEach((team) => {
     selectingFor.value.push(team.shortName)
@@ -208,7 +208,12 @@ onMounted(() => {
 watch(
   () => currentPick.value,
   () => {
-    if (!draftOrder.value) {
+    if (! draftOrder.value) {
+      return
+    }
+
+    if (! isStarted.value) {
+      console.log('not started')
       return
     }
 
