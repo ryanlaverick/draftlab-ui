@@ -20,7 +20,7 @@ const selectPosition = (position) => {
 </script>
 
 <template>
-  <base-dropdown trigger="click" class="!-skew-x-0 !w-full !">
+  <base-dropdown trigger="click" class="!-skew-x-0 !w-full">
     <template #trigger="{ open }">
       <div
         class="w-full uppercase text-xs font-bold text-white flex items-center justify-between gap-2 cursor-pointer hover:text-light duration-300 sticky top-0 z-10 bg-darkest p-4 rounded-t-md"

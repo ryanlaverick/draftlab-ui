@@ -12,6 +12,9 @@ import FocusPlayerPanel from '@/modules/simulator/components/FocusPlayerPanel.vu
 import BaseButton from '@/components/BaseButton.vue'
 import { Icon } from '@iconify/vue'
 import OptionWrapper from '@/modules/simulator/components/OptionWrapper.vue'
+import TeamSelector from '@/modules/simulator/components/TeamSelector.vue'
+import DraftClass from '@/modules/simulator/components/DraftClass.vue'
+import TradeMeter from '@/modules/simulator/components/TradeMeter.vue'
 
 const emits = defineEmits(['returnToSettings'])
 const props = defineProps({
@@ -35,6 +38,10 @@ const currentPage = ref(1)
 const selectingFor = ref([])
 const pageSize = 10
 const simSpeed = ref(1)
+const tradingWith = ref()
+const tradingWithPicks = ref([])
+const tradingFor = ref()
+const tradingForPicks = ref([])
 
 const returnToSettings = () => {
   emits('returnToSettings')
@@ -249,7 +256,38 @@ onMounted(() => {
   })
 
   loadPlayers()
+
+  tradingWith.value = teams[0]
+  tradingFor.value = teams[1]
 })
+
+const updateTradingWith = (team) => {
+  tradingWith.value = team
+}
+
+const updateTradingWithPicks = (pick) => {
+  let index = tradingWithPicks.value.indexOf(pick)
+
+  if (index === -1) {
+    tradingWithPicks.value.push(pick)
+  } else {
+    tradingWithPicks.value.splice(index, 1)
+  }
+}
+
+const updateTradingForPicks = (pick) => {
+  let index = tradingForPicks.value.indexOf(pick)
+
+  if (index === -1) {
+    tradingForPicks.value.push(pick)
+  } else {
+    tradingForPicks.value.splice(index, 1)
+  }
+}
+
+const updateTradingFor = (team) => {
+  tradingFor.value = team
+}
 
 watch(
   () => currentPick.value,
@@ -292,6 +330,22 @@ watch(
   },
   { immediate: true }
 )
+
+watch(
+  () => tradingWith.value,
+  () => {
+    tradingWithPicks.value = []
+  },
+  { immediate: true }
+)
+
+watch(
+  () => tradingFor.value,
+  () => {
+    tradingForPicks.value = []
+  },
+  { immediate: true }
+)
 </script>
 
 <template>
@@ -328,8 +382,6 @@ watch(
             </div>
           </option-wrapper>
 
-
-
           <span class="font-exclamation text-md text-white">Picks</span>
 
           <div v-if="draftOrder" class="flex flex-col gap-4">
@@ -361,17 +413,15 @@ watch(
               <base-button class="bg-green-600 h-16 w-full" :disabled="isStarted" @click="startDraft">Start Draft</base-button>
 
               <base-button v-if="isStarted" class="bg-green-600 h-16 w-full" @click="pauseDraft">
-            <span v-if="isPaused" class="flex items-center gap-1">
-              <Icon icon="carbon:play" class="size-4" />
-              Resume Draft
-            </span>
-                <span v-else class="flex items-center gap-1">
-              <Icon icon="carbon:pause" class="size-4" />
-              Pause Draft
-            </span>
+                <span v-if="isPaused" class="flex items-center gap-1">
+                  <Icon icon="carbon:play" class="size-4" />
+                  Resume Draft
+                </span>
+                    <span v-else class="flex items-center gap-1">
+                  <Icon icon="carbon:pause" class="size-4" />
+                  Pause Draft
+                </span>
               </base-button>
-
-              <base-button v-if="isStarted" class="bg-green-600 h-16 w-full">Trade Centre</base-button>
             </div>
           </option-wrapper>
         </div>
@@ -433,6 +483,50 @@ watch(
           <div class="flex flex-col gap-4">
             <!-- Focus Player -->
             <!-- <focus-player-panel v-show="focusPlayer" :player="focusPlayer" /> -->
+
+            <!-- Trade Centre -->
+            <div class="bg-dark rounded-md p-4 text-white h-[850px]">
+              <option-wrapper label="Trade Centre" class="h-full">
+                <div class="flex flex-col gap-8 justify-between h-full">
+                  <div class="flex flex-col gap-8">
+                    <option-wrapper label="Trading For" v-if="tradingWith">
+                      <team-selector :team="tradingWith" @select-team="updateTradingWith" />
+
+                      <draft-class
+                        v-for="[year, picks] in Object.entries(tradingWith.picks)"
+                        :key="year"
+                        :picks="picks"
+                        :year="year"
+                        :selected-picks="tradingWithPicks"
+                        @select-pick="updateTradingWithPicks"
+                      />
+                    </option-wrapper>
+
+                    <option-wrapper label="From" v-if="tradingFor">
+                      <team-selector :team="tradingFor" @select-team="updateTradingFor" />
+
+                      <draft-class
+                        v-for="[year, picks] in Object.entries(tradingFor.picks)"
+                        :key="year"
+                        :picks="picks"
+                        :year="year"
+                        :selected-picks="tradingForPicks"
+                        @select-pick="updateTradingForPicks"
+                      />
+                    </option-wrapper>
+                  </div>
+
+                  <div class="flex flex-col gap-8">
+                    <option-wrapper label="Trade Likelihood">
+                      <trade-meter :trading-for="tradingForPicks" :trading-with="tradingWithPicks" />
+                    </option-wrapper>
+                    <base-button class="bg-green-600 h-12 w-full">Trade</base-button>
+                  </div>
+
+                </div>
+
+              </option-wrapper>
+            </div>
           </div>
         </div>
       </div>
