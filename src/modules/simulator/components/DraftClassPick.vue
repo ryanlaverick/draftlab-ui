@@ -18,7 +18,7 @@ const isSelected = computed(() => {
 </script>
 
 <template>
-  <div v-if="pick" :class="{ 'bg-light hover:bg-lightest': !isSelected, 'bg-green-600': isSelected }" class=" duration-300 cursor-pointer rounded-md p-2 font-exclamation text-xs text-center flex flex-col items-center">
+  <div v-if="pick" :class="{ 'bg-light hover:bg-lightest': !isSelected, 'bg-green-600': isSelected }" class=" duration-300 cursor-pointer rounded-md p-0.5 h-[50px] w-[75px] font-exclamation text-xs text-center flex flex-col items-center">
     <span v-if="pick.compensatory" class="opacity-50">C</span>
     <span>{{ pick.pick }}</span>
     <span>Rd {{ pick.round }}</span>

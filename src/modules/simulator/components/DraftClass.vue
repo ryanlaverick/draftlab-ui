@@ -25,7 +25,7 @@ const selectPick = (pick) => {
 
 <template>
   <div class="flex flex-col gap-2">
-    <span class="font-exclamation text-md">{{ year }}</span>
+    <span class="font-exclamation text-sm">{{ year }}</span>
 
     <div class="grid grid-cols-5 gap-2">
       <draft-class-pick
