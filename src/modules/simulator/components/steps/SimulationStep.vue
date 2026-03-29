@@ -276,6 +276,22 @@ watch(
   },
   { immediate: true },
 )
+
+watch(
+  () => filterPositions.value,
+  () => {
+    currentPage.value = 1
+  },
+  { immediate: true, deep: true }
+)
+
+watch(
+  () => filterSearch.value,
+  () => {
+    currentPage.value = 1
+  },
+  { immediate: true }
+)
 </script>
 
 <template>
