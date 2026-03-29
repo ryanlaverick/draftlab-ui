@@ -194,6 +194,10 @@ const updateSimSpeed = (speed) => {
   simSpeed.value = speed
 }
 
+const isPickUserControlled = (pick) => {
+  return selectingFor.value.indexOf(pick.team.shortName) !== -1
+}
+
 onMounted(() => {
   let roundsToMock = props.settings.rounds
   let draftOrderByRound = {}
@@ -326,6 +330,7 @@ watch(
                   :pick="pick"
                   :is-paused="isPaused"
                   :sim-speed="simSpeed"
+                  :is-user-controlled="isPickUserControlled(pick)"
                   @pick-expired="draftPlayerAutomatically"
                   class="mb-2 last:mb-0"
                 />

@@ -18,6 +18,10 @@ const props = defineProps({
   simSpeed: {
     type: Number,
     required: true
+  },
+  isUserControlled: {
+    type: Boolean,
+    required: true
   }
 })
 
@@ -99,7 +103,7 @@ const formatTimer = computed(() => {
 watch(
   () => props.pick,
   () => {
-    if (props.pick.onTheClock) {
+    if (props.pick.onTheClock && !props.isUserControlled) {
       startTimer()
     } else {
       resetTimer()
