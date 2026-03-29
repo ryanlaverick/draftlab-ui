@@ -278,7 +278,7 @@ export default function useTradeEngine() {
     const likelihoodOfTrade = getLikelihood(tradingFor, tradingUsing)
     const randomChance = Math.floor(Math.random() * 100)
 
-    return randomChance >= likelihoodOfTrade
+    return randomChance <= likelihoodOfTrade
   }
 
   const getLikelihood = (tradingFor, tradingUsing) => {
