@@ -160,13 +160,13 @@ watch(
           'text-green-300': pick.player,
         }"
       >
-        <span v-if="pick.pick.from" class="flex gap-2">
+        <span v-if="pick.pick.from" class="flex gap-1.5">
           <Icon icon="uiw:swap" class="size-4" />
           <span>{{ pick.pick.from }}</span>
         </span>
 
 
-        <span class="flex gap-2">
+        <span class="flex gap-1">
           <Icon :icon="getIcon" class="size-4" />
           <span>{{ getStatus }} <span v-if="timerStarted"> - {{ formatTimer }} remaining</span></span>
         </span>
