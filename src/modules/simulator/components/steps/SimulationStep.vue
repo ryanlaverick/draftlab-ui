@@ -372,11 +372,11 @@ watch(
                 <Icon icon="material-symbols:play-arrow-rounded" class="size-4" />
               </base-button>
 
-              <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 2, '!bg-light': simSpeed === 2 }" @click="updateSimSpeed(2)">
+              <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 5, '!bg-light': simSpeed === 5 }" @click="updateSimSpeed(5)">
                 <Icon icon="material-symbols:fast-rewind-rounded" class="size-4 rotate-180" />
               </base-button>
 
-              <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 5, '!bg-light': simSpeed === 5 }" @click="updateSimSpeed(5)">
+              <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 30, '!bg-light': simSpeed === 30 }" @click="updateSimSpeed(30)">
                 <Icon icon="material-symbols:fast-rewind-rounded" class="size-4 rotate-180" />
               </base-button>
             </div>
