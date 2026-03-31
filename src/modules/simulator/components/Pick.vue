@@ -153,7 +153,7 @@ watch(
       </span>
 
       <div
-        class="flex gap-8 text-sm font-base opacity-75"
+        class="flex gap-4 text-sm font-base opacity-75"
         :class="{
           'text-orange-300': pick.onTheClock,
           'text-blue-300': pick.nextUp,
