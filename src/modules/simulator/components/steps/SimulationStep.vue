@@ -361,23 +361,23 @@ watch(
           <option-wrapper label="Simulation Speed">
             <div class="flex items-center gap-2 justify-between">
               <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 0.25, '!bg-light': simSpeed === 0.25 }" @click="updateSimSpeed(0.25)">
-                <span>x0.25</span>
+                <Icon icon="material-symbols:fast-rewind-rounded" class="size-4" />
               </base-button>
 
               <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 0.5, '!bg-light': simSpeed === 0.5 }" @click="updateSimSpeed(0.5)">
-                <span>x0.5</span>
+                <Icon icon="material-symbols:fast-rewind-rounded" class="size-4" />
               </base-button>
 
               <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 1, '!bg-light': simSpeed === 1 }" @click="updateSimSpeed(1)">
-                <span>x1</span>
+                <Icon icon="material-symbols:play-arrow-rounded" class="size-4" />
               </base-button>
 
               <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 2, '!bg-light': simSpeed === 2 }" @click="updateSimSpeed(2)">
-                <span>x2</span>
+                <Icon icon="material-symbols:fast-rewind-rounded" class="size-4 rotate-180" />
               </base-button>
 
               <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 5, '!bg-light': simSpeed === 5 }" @click="updateSimSpeed(5)">
-                <span>x5</span>
+                <Icon icon="material-symbols:fast-rewind-rounded" class="size-4 rotate-180" />
               </base-button>
             </div>
           </option-wrapper>
