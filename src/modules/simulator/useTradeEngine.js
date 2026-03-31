@@ -282,6 +282,10 @@ export default function useTradeEngine() {
   }
 
   const getLikelihood = (tradingFor, tradingUsing) => {
+    if (tradingUsing.length === 0 || tradingUsing.length === 1) {
+      return 0
+    }
+
     const forWeight = getWeightFromPicks(tradingFor)
     const usingWeight = getWeightFromPicks(tradingUsing)
 
