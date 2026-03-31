@@ -3,7 +3,7 @@ import DraftClassPick from '@/modules/simulator/components/DraftClassPick.vue'
 
 defineProps({
   year: {
-    type: Number,
+    type: String,
     required: true,
   },
   picks: {
