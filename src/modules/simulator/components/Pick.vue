@@ -153,15 +153,23 @@ watch(
       </span>
 
       <div
-        class="flex gap-1"
+        class="flex gap-8 text-sm font-base opacity-75"
         :class="{
           'text-orange-300': pick.onTheClock,
           'text-blue-300': pick.nextUp,
           'text-green-300': pick.player,
         }"
       >
-        <Icon :icon="getIcon" class="size-4" />
-        <span class="text-sm font-base opacity-75">{{ getStatus }} <span v-if="timerStarted"> - {{ formatTimer }} remaining</span></span>
+        <span v-if="pick.pick.from" class="flex gap-2">
+          <Icon icon="uiw:swap" class="size-4" />
+          <span>{{ pick.pick.from }}</span>
+        </span>
+
+
+        <span class="flex gap-2">
+          <Icon :icon="getIcon" class="size-4" />
+          <span>{{ getStatus }} <span v-if="timerStarted"> - {{ formatTimer }} remaining</span></span>
+        </span>
       </div>
     </div>
   </div>
