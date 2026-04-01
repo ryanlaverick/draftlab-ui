@@ -517,10 +517,9 @@ watch(
                   </div>
 
                   <div class="flex flex-col gap-8">
-                    <option-wrapper label="Trade Likelihood">
-                      <trade-meter :trading-for="tradingForPicks" :trading-with="tradingWithPicks" />
-                    </option-wrapper>
-                    <base-button class="bg-green-600 h-12 w-full">Trade</base-button>
+                    <trade-meter :trading-for="tradingForPicks" :trading-with="tradingWithPicks" />
+
+                    <base-button class="bg-green-600 h-12 w-full" @click="proposeTrade">Trade</base-button>
                   </div>
 
                 </div>
