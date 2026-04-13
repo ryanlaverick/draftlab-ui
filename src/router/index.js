@@ -4,6 +4,11 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: '/',
+      name: 'Dashboard',
+      component: () => import('@/views/Dashboard.vue')
+    },
+    {
       path: '/simulator',
       name: 'Mock Draft Simulator',
       component: () => import('@/modules/simulator/views/MockDraftSimulator.vue'),
