@@ -16,6 +16,8 @@ httpClient.interceptors.response.use(
       authentication.resetState()
       router.push({ name: 'Dashboard' })
     }
+
+    return Promise.reject()
   }
 )
 

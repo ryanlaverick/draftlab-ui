@@ -3,6 +3,9 @@ import BaseInput from '@/components/BaseInput.vue'
 import BaseButton from '@/components/BaseButton.vue'
 import { computed, ref } from 'vue'
 import DraftLabIcon from '@/components/DraftLabIcon.vue'
+import { useAuthentication } from '@/composables/useAuthentication.js'
+
+const { login } = useAuthentication()
 
 const email = ref(null)
 const password = ref(null)
@@ -10,6 +13,10 @@ const password = ref(null)
 const canLogin = computed(() => {
   return email.value && password.value
 })
+
+const attemptLogin = async () => {
+  await login(email.value, password.value)
+}
 </script>
 
 <template>
@@ -50,6 +57,7 @@ const canLogin = computed(() => {
               class="bg-light hover:bg-lightest w-full"
               :class="{ 'hover:text-dark': canLogin }"
               :disabled="!canLogin"
+              @click="attemptLogin"
               >Login</base-button
             >
 
