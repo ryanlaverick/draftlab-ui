@@ -1,7 +1,8 @@
 <script setup>
 import DraftClassPick from '@/modules/simulator/components/DraftClassPick.vue'
+import { computed } from 'vue'
 
-defineProps({
+const props = defineProps({
   year: {
     type: String,
     required: true,
@@ -21,6 +22,26 @@ const emits = defineEmits(['selectPick'])
 const selectPick = (pick) => {
   emits('selectPick', pick)
 }
+
+const orderedPicks = computed(() => {
+  const picksArray = props.picks
+
+  return picksArray.sort((a, b) => {
+    console.log(a, b)
+
+    const pickA = a.pick
+    const pickB = b.pick
+
+    if (pickA < pickB) {
+      return -1
+    }
+    if (pickA > pickB) {
+      return 1
+    }
+
+    return 0
+  })
+})
 </script>
 
 <template>
@@ -29,7 +50,7 @@ const selectPick = (pick) => {
 
     <div class="grid grid-cols-5 gap-2">
       <draft-class-pick
-        v-for="pick in picks"
+        v-for="pick in orderedPicks"
         :pick="pick"
         :key="pick.pick"
         :selected-picks="selectedPicks"
