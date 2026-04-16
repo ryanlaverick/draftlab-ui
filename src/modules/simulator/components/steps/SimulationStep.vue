@@ -15,6 +15,7 @@ import OptionWrapper from '@/modules/simulator/components/OptionWrapper.vue'
 import TeamSelector from '@/modules/simulator/components/TeamSelector.vue'
 import DraftClass from '@/modules/simulator/components/DraftClass.vue'
 import TradeMeter from '@/modules/simulator/components/TradeMeter.vue'
+import SchoolSelector from '@/modules/simulator/components/SchoolSelector.vue'
 
 const emits = defineEmits(['returnToSettings'])
 const props = defineProps({
@@ -32,6 +33,7 @@ const isPaused = ref(false)
 const currentPick = ref(0)
 const draftOrder = ref()
 const filterPositions = ref([])
+const filterSchools = ref([])
 const filterSearch = ref('')
 const focusPlayer = ref({})
 const currentPage = ref(1)
@@ -52,9 +54,38 @@ const selectPage = (page) => {
 }
 
 const filteredPlayers = computed(() => {
+  if (filterSchools.value.length === 0) {
+    if (filterPositions.value.length === 0) {
+      if (filterSearch.value.length === 0) {
+        return players.value.filter((player) => !player.is_drafted)
+      }
+
+      return players.value
+        .filter((player) => !player.is_drafted)
+        .filter((player) =>
+          player.player.toLowerCase().includes(filterSearch.value.toString().toLowerCase()),
+        )
+    }
+
+    if (filterSearch.value.length > 0) {
+      return players.value
+        .filter((player) => !player.is_drafted)
+        .filter((player) => filterPositions.value.indexOf(player.position) !== -1)
+        .filter((player) =>
+          player.player.toLowerCase().includes(filterSearch.value.toString().toLowerCase()),
+        )
+    }
+
+    return players.value
+      .filter((player) => !player.is_drafted)
+      .filter((player) => filterPositions.value.indexOf(player.position) !== -1)
+  }
+
   if (filterPositions.value.length === 0) {
     if (filterSearch.value.length === 0) {
-      return players.value.filter((player) => !player.is_drafted)
+      return players.value
+        .filter((player) => !player.is_drafted)
+        .filter((player) => filterSchools.value.indexOf(player.team_name) !== -1)
     }
 
     return players.value
@@ -62,6 +93,7 @@ const filteredPlayers = computed(() => {
       .filter((player) =>
         player.player.toLowerCase().includes(filterSearch.value.toString().toLowerCase()),
       )
+      .filter((player) => filterSchools.value.indexOf(player.team_name) !== -1)
   }
 
   if (filterSearch.value.length > 0) {
@@ -71,11 +103,13 @@ const filteredPlayers = computed(() => {
       .filter((player) =>
         player.player.toLowerCase().includes(filterSearch.value.toString().toLowerCase()),
       )
+      .filter((player) => filterSchools.value.indexOf(player.team_name) !== -1)
   }
 
   return players.value
     .filter((player) => !player.is_drafted)
     .filter((player) => filterPositions.value.indexOf(player.position) !== -1)
+    .filter((player) => filterSchools.value.indexOf(player.team_name) !== -1)
 })
 
 const paginatedPlayers = computed(() => {
@@ -146,6 +180,10 @@ const filterPosition = (position) => {
   }
 }
 
+const filterSchool = (school) => {
+  const schoolIndex = filterSchools.value.indexOf(school)
+
+  if (schoolIndex === -1) {
 const selectFocusPlayer = (player) => {
   focusPlayer.value = player
 }
@@ -324,6 +362,14 @@ watch(
 )
 
 watch(
+  () => filterSchools.value,
+  () => {
+    currentPage.value = 1
+  },
+  { immediate: true, deep: true }
+)
+
+watch(
   () => filterSearch.value,
   () => {
     currentPage.value = 1
@@ -439,10 +485,18 @@ watch(
                   <base-input v-model="filterSearch" label="Player Name" placeholder="Search..." />
 
                   <div class="h-full flex flex-col-reverse">
-                    <position-selector
-                      :selected-positions="filterPositions"
-                      @toggle-position="filterPosition"
-                    />
+                    <div class="flex flex-col items-center gap-4">
+                      <position-selector
+                        :selected-positions="filterPositions"
+                        @toggle-position="filterPosition"
+                      />
+
+                      <school-selector
+                        :selected-schools="filterSchools"
+                        @toggle-school="filterSchool"
+                      />
+                    </div>
+
                   </div>
                 </div>
               </option-wrapper>
