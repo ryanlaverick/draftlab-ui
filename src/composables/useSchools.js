@@ -15,7 +15,7 @@ const schools = [
   {
     name: 'Clemson',
     nickname: 'Tigers',
-    shortName: 'CLEMSON`',
+    shortName: 'CLEMSON',
     image: '/assets/school/conferences/acc/clemson-logo.png',
   },
   {
