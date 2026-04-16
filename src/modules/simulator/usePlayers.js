@@ -17,6 +17,8 @@ export default function usePlayers() {
       return
     }
 
+    state.players = []
+
     let json = await players.json()
 
     for (const [, player] of Object.entries(json.players)) {
