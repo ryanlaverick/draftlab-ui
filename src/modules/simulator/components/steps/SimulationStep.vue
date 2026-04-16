@@ -54,62 +54,23 @@ const selectPage = (page) => {
 }
 
 const filteredPlayers = computed(() => {
-  if (filterSchools.value.length === 0) {
-    if (filterPositions.value.length === 0) {
-      if (filterSearch.value.length === 0) {
-        return players.value.filter((player) => !player.is_drafted)
-      }
-
-      return players.value
-        .filter((player) => !player.is_drafted)
-        .filter((player) =>
-          player.player.toLowerCase().includes(filterSearch.value.toString().toLowerCase()),
-        )
-    }
-
-    if (filterSearch.value.length > 0) {
-      return players.value
-        .filter((player) => !player.is_drafted)
-        .filter((player) => filterPositions.value.indexOf(player.position) !== -1)
-        .filter((player) =>
-          player.player.toLowerCase().includes(filterSearch.value.toString().toLowerCase()),
-        )
-    }
-
-    return players.value
-      .filter((player) => !player.is_drafted)
-      .filter((player) => filterPositions.value.indexOf(player.position) !== -1)
-  }
-
-  if (filterPositions.value.length === 0) {
-    if (filterSearch.value.length === 0) {
-      return players.value
-        .filter((player) => !player.is_drafted)
-        .filter((player) => filterSchools.value.indexOf(player.team_name) !== -1)
-    }
-
-    return players.value
-      .filter((player) => !player.is_drafted)
-      .filter((player) =>
-        player.player.toLowerCase().includes(filterSearch.value.toString().toLowerCase()),
-      )
-      .filter((player) => filterSchools.value.indexOf(player.team_name) !== -1)
-  }
+  let filteredPlayers = players.value.filter((player) => !player.is_drafted)
 
   if (filterSearch.value.length > 0) {
-    return players.value
-      .filter((player) => !player.is_drafted)
-      .filter((player) => filterPositions.value.indexOf(player.position) !== -1)
-      .filter((player) =>
-        player.player.toLowerCase().includes(filterSearch.value.toString().toLowerCase()),
-      )
-      .filter((player) => filterSchools.value.indexOf(player.team_name) !== -1)
+    filteredPlayers = filteredPlayers.filter((player) =>
+      player.player.toLowerCase().includes(filterSearch.value.toString().toLowerCase()),
+    )
   }
 
-  return players.value
-    .filter((player) => !player.is_drafted)
-    .filter((player) => filterPositions.value.indexOf(player.position) !== -1)
-    .filter((player) => filterSchools.value.indexOf(player.team_name) !== -1)
+  if (filterPositions.value.length > 0) {
+    filteredPlayers = filteredPlayers.filter((player) => filterPositions.value.indexOf(player.position) !== -1)
+  }
+
+  if (filterSchools.value.length > 0) {
+    filteredPlayers = filteredPlayers.filter((player) => filterSchools.value.indexOf(player.team_name) !== -1)
+  }
+
+  return filteredPlayers
 })
 
 const paginatedPlayers = computed(() => {
@@ -184,6 +145,12 @@ const filterSchool = (school) => {
   const schoolIndex = filterSchools.value.indexOf(school)
 
   if (schoolIndex === -1) {
+    filterSchools.value.push(school)
+  } else {
+    filterSchools.value.splice(schoolIndex, 1)
+  }
+}
+
 const selectFocusPlayer = (player) => {
   focusPlayer.value = player
 }
