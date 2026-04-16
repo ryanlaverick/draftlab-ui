@@ -286,6 +286,116 @@ const schools = [
     shortName: "W VIRGINIA",
     image: '/assets/school/conferences/big12/west-virginia-logo.png'
   },
+
+  // Big Ten
+  {
+    name: 'Indiana',
+    nickname: 'Hoosiers',
+    shortName: 'INDIANA',
+    image: '/assets/school/conferences/big-ten/indiana-logo.png'
+  },
+  {
+    name: 'Ohio State',
+    nickname: 'Buckeyes',
+    shortName: "OHIO STATE",
+    image: '/assets/school/conferences/big-ten/ohio-state-logo.png'
+  },
+  {
+    name: 'Oregon',
+    nickname: 'Ducks',
+    shortName: "OREGON",
+    image: '/assets/school/conferences/big-ten/oregon-logo.png'
+  },
+  {
+    name: 'USC',
+    nickname: 'Trojans',
+    shortName: "",
+    image: '/assets/school/conferences/big-ten/.png'
+  },
+  {
+    name: 'Michigan',
+    nickname: 'Wolverines',
+    shortName: "",
+    image: '/assets/school/conferences/big-ten/michigan-logo.png'
+  },
+  {
+    name: 'Iowa',
+    nickname: 'Hawkeyes',
+    shortName: "IOWA",
+    image: '/assets/school/conferences/big-ten/iowa-logo.png'
+  },
+  {
+    name: 'Washington',
+    nickname: 'Huskies',
+    shortName: "WASHINGTON",
+    image: '/assets/school/conferences/big-ten/washington-logo.png'
+  },
+  {
+    name: 'Illinois',
+    nickname: 'Fighting Illini',
+    shortName: "ILLINOIS",
+    image: '/assets/school/conferences/big-ten/illinois-logo.png'
+  },
+  {
+    name: 'Minnesota',
+    nickname: 'Golden Gophers',
+    shortName: "MINNESOTA",
+    image: '/assets/school/conferences/big-ten/minnesota-logo.png'
+  },
+  {
+    name: 'Nebraska',
+    nickname: 'Cornhuskers',
+    shortName: "NEBRASKA",
+    image: '/assets/school/conferences/big-ten/nebraska-logo.png'
+  },
+  {
+    name: 'Northwestern',
+    nickname: 'Wildcats',
+    shortName: "NWESTERN",
+    image: '/assets/school/conferences/big-ten/northwestern-logo.png'
+  },
+  {
+    name: 'UCLA',
+    nickname: 'Bruins',
+    shortName: "UCLA",
+    image: '/assets/school/conferences/big-ten/ucla-logo.png'
+  },
+  {
+    name: 'Penn State',
+    nickname: 'Nittany Lions',
+    shortName: "PENN STATE",
+    image: '/assets/school/conferences/big-ten/penn-state-logo.png'
+  },
+  {
+    name: 'Rutgers',
+    nickname: 'Scarlet Knights',
+    shortName: "RUTGERS",
+    image: '/assets/school/conferences/big-ten/rutgers-logo.png'
+  },
+  {
+    name: 'Wisconsin',
+    nickname: 'Badgers',
+    shortName: "WISCONSIN",
+    image: '/assets/school/conferences/big-ten/wisconsin-logo.png'
+  },
+  {
+    name: 'Michigan State',
+    nickname: 'Spartans',
+    shortName: "MICH STATE",
+    image: '/assets/school/conferences/big-ten/michigan-state-logo.png'
+  },
+  {
+    name: 'Maryland',
+    nickname: 'Terrapins',
+    shortName: "MARYLAND",
+    image: '/assets/school/conferences/big-ten/maryland-logo.png'
+  },
+  {
+    name: 'Purdue',
+    nickname: 'Boilermakers',
+    shortName: "PURDUE",
+    image: '/assets/school/conferences/big-ten/purdue-logo.png'
+  },
 ]
 
 export default schools
