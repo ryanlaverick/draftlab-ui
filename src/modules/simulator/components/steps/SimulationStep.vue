@@ -449,10 +449,13 @@ watch(
             <div class="bg-dark rounded-md p-4 sticky top-0 z-10 flex flex-col gap-2">
               <option-wrapper label="Filters">
                 <div class="grid grid-cols-2 gap-4">
-                  <base-input v-model="filterSearch" label="Player Name" placeholder="Search..." />
+                  <div class="h-full flex flex-col-reverse">
+                    <base-input v-model="filterSearch" label="Player Name" placeholder="Search..." />
+                  </div>
+
 
                   <div class="h-full flex flex-col-reverse">
-                    <div class="flex flex-col items-center gap-4">
+                    <div class="flex flex-col gap-4">
                       <position-selector
                         :selected-positions="filterPositions"
                         @toggle-position="filterPosition"
