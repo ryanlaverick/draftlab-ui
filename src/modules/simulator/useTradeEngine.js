@@ -290,7 +290,7 @@ export default function useTradeEngine() {
     const usingWeight = getWeightFromPicks(tradingUsing)
 
     const ratio = usingWeight / forWeight
-    const exponent = ratio < 1 ? 3 : 1
+    const exponent = ratio < 1 ? 4 : 1
 
     return Math.pow(ratio, exponent) * 100
   }
