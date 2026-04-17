@@ -30,7 +30,7 @@ const emits = defineEmits(['clickSchool'])
     <img
       :src="school.image"
       :alt="school.name"
-      class="relative z-10 size-10 object-contain"
+      class="relative size-10 object-contain"
     />
   </div>
 </template>
