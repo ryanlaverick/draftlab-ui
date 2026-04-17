@@ -27,8 +27,6 @@ const orderedPicks = computed(() => {
   const picksArray = props.picks
 
   return picksArray.sort((a, b) => {
-    console.log(a, b)
-
     const pickA = a.pick
     const pickB = b.pick
 
