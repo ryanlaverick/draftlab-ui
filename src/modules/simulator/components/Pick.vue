@@ -27,6 +27,10 @@ const props = defineProps({
 
 
 const timerLength = computed(() => {
+  if (props.simSpeed ===  60) {
+    return 0
+  }
+
   return 30 / props.simSpeed
 })
 
@@ -68,6 +72,11 @@ const getIcon = computed(() => {
 const startTimer = () => {
   timerStarted.value = true
 
+  let initialTimer = 1000
+  if (props.simSpeed === 60) {
+    initialTimer = 0
+  }
+
   setTimeout(() => {
     if (timerStarted.value) {
       if (timer.value === 0) {
@@ -85,7 +94,7 @@ const startTimer = () => {
 
       startTimer()
     }
-  }, 1000)
+  }, initialTimer)
 }
 
 const resetTimer = () => {

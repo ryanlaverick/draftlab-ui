@@ -4,6 +4,7 @@ import useSchools from '@/composables/useSchools.js'
 import BaseButton from '@/components/BaseButton.vue'
 import { computed } from 'vue'
 import { Icon } from '@iconify/vue'
+import School from '@/modules/simulator/components/School.vue'
 
 const schools = useSchools
 
@@ -35,11 +36,13 @@ const draftPlayer = () => {
 
 <template>
   <div
-    class="w-full border-y border-y-slate-200 bg-slate-100 hover:bg-slate-200 duration-300 p-4 flex items-center justify-between gap-8 snap-start cursor-pointer"
+    class="w-full border-y border-y-slate-200 bg-slate-100 hover:bg-slate-200 duration-300 flex items-center justify-between gap-8 snap-start cursor-pointer"
   >
     <div class="flex items-center gap-4">
-      <school-logo v-if="getSchool" :school="getSchool" class="size-10" />
-      <Icon v-else icon="mdi:image-remove-outline" class="size-10" />
+      <school v-if="getSchool" :selected="true" :school="getSchool" class="w-16" />
+      <div v-else class="py-4 px-2">
+        <Icon icon="mdi:image-remove-outline" class="size-10" />
+      </div>
 
       <div class="flex flex-col text-md text-dark/70">
         <span class="font-bold">{{ player.player }}</span>

@@ -1,16 +1,17 @@
 <script setup>
-import BaseReturn from '@/components/BaseReturn.vue'
+import { Icon } from '@iconify/vue'
 import { computed, onMounted, ref, watch } from 'vue'
-import BaseAccordion from '@/components/BaseAccordion.vue'
-import Pick from '@/modules/simulator/components/Pick.vue'
 import useTeams from '@/modules/teams/useTeams.js'
 import usePlayers from '@/modules/simulator/usePlayers.js'
+import useTradeEngine from '@/modules/simulator/useTradeEngine.js'
+import BaseReturn from '@/components/BaseReturn.vue'
+import BaseAccordion from '@/components/BaseAccordion.vue'
+import Pick from '@/modules/simulator/components/Pick.vue'
 import PositionSelector from '@/modules/simulator/components/PositionSelector.vue'
 import Player from '@/modules/simulator/components/Player.vue'
 import BaseInput from '@/components/BaseInput.vue'
 import FocusPlayerPanel from '@/modules/simulator/components/FocusPlayerPanel.vue'
 import BaseButton from '@/components/BaseButton.vue'
-import { Icon } from '@iconify/vue'
 import OptionWrapper from '@/modules/simulator/components/OptionWrapper.vue'
 import TeamSelector from '@/modules/simulator/components/TeamSelector.vue'
 import DraftClass from '@/modules/simulator/components/DraftClass.vue'
@@ -26,6 +27,9 @@ const props = defineProps({
 })
 
 const teams = useTeams
+const {
+  proposeTrade: attemptTrade
+} = useTradeEngine()
 const { getPlayers: players, loadPlayers } = usePlayers()
 
 const isStarted = ref(false)
@@ -44,6 +48,7 @@ const tradingWith = ref()
 const tradingWithPicks = ref([])
 const tradingFor = ref()
 const tradingForPicks = ref([])
+const tradeError = ref(false)
 
 const returnToSettings = () => {
   emits('returnToSettings')
@@ -294,6 +299,33 @@ const updateTradingFor = (team) => {
   tradingFor.value = team
 }
 
+const proposeTrade = () => {
+  let result = attemptTrade(tradingWithPicks.value, tradingForPicks.value)
+
+  if (! result) {
+    tradeError.value = true
+    return
+  }
+
+  tradingForPicks.value.forEach((pick) => {
+    let index = tradingFor.value.picks[2026].indexOf(pick)
+    tradingFor.value.picks[2026].splice(index, 1)
+
+    pick.from = tradingFor.value.shortName
+
+    tradingWith.value.picks[2026].push(pick)
+  })
+
+  tradingWithPicks.value.forEach((pick) => {
+    let index = tradingWith.value.picks[2026].indexOf(pick)
+    tradingWith.value.picks[2026].splice(index, 1)
+
+    pick.from = tradingWith.value.shortName
+
+    tradingFor.value.picks[2026].push(pick)
+  })
+}
+
 watch(
   () => currentPick.value,
   () => {
@@ -389,7 +421,7 @@ watch(
                 <Icon icon="material-symbols:fast-rewind-rounded" class="size-4 rotate-180" />
               </base-button>
 
-              <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 30, '!bg-light': simSpeed === 30 }" @click="updateSimSpeed(30)">
+              <base-button class="bg-blue-500 w-32" :class="{ '!bg-gray-400': simSpeed !== 30, '!bg-light': simSpeed === 60 }" @click="updateSimSpeed(60)">
                 <Icon icon="material-symbols:fast-rewind-rounded" class="size-4 rotate-180" />
               </base-button>
             </div>
@@ -541,6 +573,7 @@ watch(
                   </div>
 
                   <div class="flex flex-col gap-8">
+                    <span v-if="tradeError" class="text-red-600">Unsuccessful trade! Please revise your offer and try again...</span>
                     <trade-meter :trading-for="tradingForPicks" :trading-with="tradingWithPicks" />
 
                     <base-button class="bg-green-600 h-12 w-full" @click="proposeTrade">Trade</base-button>
