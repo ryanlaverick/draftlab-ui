@@ -5,8 +5,8 @@ import { Team } from '@/modules/new-simulator/useTeams.js'
 import { computed, ref, watch } from 'vue'
 import TeamLogo from '@/modules/teams/components/TeamLogo.vue'
 
-const { isTeamSelectedForSimulation, selectTeamForSimulation, getSelectedTeams } = useSimulator()
-const { getBorderColor, getBackgroundColor } = useTeams()
+const { isTeamSelectedForSimulation, selectTeamForSimulation, getYearToSimulate, getSelectedTeams } = useSimulator()
+const { getBorderColor, getBackgroundColor, getFirstPickForYear } = useTeams()
 
 const props = defineProps<{
   team: Team
@@ -56,7 +56,7 @@ watch(
         </p>
 
         <span class="font-bold text-xs opacity-50" :class="{ 'text-white': isSelected }">
-          Pick ?
+          Pick {{ getFirstPickForYear(team, getYearToSimulate).pick }}
         </span>
       </div>
 

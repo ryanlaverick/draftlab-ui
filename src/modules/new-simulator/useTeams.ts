@@ -2020,9 +2020,15 @@ export default function useTeams() {
   const getBackgroundColor = (team: string) => backgroundColors[team]
   const getBorderColor = (team: string) => borderColors[team]
 
+  const getFirstPickForYear = (team: Team, year: number) => {
+    return team.draftClasses.find((draftClass) => draftClass.year === year)?.picks[0]
+  }
+
   return {
     getBackgroundColor,
     getBorderColor,
+
+    getFirstPickForYear,
 
     teams,
   }

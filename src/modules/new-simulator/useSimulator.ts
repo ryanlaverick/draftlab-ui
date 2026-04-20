@@ -2,6 +2,7 @@ import { computed, reactive } from 'vue'
 import Positions from '@/modules/new-simulator/usePositions'
 
 interface DraftConfig {
+  yearToSimulate: number,
   roundsToSimulate: number,
   prioritiseReplacingExpiringContracts: boolean,
   prioritiseReplacingAgingPlayers: boolean,
@@ -16,6 +17,7 @@ interface Simulation {
 
 const state = reactive({
   config: {
+    yearToSimulate: 2026,
     roundsToSimulate: 1,
     prioritiseReplacingExpiringContracts: false as boolean,
     prioritiseReplacingAgingPlayers: false as boolean,
@@ -37,11 +39,12 @@ const state = reactive({
 export default function useSimulator() {
   const getConfig = computed(() => state.config)
   const getSelectedTeams = computed(() => state.config.selectedTeams)
+  const getYearToSimulate = computed(() => state.config.yearToSimulate)
 
   const resetSimulation = () => {
     state.simulation.currentPick = 1
 
-
+    state.config.yearToSimulate = 2026
     state.config.roundsToSimulate = 1
     state.config.prioritiseReplacingExpiringContracts = false
     state.config.prioritiseReplacingAgingPlayers = false
@@ -76,6 +79,7 @@ export default function useSimulator() {
 
   return {
     getConfig,
+    getYearToSimulate,
 
     selectSimulationRounds,
     prioritiseReplacingExpiringContracts,
