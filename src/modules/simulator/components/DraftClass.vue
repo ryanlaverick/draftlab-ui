@@ -14,7 +14,11 @@ const props = defineProps({
   selectedPicks: {
     type: Array,
     required: true
-  }
+  },
+  currentPick: {
+    type: Number,
+    required: true,
+  },
 })
 
 const emits = defineEmits(['selectPick'])
@@ -52,6 +56,7 @@ const orderedPicks = computed(() => {
         :pick="pick"
         :key="pick.pick"
         :selected-picks="selectedPicks"
+        :current-pick="currentPick"
         @click="selectPick(pick)"
       />
     </div>

@@ -554,6 +554,7 @@ watch(
                         :picks="picks"
                         :year="year"
                         :selected-picks="tradingWithPicks"
+                        :current-pick="currentPick"
                         @select-pick="updateTradingWithPicks"
                       />
                     </option-wrapper>
@@ -567,6 +568,7 @@ watch(
                         :picks="picks"
                         :year="year"
                         :selected-picks="tradingForPicks"
+                        :current-pick="currentPick"
                         @select-pick="updateTradingForPicks"
                       />
                     </option-wrapper>
