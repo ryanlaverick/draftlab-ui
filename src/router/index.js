@@ -14,6 +14,11 @@ const router = createRouter({
       component: () => import('@/modules/simulator/views/MockDraftSimulator.vue'),
     },
     {
+      path: '/new-simulator',
+      name: 'New Mock Draft Simulator',
+      component: () => import('@/modules/new-simulator/views/Simulator.vue'),
+    },
+    {
       path: '/prospects',
       name: 'Prospects',
       component: () => import('@/modules/prospects/views/Prospects.vue'),

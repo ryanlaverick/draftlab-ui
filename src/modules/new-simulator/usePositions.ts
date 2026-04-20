@@ -1,0 +1,17 @@
+enum Positions {
+  OFFENSIVE_TACKLE = 'OT',
+  OFFENSIVE_GUARD = 'OG',
+  OFFENSIVE_CENTRE = 'C',
+  QUARTERBACK = 'QB',
+  WIDE_RECEIVER = 'WR',
+  HALF_BACK = 'HB',
+  TIGHT_END = 'TE',
+  INTERIOR_DEFENSIVE_LINEMAN = 'IDL',
+  EDGE = 'EDGE',
+  LINEBACKER = 'LB',
+  SAFETY = 'S',
+  CORNERBACK = 'CB',
+  SPECIAL_TEAMS = 'ST'
+}
+
+export default Positions

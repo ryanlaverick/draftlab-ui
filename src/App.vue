@@ -27,6 +27,7 @@ import DropdownLink from '@/components/DropdownLink.vue'
         </base-dropdown>
 
         <header-item route="Mock Draft Simulator">Simulator</header-item>
+        <header-item route="New Mock Draft Simulator">Simulator 2.0</header-item>
         <header-item route="Prospects">Prospects</header-item>
         <header-item route="Login"> My Account </header-item>
       </div>
