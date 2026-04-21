@@ -1,28 +1,30 @@
 <script setup lang="ts">
-import useTeams from '@/modules/new-simulator/useTeams.js'
+import useTeams, { DraftPick } from '@/modules/new-simulator/useTeams.js'
 import useSimulator from '@/modules/new-simulator/useSimulator'
 import { Team } from '@/modules/new-simulator/useTeams.js'
-import { computed, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import TeamLogo from '@/modules/teams/components/TeamLogo.vue'
 
 const {
   isTeamSelectedForSimulation,
   selectTeamForSimulation,
   getYearToSimulate,
-  getSelectedTeams
+  getSelectedTeams,
 } = useSimulator()
 
-const {
-  getBackgroundColor,
-  getBorderColor,
-  getFirstPickForYear
-} = useTeams()
+const { getBackgroundColor, getBorderColor, getFirstPickForYear } = useTeams()
 
 const props = defineProps<{
   team: Team
 }>()
 
 const isSelected = ref(false)
+const pickToDisplay= ref({
+  round: 0,
+  pick: 0,
+  from: null,
+  compensatory: false
+} as DraftPick)
 
 const computedClasses = computed(() => {
   const teamName = props.team.name
@@ -34,8 +36,12 @@ const computedClasses = computed(() => {
     {
       'before:scale-x-100': isSelected.value,
       '!border-gray-200': !isSelected.value,
-    }
+    },
   ]
+})
+
+onMounted(() => {
+  pickToDisplay.value = getFirstPickForYear(props.team, getYearToSimulate.value)
 })
 
 watch(
@@ -43,7 +49,15 @@ watch(
   () => {
     isSelected.value = isTeamSelectedForSimulation(props.team.name)
   },
-  { immediate: true, deep: true }
+  { immediate: true, deep: true },
+)
+
+watch(
+  () => getYearToSimulate.value,
+  () => {
+    pickToDisplay.value = getFirstPickForYear(props.team, getYearToSimulate.value)
+  },
+  { immediate: true, deep: true },
 )
 </script>
 
@@ -66,7 +80,7 @@ watch(
         </p>
 
         <span class="font-bold text-xs opacity-50" :class="{ 'text-white': isSelected }">
-          Pick {{ getFirstPickForYear(team, getYearToSimulate).pick }}
+          Pick {{ pickToDisplay?.pick }}
         </span>
       </div>
 

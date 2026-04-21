@@ -64,6 +64,8 @@ export default function useSimulator() {
 
   const selectSimulationRounds = (rounds: number) => state.config.roundsToSimulate = rounds
 
+  const selectSimulationYear = (year: number) => state.config.yearToSimulate = year
+
   const prioritiseReplacingExpiringContracts = (value: boolean) => state.config.prioritiseReplacingExpiringContracts = value
   const prioritiseReplacingAgingPlayers = (value: boolean) => state.config.prioritiseReplacingAgingPlayers = value
   const prioritiseReplacingPremiumPositions = (value: boolean) => state.config.prioritiseReplacingPremiumPositions = value
@@ -86,6 +88,8 @@ export default function useSimulator() {
   return {
     getConfig,
     getYearToSimulate,
+
+    selectSimulationYear,
 
     selectSimulationRounds,
     prioritiseReplacingExpiringContracts,

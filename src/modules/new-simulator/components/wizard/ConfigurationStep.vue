@@ -4,6 +4,7 @@ import useTeams from '@/modules/new-simulator/useTeams.ts'
 import NFLTeam from '@/modules/new-simulator/components/NFLTeam.vue'
 import { computed } from 'vue'
 import BaseButton from '@/components/BaseButton.vue'
+import YearSelector from '@/modules/new-simulator/components/configuration/YearSelector.vue'
 
 const {
   getYearToSimulate,
@@ -47,7 +48,9 @@ const noTeamsSelected = computed(() => {
 <template>
   <div class="w-full grid grid-cols-3 gap-4 rounded-md">
     <!-- Configuration -->
-    <div class="col-span-1 bg-dark rounded-md p-4 text-white drop-shadow-lg drop-shadow-light"></div>
+    <div class="col-span-1 bg-dark rounded-md p-4 text-white drop-shadow-lg drop-shadow-light">
+      <year-selector />
+    </div>
 
     <!-- Team Selection -->
     <div class="col-span-2 flex flex-col gap-4">

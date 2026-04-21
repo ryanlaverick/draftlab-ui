@@ -1,4 +1,4 @@
-interface DraftPick {
+export interface DraftPick {
   round: number,
   pick: number,
   from: string | null,
@@ -1893,7 +1893,18 @@ const teams = [
             compensatory: false,
           },
         ]
-      }
+      },
+      {
+        year: 2025,
+        picks: [
+          {
+            pick: 1,
+            round: 1,
+            from: null,
+            compensatory: false
+          }
+        ]
+      },
     ],
   },
   {
