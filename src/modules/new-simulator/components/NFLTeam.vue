@@ -5,8 +5,18 @@ import { Team } from '@/modules/new-simulator/useTeams.js'
 import { computed, ref, watch } from 'vue'
 import TeamLogo from '@/modules/teams/components/TeamLogo.vue'
 
-const { isTeamSelectedForSimulation, selectTeamForSimulation, getYearToSimulate, getSelectedTeams } = useSimulator()
-const { getBorderColor, getBackgroundColor, getFirstPickForYear } = useTeams()
+const {
+  isTeamSelectedForSimulation,
+  selectTeamForSimulation,
+  getYearToSimulate,
+  getSelectedTeams
+} = useSimulator()
+
+const {
+  getBackgroundColor,
+  getShadowColor,
+  getFirstPickForYear
+} = useTeams()
 
 const props = defineProps<{
   team: Team
