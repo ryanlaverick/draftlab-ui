@@ -60,7 +60,7 @@ watch(
         </span>
       </div>
 
-      <team-logo :team="team" :disabled="isSelected" class="size-10" />
+      <team-logo :team="team" :disabled="!isSelected" class="size-10" />
     </div>
   </div>
 </template>
