@@ -10,8 +10,8 @@ const { teams, getFirstPickForYear } = useTeams()
 const orderedTeams = computed(() => {
   let teamsToOrder = teams
   return teamsToOrder.sort((teamA, teamB) => {
-    let pickA = getFirstPickForYear(teamA, getYearToSimulate.value).pick
-    let pickB = getFirstPickForYear(teamB, getYearToSimulate.value).pick
+    let pickA = getFirstPickForYear(teamA, getYearToSimulate.value)?.pick ?? 0
+    let pickB = getFirstPickForYear(teamB, getYearToSimulate.value)?.pick ?? 0
 
     if (pickA < pickB) {
       return -1
