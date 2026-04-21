@@ -1,5 +1,8 @@
 import { computed, reactive } from 'vue'
 import Positions from '@/modules/new-simulator/usePositions'
+import useTeams from '@/modules/new-simulator/useTeams'
+
+const { teams } = useTeams()
 
 interface DraftConfig {
   yearToSimulate: number,
@@ -77,6 +80,9 @@ export default function useSimulator() {
     }
   }
 
+  const selectAllTeamsForSimulation = () => state.config.selectedTeams = teams.map(team => team.name)
+  const unselectAllTeamsForSimulation = () => state.config.selectedTeams = []
+
   return {
     getConfig,
     getYearToSimulate,
@@ -89,6 +95,8 @@ export default function useSimulator() {
     getSelectedTeams,
     isTeamSelectedForSimulation,
     selectTeamForSimulation,
+    selectAllTeamsForSimulation,
+    unselectAllTeamsForSimulation,
 
     resetSimulation,
 

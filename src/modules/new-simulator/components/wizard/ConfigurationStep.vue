@@ -3,9 +3,19 @@ import useSimulator from '@/modules/new-simulator/useSimulator.ts'
 import useTeams from '@/modules/new-simulator/useTeams.ts'
 import NFLTeam from '@/modules/new-simulator/components/NFLTeam.vue'
 import { computed } from 'vue'
+import BaseButton from '@/components/BaseButton.vue'
 
-const { getYearToSimulate } = useSimulator()
-const { teams, getFirstPickForYear } = useTeams()
+const {
+  getYearToSimulate,
+  selectAllTeamsForSimulation,
+  unselectAllTeamsForSimulation,
+  getSelectedTeams,
+} = useSimulator()
+
+const {
+  teams,
+  getFirstPickForYear
+} = useTeams()
 
 const orderedTeams = computed(() => {
   let teamsToOrder = teams
@@ -24,6 +34,14 @@ const orderedTeams = computed(() => {
     return 0
   })
 })
+
+const allTeamsSelected = computed(() => {
+  return getSelectedTeams.value.length === teams.length
+})
+
+const noTeamsSelected = computed(() => {
+  return getSelectedTeams.value.length === 0
+})
 </script>
 
 <template>
@@ -33,6 +51,11 @@ const orderedTeams = computed(() => {
 
     <!-- Team Selection -->
     <div class="col-span-2 flex flex-col gap-4">
+      <div class="flex flex-row-reverse gap-4">
+        <base-button @click="selectAllTeamsForSimulation" :disabled="allTeamsSelected">Select All</base-button>
+        <base-button @click="unselectAllTeamsForSimulation" :disabled="noTeamsSelected">Unselect All</base-button>
+      </div>
+
       <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
         <NFLTeam v-for="team in orderedTeams" :team="team" :key="team.shortName" />
       </div>
