@@ -14,7 +14,7 @@ const {
 
 const {
   getBackgroundColor,
-  getShadowColor,
+  getBorderColor,
   getFirstPickForYear
 } = useTeams()
 
